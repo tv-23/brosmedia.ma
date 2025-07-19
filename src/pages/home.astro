@@ -1,0 +1,110 @@
+---
+import "../styles/home.css";
+---
+
+<div
+    class="bg-white flex flex-col md:flex-row items-center justify-between p-6 md:p-8 lg:p-12 max-w-7xl mx-auto"
+>
+    <!-- Left Column: Agency Info -->
+    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+        <!-- Title -->
+        <h1 class="text-center font-bold company-name">Brosmedia</h1>
+        <h2
+            class="text-center md:text-4xl mb-2"
+            id="our_capabilities"
+        >
+            <span style="display: initial;"
+                >Développe votre marque</span
+            >
+            <span>Gère web et SEO</span>
+            <span>Votre partenaire digital</span>
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-700 mb-6">
+            PEU IMPORTE LE DOMAINE DANS LEQUEL VOUS ÉVOLUEZ, NOTRE AGENCE DE
+            COMMUNICATION DIGITALE MET À VOTRE DISPOSITION DES SERVICES ADAPTÉS
+            POUR VOUS ACCOMPAGNER.
+        </p>
+        <p class="text-gray-700 mb-6">
+            Nous sommes une équipe spécialisée, dévouée à fournir les meilleurs
+            services à nos clients.
+        </p>
+        <!-- Call to Action Button -->
+        <a
+            href="#"
+            class="bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition brosmedia-btn"
+            >RÉSERVER UN APPEL DE DÉCOUVERTE</a
+        >
+    </div>
+
+    <!-- Right Column: Video with Thumbnail -->
+    <div class="w-full md:w-1/2 flex justify-end">
+        <div
+            class="relative w-full max-w-md rounded-lg overflow-hidden shadow-lg"
+        >
+            <!-- Thumbnail Container -->
+            <div
+                class="aspect-video relative cursor-pointer"
+                id="video-thumbnail"
+            >
+                <img
+                    src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                    alt="Video Thumbnail"
+                    class="w-full h-full object-cover"
+                />
+                <!-- Play Button Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div
+                        class="bg-white bg-opacity-75 rounded-full w-16 h-16 flex items-center justify-center"
+                    >
+                        <svg
+                            class="w-8 h-8 text-black"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const thumbnail = document.getElementById("video-thumbnail");
+        if (thumbnail) {
+            thumbnail.addEventListener("click", () => {
+                const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
+                const iframe = document.createElement("iframe");
+                if (iframe) {
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    iframe.allow =
+                        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.className = "w-full h-full absolute top-0 left-0";
+                }
+                thumbnail.innerHTML = "";
+                thumbnail.appendChild(iframe);
+            });
+        }
+
+        // Our Capabilities
+        var text = document.getElementById("our_capabilities");
+        var word = text?.getElementsByTagName("span");
+
+        var i = 0;
+
+        function rotator() {
+            if (word) {
+                word[i].style.display = "none";
+                i = (i + 1) % word?.length;
+                word[i].style.display = "initial";
+            }
+        }
+        setInterval(() => {
+            rotator();
+        }, 2000);
+    });
+</script>
