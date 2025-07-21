@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import "../styles/tailwind.css";
 import "../styles/global.css";
+import "aos/dist/aos.css";
 
 const { pageTitle } = Astro.props;
 ---
@@ -18,9 +19,12 @@ const { pageTitle } = Astro.props;
     <body>
         <div class="bg-white">
             <Header />
-        
-            
         </div>
-        <slot/>
+        <slot />
     </body>
+
+    <script>
+        import AOS from "aos";
+        AOS.init({ duration: 1000 });
+    </script>
 </html>
