@@ -48,3 +48,9 @@ h1.company-name:before {
     background-color: #0a0f4f;
     color: navajowhite;
 }
+
+h2#our_capabilities>span {
+    color: #e30f29;
+    text-decoration: underline;
+    font-weight: 500;
+}
