@@ -17,10 +17,10 @@ const { pageTitle } = Astro.props;
         <title>BROSMEDIA | Agence De Communication Digitale Au Maroc .</title>
     </head>
     <body>
-        <div class="bg-white">
-            <Header />
+        <Header />
+        <div class="container">
+            <slot />
         </div>
-        <slot />
     </body>
 
     <script>
