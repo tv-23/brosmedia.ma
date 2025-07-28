@@ -1,5 +1,4 @@
-@import '@fortawesome/fontawesome-free/css/all.min.css';
-.brosmedia-menu {
+/* .brosmedia-menu {
     background-color: #0a0f4f;
 }
 
@@ -118,3 +117,25 @@ header>div:first-child {
         transform: translateY(-100%);
     }
 }
+
+
+.slider {
+    width: 100%;
+    border: 1px solid red;
+    height: var(--height);
+}
+
+.slider .list {
+    display: flex;
+}
+
+.slider .list .item {
+    width: var(--width);
+    height: var(--height);
+}
+
+.slider .list .item img {
+    width: 100%;
+}
+
+*/

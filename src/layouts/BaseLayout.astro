@@ -1,7 +1,22 @@
 ---
 import Header from "../components/Header.astro";
-import "../styles/tailwind.css";
-import "../styles/global.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import "../styles/global.css";
+// import "../vendor/bootstrap/css/bootstrap.min.css";
+// import "../vendor/bootstrap-icons/bootstrap-icons.css";
+// import "../vendor/aos/aos.css";
+// import "../vendor/swiper/swiper-bundle.min.css";
+// import "../vendor/glightbox/css/glightbox.min.css";
+// import "../styles/main.css";
+// import "aos/dist/aos.css";
+// import "../vendor/bootstrap/js/bootstrap.bundle.min.js";
+// import "../vendor/php-email-form/validate.js";
+// import "../vendor/aos/aos.js";
+// import "../vendor/swiper/swiper-bundle.min.js";
+// import "../vendor/glightbox/js/glightbox.min.js";
+// import "../vendor/imagesloaded/imagesloaded.pkgd.min.js";
+// import "../vendor/isotope-layout/isotope.pkgd.min.js";
+// import "../scripts/main.js";
 
 const { pageTitle } = Astro.props;
 ---
@@ -13,14 +28,40 @@ const { pageTitle } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
 
-        <title>{pageTitle}</title>
+        <title>BROSMEDIA | Agence De Communication Digitale Au Maroc .</title>
+
+        <link
+            href="../vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="../vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link href="../vendor/aos/aos.css" rel="stylesheet" />
+        <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+        <link
+            href="../vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link href="../styles/main.css" rel="stylesheet" />
     </head>
-    <body>
-        <div class="bg-white">
-            <Header />
-        
-            
-        </div>
-        <slot/>
+    <body class="index-page">
+        <Header />
+        <slot />
     </body>
+
+    <script>
+        // import AOS from "aos";
+        // AOS.init({ duration: 1000 });
+    </script>
+
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/php-email-form/validate.js"></script>
+    <script src="../vendor/aos/aos.js"></script>
+    <script src="../vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../scripts/main.js"></script>
 </html>

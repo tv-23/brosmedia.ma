@@ -1,0 +1,98 @@
+---
+import "../styles/home.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+---
+
+<div class="bg-white d-flex flex-column flex-md-row align-items-center justify-content-between p-3 p-md-4 p-lg-5 mx-auto">
+    <!-- Left Column: Agency Info -->
+    <div class="w-100 w-md-50 mb-6 mb-md-0">
+        <!-- Title -->
+        <h1 class="text-center font-weight-bold company-name">Brosmedia</h1>
+        <h2 class="text-center display-4 mb-2" id="our_capabilities">
+            <span style="display: initial;" id="hi_he">Développe votre marque</span>
+        </h2>
+
+        <!-- Description -->
+        <p class="text-muted mb-6">
+            PEU IMPORTE LE DOMAINE DANS LEQUEL VOUS ÉVOLUEZ, NOTRE AGENCE DE
+            COMMUNICATION DIGITALE MET À VOTRE DISPOSITION DES SERVICES ADAPTÉS
+            POUR VOUS ACCOMPAGNER.
+        </p>
+        <p class="text-muted mb-6">
+            Nous sommes une équipe spécialisée, dévouée à fournir les meilleurs
+            services à nos clients.
+        </p>
+        <!-- Call to Action Button -->
+        <a href="#" class="btn btn-primary px-4 py-2">RÉSERVER UN APPEL DE DÉCOUVERTE</a>
+    </div>
+
+    <!-- Right Column: Video with Thumbnail -->
+    <div class="w-100 w-md-50 d-flex justify-content-end">
+        <div class="position-relative w-100" style="max-width: 400px;">
+            <!-- Thumbnail Container -->
+            <div class="position-relative cursor-pointer" id="video-thumbnail">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video Thumbnail" class="w-100 h-100" style="object-fit: cover;" />
+                <!-- Play Button Overlay -->
+                <div class="position-absolute inset-0 d-flex align-items-center justify-content-center">
+                    <div class="bg-white bg-opacity-75 rounded-circle" style="width: 64px; height: 64px;">
+                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const thumbnail = document.getElementById("video-thumbnail");
+        if (thumbnail) {
+            thumbnail.addEventListener("click", () => {
+                const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
+                const iframe = document.createElement("iframe");
+                if (iframe) {
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    iframe.allow =
+                        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.className = "w-full h-full absolute top-0 left-0";
+                }
+                thumbnail.innerHTML = "";
+                thumbnail.appendChild(iframe);
+            });
+        }
+
+        // Our Capabilities
+        let ourCapabilities = new Typed("#hi_he", {
+            strings: [
+                "Développe votre marque",
+                "Gère web et SEO",
+                "Votre partenaire digital",
+            ],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 1000,
+        });
+        // var text = document.getElementById("our_capabilities");
+        // var word = text?.getElementsByTagName("span");
+
+        // var i = 0;
+
+        // function rotator() {
+        //     if (word) {
+        //         word[i].style.display = "none";
+        //         i = (i + 1) % word?.length;
+        //         word[i].style.display = "initial";
+        //     }
+        // }
+        // setInterval(() => {
+        //     rotator();
+        // }, 2000);
+    });
+</script>

@@ -1,106 +1,149 @@
-<div class="text-white text-sm brosmedia-menu py-2">
-  <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center"
-  >
-    <div class="mb-2 sm:mb-0 flex">
-      <p class="flex items-center gap-1 mr-2">
-        <i class="fa-regular fa-envelope"></i>
-        <a href="mailto:contact@brosmedia.ma" class="hover:text-gray-300">
-          contact@brosmedia.ma</a
-        >
-      </p>
+<div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <p class="flex items-center gap-1 mr-2">
-        <i class="fa-regular fa-clock"></i>
-        Lundi-Samedi: 10h30 - 18h00
-      </p>
+  <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+    <!-- Uncomment the line below if you also wish to use an image logo -->
+    <!-- <img src="assets/img/logo.webp" alt=""> -->
+    <h1 class="sitename">Strategy</h1>
+  </a>
+
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#team">Team</a></li>
+      <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <ul>
+          <li><a href="#">Dropdown 1</a></li>
+          <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Deep Dropdown 1</a></li>
+              <li><a href="#">Deep Dropdown 2</a></li>
+              <li><a href="#">Deep Dropdown 3</a></li>
+              <li><a href="#">Deep Dropdown 4</a></li>
+              <li><a href="#">Deep Dropdown 5</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dropdown 2</a></li>
+          <li><a href="#">Dropdown 3</a></li>
+          <li><a href="#">Dropdown 4</a></li>
+        </ul>
+      </li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+  </nav>
+
+  <a class="btn-getstarted" href="#about">Get Started</a>
+
+</div>
+
+<!-- <div class="text-white text-sm brosmedia-menu py-2">
+  <div
+    class="container mx-auto px-4 sm:px-6 lg:px-8 d-flex flex-column flex-sm-row justify-content-between align-items-center"
+  >
+    <div class="mb-2 mb-sm-0 d-flex">
+      <div class="row">
+        <div class="col-md-6">
+          <span class="text-white">
+            <i class="fa-regular fa-envelope"></i>
+            <a
+              href="mailto:contact@brosmedia.ma"
+              class="text-white text-decoration-none hover:text-gray-300"
+            >
+              contact@brosmedia.ma</a
+            >
+          </span>
+        </div>
+        <div class="col-md-6">
+          <span class="text-white">
+            <i class="fa-regular fa-clock"></i>
+            Lundi-Samedi: 10h30 - 18h00
+          </span>
+        </div>
+      </div>
     </div>
 
-    <div class="flex items-center space-x-4">
+    <div class="d-flex align-items-center">
       <span class="text-white">Suivez-nous sur</span>
-      <div class="flex space-x-3">
-        <!-- Placeholder space for social media icons -->
+      <div class="d-flex ms-3">
         <span class="w-5 h-5 bg-transparent">
           <a
             href="https://www.facebook.com/BROSMEDIA.PRODUCTION"
             target="_blank"
+            aria-label="Page Facebook de Brosmedia"
           >
-            <i class="fa-brands fa-facebook ts-20"></i>
           </a>
         </span>
         <span class="w-5 h-5 bg-transparent">
           <a
             href="https://ma.linkedin.com/company/brosmedia-sarl"
             target="_blank"
+            aria-label="Page Linkedin de Brosmedia"
           >
-            <i class="fa-brands fa-linkedin"></i>
           </a>
         </span>
         <span class="w-5 h-5 bg-transparent">
-          <a href="https://www.instagram.com/brosmedia.digital" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
+          <a
+            href="https://www.instagram.com/brosmedia.digital"
+            target="_blank"
+            aria-label="Page Instagram de Brosmedia"
+          >
           </a>
         </span>
       </div>
-      <p>
-        <a href="tel:+212671884968" class="hover:text-gray-300"
-          ><i class="fa-solid fa-square-phone"></i> +212 6 71 88 49 68</a
+      <span class="text-white">
+        <a
+          href="tel:+212671884968"
+          class="text-white text-decoration-none hover:text-gray-300"
         >
-      </p>
+          <i class="fa-solid fa-square-phone"></i> +212 6 71 88 49 68</a
+        >
+      </span>
     </div>
   </div>
 </div>
 <nav class="brosmedia-menu text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container mx-auto sm:px-6 lg:px-8">
     <div
-      class="text-white h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8"
+      class="text-white h-16 d-flex align-items-center justify-content-between px-4 sm:px-6 lg:px-8"
     >
-      <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/">
           <img
-            src="/public/Logo-brosmedia-png.webp"
+            src="/Logo-brosmedia-png.webp"
             alt="Logo"
             class="h-10 w-auto sm:h-10 md:h-10 lg:h-12 object-contain"
           />
         </a>
       </div>
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center space-x-6">
+      <div class="d-none d-md-flex align-items-center space-x-6">
         <a
           href="#"
-          class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium"
+          class="text-white text-decoration-none hover:text-gray-200 px-3 py-2 text-sm font-medium"
           >Accueil</a
         >
         <a
           href="#"
-          class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium"
+          class="text-white text-decoration-none hover:text-gray-200 px-3 py-2 text-sm font-medium"
           >Blog</a
         >
       </div>
-      <!-- Contact Button -->
-
-      <div class="hidden md:block contact-btn main-menu">
-        <a href="#" class="px-4 py-2">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Contact
-        </a>
+      <div class="d-none d-md-block contact-btn main-menu">
+        <a href="#" class="px-4 py-2 text-white text-decoration-none">Contact</a
+        >
       </div>
 
-      <!-- Mobile Menu Button -->
-      <div class="-mr-2 flex md:hidden">
+      <div class="d-md-none me-2">
         <button
           type="button"
           id="mobile-menu-button"
-          class="bg-blue-800 inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+          class="bg-blue-800 d-flex align-items-center justify-content-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
         >
-          <span class="sr-only">Open main menu</span>
-          <!-- Hamburger Icon -->
+          <span class="visually-hidden">Open main menu</span>
           <svg
             class="h-6 w-6"
             id="menu-icon"
@@ -116,9 +159,8 @@
               stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <!-- Close Icon (hidden by default) -->
           <svg
-            class="h-6 w-6 hidden"
+            class="h-6 w-6 d-none"
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -136,9 +178,8 @@
       </div>
     </div>
   </div>
-  <!-- Mobile Menu -->
-  <div class="hidden md:hidden" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+  <div class="d-md-none" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3">
       <a
         href="#"
         class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -178,4 +219,4 @@
       }
     });
   }
-</script>
+</script> -->

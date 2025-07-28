@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
-    "astro": "^5.12.0"
+    "aos": "^2.3.4",
+    "astro": "^5.12.0",
+    "bootstrap": "^5.3.7",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
