@@ -1,44 +1,82 @@
-<div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+<div class="header-container container-fluid container-xl position-relative">
+  <!-- New row added here -->
+  <div class="row w-100 mb-3">
+    <div class="col-12">
+      <!-- Add your content for the new row here -->
+      <div class="top-bar d-flex justify-content-between align-items-center">
+        <div class="top-bar-left">
+          <!-- Example content: Contact info -->
+          <span><i class="bi bi-envelope"></i> info@example.com</span>
+          <span><i class="bi bi-phone"></i> +1 234 567 890</span>
+        </div>
+        <div class="top-bar-right">
+          <!-- Example content: Social media links -->
+          <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-    <!-- Uncomment the line below if you also wish to use an image logo -->
-    <!-- <img src="assets/img/logo.webp" alt=""> -->
-    <h1 class="sitename">Strategy</h1>
-  </a>
+  <!-- Existing header content -->
+  <div class="row w-100 d-flex align-items-center justify-content-between">
+    <div class="col-auto">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">
+          <img
+            src="/Logo-brosmedia-png.webp"
+            alt="Logo"
+            class="h-10 w-auto sm:h-10 md:h-10 lg:h-12 object-contain"
+          />
+        </h1>
+      </a>
+    </div>
 
-  <nav id="navmenu" class="navmenu">
-    <ul>
-      <li><a href="#hero" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#team">Team</a></li>
-      <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+    <div class="col-auto">
+      <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#">Dropdown 1</a></li>
-          <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="dropdown">
+            <a href="#"
+              ><span>Dropdown</span>
+              <i class="bi bi-chevron-down toggle-dropdown"></i></a
+            >
             <ul>
-              <li><a href="#">Deep Dropdown 1</a></li>
-              <li><a href="#">Deep Dropdown 2</a></li>
-              <li><a href="#">Deep Dropdown 3</a></li>
-              <li><a href="#">Deep Dropdown 4</a></li>
-              <li><a href="#">Deep Dropdown 5</a></li>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown">
+                <a href="#"
+                  ><span>Deep Dropdown</span>
+                  <i class="bi bi-chevron-down toggle-dropdown"></i></a
+                >
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          <li><a href="#">Dropdown 2</a></li>
-          <li><a href="#">Dropdown 3</a></li>
-          <li><a href="#">Dropdown 4</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-      </li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-  </nav>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
 
-  <a class="btn-getstarted" href="#about">Get Started</a>
-
+    <div class="col-auto">
+      <a class="btn-getstarted" href="#about">Get Started</a>
+    </div>
+  </div>
 </div>
-
 <!-- <div class="text-white text-sm brosmedia-menu py-2">
   <div
     class="container mx-auto px-4 sm:px-6 lg:px-8 d-flex flex-column flex-sm-row justify-content-between align-items-center"
