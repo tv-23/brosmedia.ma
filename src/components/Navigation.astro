@@ -1,8 +1,7 @@
 <div class="header-container container-fluid container-xl position-relative">
-  <!-- New row added here -->
+  <!-- Top bar row -->
   <div class="row w-100 mb-3">
     <div class="col-12">
-      <!-- Add your content for the new row here -->
       <div
         class="top-bar d-flex justify-content-between align-items-center py-2 px-3 text-white"
       >
@@ -28,6 +27,7 @@
         <div class="top-bar-right d-flex align-items-center gap-2 nowrap">
           <!-- Social media links, visible on all devices -->
           <span class="d-flex align-items-center">
+           <span class="d-none d-lg-block"> Suivez-nous sur </span>
             <a
               href="https://facebook.com/yourpage"
               class="ms-2 text-white hover:text-gray-300"
@@ -66,7 +66,7 @@
     </div>
   </div>
 
-  <!-- Existing header content -->
+  <!-- Logo, nav, and button row -->
   <div class="row w-100 d-flex align-items-center justify-content-between">
     <div class="col-auto">
       <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -79,51 +79,20 @@
         </h1>
       </a>
     </div>
-
     <div class="col-auto">
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown">
-            <a href="#"
-              ><span>Dropdown</span>
-              <i class="bi bi-chevron-down toggle-dropdown"></i></a
-            >
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown">
-                <a href="#"
-                  ><span>Deep Dropdown</span>
-                  <i class="bi bi-chevron-down toggle-dropdown"></i></a
-                >
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#hero" class="active">Accueil</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
     </div>
-
-    <div class="col-auto">
-      <a class="btn-getstarted" href="#about">Get Started</a>
+    <div class="col-auto d-none d-lg-block">
+      <a class="btn-getstarted" href="#about">Contact</a>
     </div>
   </div>
 </div>
+
 <!-- <div class="text-white text-sm brosmedia-menu py-2">
   <div
     class="container mx-auto px-4 sm:px-6 lg:px-8 d-flex flex-column flex-sm-row justify-content-between align-items-center"

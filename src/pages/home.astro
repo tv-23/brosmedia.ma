@@ -11,11 +11,11 @@ import "../styles/home.css";
                 <div class="col-lg-7 content-col" data-aos="fade-up">
                     <div class="content">
                         <div class="agency-name">
-                            <h5>OUR AGENCY</h5>
+                            <h5>NOTRE AGENCE</h5>
                         </div>
 
                         <div class="main-heading">
-                            <h1>CREATIVE <br>DESIGN</h1>
+                            <h1> Agence de Communication <br>digitale</h1>
                         </div>
 
                         <div class="divider"></div>
@@ -37,9 +37,19 @@ import "../styles/home.css";
                 <div class="col-lg-5" data-aos="zoom-out">
                     <div class="visual-content">
                         <div class="fluid-shape">
-                            <img src="/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img">
+                            <!-- <img src="/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img"> -->
+                            <div class="position-relative cursor-pointer" id="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video Thumbnail" class="w-100 h-100" style="object-fit: cover;" />
+                                <!-- Play Button Overlay -->
+                                <div class="position-absolute inset-0 d-flex align-items-center justify-content-center">
+                                    <div class="bg-white bg-opacity-75 rounded-circle" style="width: 64px; height: 64px;">
+                                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                         <div class="stats-card">
                             <div class="stats-number">
                                 <h2>5K</h2>
@@ -1454,3 +1464,25 @@ import "../styles/home.css";
 
     <!-- Preloader -->
     <!-- <div id="preloader"></div> -->
+
+
+    <script>
+            document.addEventListener("DOMContentLoaded", () => {
+        const thumbnail = document.getElementById("video-thumbnail");
+        if (thumbnail) {
+            thumbnail.addEventListener("click", () => {
+                const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
+                const iframe = document.createElement("iframe");
+                if (iframe) {
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    iframe.allow =
+                        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.className = "w-full h-full absolute top-0 left-0";
+                }
+                thumbnail.innerHTML = "";
+                thumbnail.appendChild(iframe);
+            });
+        }
+    });
+
+    </script>
