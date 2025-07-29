@@ -46,22 +46,39 @@ const { pageTitle } = Astro.props;
         />
         <link href="../styles/main.css" rel="stylesheet" />
     </head>
-    <body class="index-page">
-        <Header />
+    <body>
+        <div class="bg-white">
+            <Header />
+        </div>
         <slot />
+
+        
+        <script
+            src="../../public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+        ></script>
+        <script src="../../public/assets/vendor/php-email-form/validate.js"
+        ></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" client:load></script>
+        <!-- <script src="../../public/assets/vendor/aos/aos.js"></script> -->
+        <!-- <script src="../../public/assets/vendor/swiper/swiper-bundle.min.js"
+        ></script> -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" client:load></script>
+
+        <!-- <script src="../../public/assets/vendor/glightbox/js/glightbox.min.js"
+        ></script> -->
+            <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js" client:load></script>
+
+    <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" client:load></script>
+
+
+        <!-- <script
+            src="../../public/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"
+        ></script> -->
+        <script
+            src="../../public/assets/vendor/isotope-layout/isotope.pkgd.min.js"
+        ></script>
+
+       
+        <script src="../../public/main.js"></script>
     </body>
-
-    <script>
-        // import AOS from "aos";
-        // AOS.init({ duration: 1000 });
-    </script>
-
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../vendor/php-email-form/validate.js"></script>
-    <script src="../vendor/aos/aos.js"></script>
-    <script src="../vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="../vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="../vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="../scripts/main.js"></script>
 </html>
