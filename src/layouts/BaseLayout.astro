@@ -1,22 +1,6 @@
 ---
 import Header from "../components/Header.astro";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import "../styles/global.css";
-// import "../vendor/bootstrap/css/bootstrap.min.css";
-// import "../vendor/bootstrap-icons/bootstrap-icons.css";
-// import "../vendor/aos/aos.css";
-// import "../vendor/swiper/swiper-bundle.min.css";
-// import "../vendor/glightbox/css/glightbox.min.css";
-// import "../styles/main.css";
-// import "aos/dist/aos.css";
-// import "../vendor/bootstrap/js/bootstrap.bundle.min.js";
-// import "../vendor/php-email-form/validate.js";
-// import "../vendor/aos/aos.js";
-// import "../vendor/swiper/swiper-bundle.min.js";
-// import "../vendor/glightbox/js/glightbox.min.js";
-// import "../vendor/imagesloaded/imagesloaded.pkgd.min.js";
-// import "../vendor/isotope-layout/isotope.pkgd.min.js";
-// import "../scripts/main.js";
+import "../styles/main.css";
 
 const { pageTitle } = Astro.props;
 ---
@@ -31,20 +15,19 @@ const { pageTitle } = Astro.props;
         <title>BROSMEDIA | Agence De Communication Digitale Au Maroc .</title>
 
         <link
-            href="../vendor/bootstrap/css/bootstrap.min.css"
+            href="../../public/assets/vendor/bootstrap/css/bootstrap.min.css"
             rel="stylesheet"
         />
         <link
-            href="../vendor/bootstrap-icons/bootstrap-icons.css"
+            href="../../public/assets/vendor/bootstrap-icons/bootstrap-icons.css"
             rel="stylesheet"
         />
-        <link href="../vendor/aos/aos.css" rel="stylesheet" />
-        <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+        <link href="../../public/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link href="../../public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
         <link
-            href="../vendor/glightbox/css/glightbox.min.css"
+            href="../../public/assets/vendor/glightbox/css/glightbox.min.css"
             rel="stylesheet"
         />
-        <link href="../styles/main.css" rel="stylesheet" />
     </head>
     <body>
         <div class="bg-white">
@@ -52,33 +35,30 @@ const { pageTitle } = Astro.props;
         </div>
         <slot />
 
-        
         <script
             src="../../public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
         ></script>
         <script src="../../public/assets/vendor/php-email-form/validate.js"
         ></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" client:load></script>
-        <!-- <script src="../../public/assets/vendor/aos/aos.js"></script> -->
-        <!-- <script src="../../public/assets/vendor/swiper/swiper-bundle.min.js"
-        ></script> -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" client:load></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" client:load
+        ></script>
 
-        <!-- <script src="../../public/assets/vendor/glightbox/js/glightbox.min.js"
-        ></script> -->
-            <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js" client:load></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"
+            client:load></script>
 
-    <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" client:load></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"
+            client:load></script>
 
+        <script
+            src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"
+            client:load></script>
 
-        <!-- <script
-            src="../../public/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"
-        ></script> -->
         <script
             src="../../public/assets/vendor/isotope-layout/isotope.pkgd.min.js"
         ></script>
 
-       
         <script src="../../public/main.js"></script>
     </body>
 </html>
