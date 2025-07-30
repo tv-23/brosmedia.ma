@@ -2,6 +2,44 @@
 import "../styles/home.css";
 ---
 
+<style>
+    .animated-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        color: white; /* Default text color */
+    }
+    .animated-title .word {
+        display: inline-block;
+        animation: colorChange 4s infinite;
+    }
+    .animated-title .word:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .animated-title .word:nth-child(2) {
+        animation-delay: 1s;
+    }
+    .animated-title .word:nth-child(3) {
+        animation-delay: 2s;
+    }
+    .animated-title .word:nth-child(5) {
+        animation-delay: 3s;
+    }
+    @keyframes colorChange {
+        0%,
+        25% {
+            color: red;
+        }
+        26%,
+        100% {
+            color: white;
+        }
+    }
+    @media (max-width: 576px) {
+        .animated-title {
+            font-size: 1.8rem;
+        }
+    }
+</style>
 <main class="main">
     <!-- Hero Section -->
     <section id="hero" class="hero section">
@@ -14,7 +52,13 @@ import "../styles/home.css";
                         </div>
 
                         <div class="main-heading">
-                            <h1>Agence de Communication <br />digitale</h1>
+                            <h1 class="animated-title">
+                                <span class="word">Agence</span>
+                                <span class="word">de</span>
+                                <span class="word">Communication</span>
+                                <br />
+                                <span class="word">digitale</span>
+                            </h1>
                         </div>
 
                         <div class="divider"></div>
@@ -767,9 +811,11 @@ import "../styles/home.css";
                     <span class="badge text-uppercase mb-2"
                         >À ne pas manquer !</span
                     >
-                    <h2>Collaborer Avec <span style="color:#e30f29">Brosmedia</span></h2>
+                    <h2>
+                        Collaborer Avec <span style="color:#e30f29"
+                            >Brosmedia</span>
+                    </h2>
 
-                    
                     <p class="my-4">
                         Nous avons l’habitude de travailler aussi bien pour des
                         grands comptes que pour les petites et moyennes
@@ -870,7 +916,6 @@ import "../styles/home.css";
                     </li>
                     <li data-filter=".filter-photography">
                         <i class="bi bi-camera"></i> Marketing digital
-
                     </li>
                 </ul>
 
