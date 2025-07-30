@@ -1,35 +1,8 @@
 section.container.telephone-appointment {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 * {
-    text-align: justify;
+  text-align: justify;
 }
 
-.main-heading h1{
-  text-align: initial !important;
-}
-
-.experience-badge>.stats-arrow {
-    position: absolute;
-    top: 1.5rem;
-    right: 2.5rem;
-}
-
-.experience-badge>.stats-arrow>a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background-color: #0a0f4f;
-    border-radius: 50%;
-    color: var(--contrast-color);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.experience-badge>.stats-arrow>a:hover{
-    transform: translateY(-3px);
-    background-color:  color-mix(in srgb, #0a0f4f, transparent 20%);
-}

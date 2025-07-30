@@ -1158,7 +1158,7 @@ section,
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--surface-color);
+  background-color: var(--accent-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
@@ -1393,7 +1393,7 @@ section,
 .services .service-card:hover::before {
   opacity: 1;
   visibility: visible;
-  background-color: var(--surface-color);
+  background-color: #ffffff0a;
 }
 
 .services .service-card:hover h3 a {

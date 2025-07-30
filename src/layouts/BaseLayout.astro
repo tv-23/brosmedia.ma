@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/main.css";
 import "../styles/global.css";
 
@@ -24,7 +25,10 @@ const { pageTitle } = Astro.props;
             rel="stylesheet"
         />
         <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
-        <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+        <link
+            href="/assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
         <link
             href="/assets/vendor/glightbox/css/glightbox.min.css"
             rel="stylesheet"
@@ -35,6 +39,14 @@ const { pageTitle } = Astro.props;
             <Header />
         </div>
         <slot />
+<!-- Scroll Top -->
+<a
+    href="#"
+    id="scroll-top"
+    class="scroll-top d-flex align-items-center justify-content-center"
+    ><i class="bi bi-arrow-up-short"></i></a
+>
+        <Footer />
 
         <script
             src="../../public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
