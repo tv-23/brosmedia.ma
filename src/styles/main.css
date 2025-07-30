@@ -163,7 +163,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 39px;
   margin-right: 8px;
 }
 
@@ -183,7 +183,6 @@ h6 {
   font-size: 14px;
   padding: 8px 20px;
   margin: 0 0 0 30px;
-  border-radius: 50px;
   transition: 0.3s;
 }
 
@@ -779,7 +778,7 @@ section,
   padding: 100px 0;
 }
 
-.hero::after {
+/* .hero::after {
   content: "";
   position: absolute;
   top: 0;
@@ -788,7 +787,7 @@ section,
   bottom: 0;
   background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 10px);
   z-index: 1;
-}
+} */
 
 .hero .container,
 .hero .container-fluid {
@@ -815,7 +814,7 @@ section,
 }
 
 .hero .agency-name h5 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--contrast-color);
@@ -827,7 +826,7 @@ section,
 }
 
 .hero .main-heading h1 {
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1px;
@@ -852,7 +851,7 @@ section,
   }
 }
 
-.hero .divider {
+ .divider {
   width: 60%;
   height: 1px;
   background-color: color-mix(in srgb, var(--default-color), transparent 85%);
@@ -876,36 +875,36 @@ section,
   margin: 0;
 }
 
-.hero .cta-button .btn {
+.hero .cta-button .btn,form>.btn {
   display: inline-flex;
   align-items: center;
   background-color: transparent;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 40%);
   color: var(--default-color);
   padding: 0.75rem 1.5rem;
-  border-radius: 50px;
+  border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
-.hero .cta-button .btn span {
+.hero .cta-button .btn span,form>.btn>span {
   margin-right: 0.5rem;
 }
 
-.hero .cta-button .btn i {
+.hero .cta-button .btn i,form>.btn>i {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
 
-.hero .cta-button .btn:hover {
+.hero .cta-button .btn:hover,form>.btn:hover {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--contrast-color);
 }
 
-.hero .cta-button .btn:hover i {
+.hero .cta-button .btn:hover i, form>.btn:hover i{
   transform: translateX(5px);
 }
 
@@ -1031,7 +1030,7 @@ section,
 .about .about-image .experience-badge {
   position: absolute;
   bottom: 30px;
-  right: -30px;
+  right: -15px;
   background: var(--accent-color);
   color: var(--contrast-color);
   padding: 1.5rem;
@@ -1126,7 +1125,7 @@ section,
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   padding: 0.5rem 1.5rem;
-  border-radius: 50px;
+  border-radius: 10px;
   font-weight: 500;
   color: var(--contrast-color);
 }
@@ -1652,7 +1651,7 @@ section,
   font-weight: 500;
 }
 
-.call-to-action .cta-buttons .btn {
+.call-to-action .cta-buttons .btn,form>.btn {
   padding: 0.75rem 1.5rem;
   font-weight: 500;
   border-radius: 0.5rem;
