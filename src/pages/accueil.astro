@@ -37,7 +37,7 @@ import "../styles/home.css";
         }
     }
     @media (max-width: 576px) {
-        .animated-title { 
+        .animated-title {
             font-size: 1.8rem;
         }
     }
@@ -101,7 +101,7 @@ import "../styles/home.css";
                                 <img
                                     src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
                                     alt="Video thumbnail"
-                                    class="w-100 h-100"
+                                    class="w-100 h-100 video-img"
                                     style="object-fit: cover;"
                                 />
                                 <!-- Play Button Overlay -->
@@ -912,13 +912,13 @@ import "../styles/home.css";
                         <i class="bi bi-grid-3x3"></i> Tous les projets
                     </li>
                     <li data-filter=".filter-ui">
-                        <i class="bi bi-phone"></i> Création de site Web
+                        <i class="bi bi-code-slash"></i> Création de site Web
                     </li>
                     <li data-filter=".filter-development">
-                        <i class="bi bi-code-slash"></i> Conception et réalisation
+                        <i class="bi bi-vector-pen"></i> Conception et réalisation
                     </li>
                     <li data-filter=".filter-photography">
-                        <i class="bi bi-camera"></i> Marketing digital
+                        <i class="bi bi-bar-chart-line"></i> Marketing digital
                     </li>
                 </ul>
 
@@ -933,14 +933,14 @@ import "../styles/home.css";
                         <article class="portfolio-entry">
                             <figure class="entry-image">
                                 <img
-                                    src="/img/portfolio/portfolio-1.webp"
+                                    src="https://brosmedia.ma/wp-content/uploads/2024/09/Granderberry-min-min-1-scaled.webp"
                                     class="img-fluid"
                                     alt=""
                                     loading="lazy"
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">
+                                        <div class="entry-meta badge bg-primary">
                                             UI/UX Design
                                         </div>
                                         <h3 class="entry-title">
@@ -948,7 +948,7 @@ import "../styles/home.css";
                                         </h3>
                                         <div class="entry-links">
                                             <a
-                                                href="/img/portfolio/portfolio-1.webp"
+                                                href="https://brosmedia.ma/wp-content/uploads/2024/09/Granderberry-min-min-1-scaled.webp"
                                                 class="glightbox"
                                                 data-gallery="portfolio-gallery-ui"
                                                 data-glightbox="title: Mobile Banking App; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur."
@@ -982,7 +982,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">
+                                        <div class="entry-meta badge bg-primary">
                                             Development
                                         </div>
                                         <h3 class="entry-title">
@@ -1024,7 +1024,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">
+                                        <div class="entry-meta badge bg-primary">
                                             Photography
                                         </div>
                                         <h3 class="entry-title">
@@ -1066,7 +1066,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">Marketing</div>
+                                        <div class="entry-meta badge bg-primary">Marketing</div>
                                         <h3 class="entry-title">
                                             Social Media Campaign
                                         </h3>
@@ -1106,7 +1106,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">
+                                        <div class="entry-meta badge bg-primary">
                                             UI/UX Design
                                         </div>
                                         <h3 class="entry-title">
@@ -1148,7 +1148,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">
+                                        <div class="entry-meta badge bg-primary">
                                             Development
                                         </div>
                                         <h3 class="entry-title">
@@ -1190,7 +1190,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">
+                                        <div class="entry-meta badge bg-primary">
                                             Photography
                                         </div>
                                         <h3 class="entry-title">
@@ -1232,7 +1232,7 @@ import "../styles/home.css";
                                 />
                                 <div class="entry-overlay">
                                     <div class="overlay-content">
-                                        <div class="entry-meta">Marketing</div>
+                                        <div class="entry-meta badge bg-primary">Marketing</div>
                                         <h3 class="entry-title">
                                             Brand Strategy
                                         </h3>
@@ -1961,22 +1961,27 @@ import "../styles/home.css";
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const thumbnail = document.getElementById("video-thumbnail");
-        if (thumbnail) {
-            thumbnail.addEventListener("click", () => {
-                const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
-                const iframe = document.createElement("iframe");
-                if (iframe) {
-                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                    iframe.allow =
-                        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-                    iframe.className = "w-full h-full absolute top-0 left-0";
-                    iframe.width = "100%";
+        if (!thumbnail) return;
 
-                    iframe.height = "100%";
-                }
-                thumbnail.innerHTML = "";
-                thumbnail.appendChild(iframe);
-            });
-        }
+        const playVideo = () => {
+            const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.className = "w-100 h-100 position-absolute top-0 start-0";
+            iframe.title = "YouTube video player";
+            iframe.allowFullscreen = true;
+            thumbnail.innerHTML = "";
+            thumbnail.appendChild(iframe);
+        };
+
+        thumbnail.addEventListener("click", playVideo);
+        thumbnail.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                playVideo();
+            }
+        });
     });
 </script>

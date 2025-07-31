@@ -4,5 +4,6 @@ section.container.telephone-appointment {
 
 * {
   text-align: justify;
+  border-radius: 0px !important;
 }
 

@@ -26,6 +26,7 @@
   background-color: color-mix(in srgb, #0a0f4f, transparent 20%);
 }
 
+/* Video Section */
 .fluid-shape {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -55,4 +56,29 @@
     width: 30px;
     height: 30px;
   }
+}
+
+
+.video-img {
+  transition: transform 0.3s ease;
+}
+
+#video-thumbnail:hover .video-img {
+  transform: scale(1.1);
+}
+
+#video-thumbnail:hover .rounded-circle {
+  transform: scale(1.1);
+}
+
+.text-primary[fill="currentColor"] {
+  color: #0a0f4f !important;
+}
+
+/* Video Section */
+
+.entry-meta.badge.bg-primary{
+  color: white !important;
+  font-weight: 600 !important;
+  background-color: #0a0f4f !important;
 }
