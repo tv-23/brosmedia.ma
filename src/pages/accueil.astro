@@ -1,5 +1,6 @@
 ---
 import "../styles/home.css";
+import Form from "../components/telephone-appointment-form.astro";
 ---
 
 <style>
@@ -51,12 +52,11 @@ import "../styles/home.css";
         }
     }
 
-    .main-heading>.animated-title>span{
-            padding: 3px;
+    .main-heading > .animated-title > span {
+        padding: 3px;
     }
 </style>
 <main class="main">
-
     <!-- Hero Section -->
     <section id="hero" class="hero section">
         <div class="container">
@@ -255,129 +255,8 @@ import "../styles/home.css";
                                     </p>
                                 </div>
                             </div> -->
-                            <section class="container telephone-appointment">
-                                <h3 class="mb-3">
-                                    Prenez rendez-vous pour un appel
-                                    téléphonique
-                                </h3>
-                                <p class="mb-4 lead">
-                                    Remplissez le formulaire ci-dessous pour
-                                    réserver un créneau avec notre équipe.
-                                </p>
+                                  <Form></Form>
 
-                                <form>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label
-                                                for="lastname"
-                                                class="form-label"
-                                                >Nom <span style="color:#e30f29"
-                                                    >*</span
-                                                ></label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="lastname"
-                                                name="lastname"
-                                                required
-                                            />
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label
-                                                for="firstname"
-                                                class="form-label"
-                                                >Prénom <span
-                                                    style="color:#e30f29"
-                                                    >*</span
-                                                ></label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="firstname"
-                                                name="firstname"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label for="date" class="form-label"
-                                                >Date <span
-                                                    style="color:#e30f29"
-                                                    >*</span
-                                                ></label
-                                            >
-                                            <input
-                                                type="date"
-                                                class="form-control"
-                                                id="date"
-                                                name="date"
-                                                required
-                                            />
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="hour" class="form-label"
-                                                >Heure</label
-                                            >
-                                            <input
-                                                type="time"
-                                                class="form-control"
-                                                id="hour"
-                                                name="hour"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label
-                                                for="email"
-                                                class="form-label"
-                                                >Adresse e-mail <span
-                                                    style="color:#e30f29"
-                                                    >*</span
-                                                ></label
-                                            >
-                                            <input
-                                                type="email"
-                                                class="form-control"
-                                                id="email"
-                                                name="email"
-                                                required
-                                            />
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label
-                                                for="phone"
-                                                class="form-label"
-                                                >Numéro de téléphone <span
-                                                    style="color:#e30f29"
-                                                    >*</span
-                                                ></label
-                                            >
-                                            <input
-                                                type="tel"
-                                                class="form-control"
-                                                id="phone"
-                                                name="phone"
-                                                required
-                                                pattern="[0-9\s\+\-\(\)]{7,}"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary"
-                                    >
-                                        <span>Réserver un appel</span>
-                                        <i class="bi bi-arrow-right"></i>
-                                    </button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
@@ -1825,8 +1704,8 @@ import "../styles/home.css";
         <div class="container section-title" data-aos="fade-up">
             <h2>Contact</h2>
             <div>
-                <span>Let's</span>
-                <span class="description-title">Connect</span>
+                <span>Entrons en</span>
+                <span class="description-title">Contact</span>
             </div>
         </div>
         <!-- End Section Title -->
@@ -1840,8 +1719,11 @@ import "../styles/home.css";
                             <i class="bi bi-geo-alt"></i>
                         </div>
                         <div class="info-content">
-                            <h4>Our Address</h4>
-                            <p>1842 Maple Avenue, Portland, Oregon 97204</p>
+                            <h4>Notre adresse</h4>
+                            <p>
+                                N° 12, Avenue Abi Anane El Marini RDC, Larache
+                                92000
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1852,9 +1734,17 @@ import "../styles/home.css";
                             <i class="bi bi-envelope"></i>
                         </div>
                         <div class="info-content">
-                            <h4>Email Address</h4>
-                            <p>info@example.com</p>
-                            <p>contact@example.com</p>
+                            <h4>Adresse e-mail</h4>
+                            <p>
+                                <a
+                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@brosmedia.ma"
+                                    target="_blank"
+                                    class="text-white text-decoration-none hover:text-gray-300"
+                                    aria-label="Email us at contact@brosmedia.ma"
+                                >
+                                    contact@brosmedia.ma
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1865,7 +1755,7 @@ import "../styles/home.css";
                             <i class="bi bi-headset"></i>
                         </div>
                         <div class="info-content">
-                            <h4>Hours of Operation</h4>
+                            <h4>Heures d'ouverture</h4>
                             <p>Sunday-Fri: 9 AM - 6 PM</p>
                             <p>Saturday: 9 AM - 4 PM</p>
                         </div>
@@ -1873,11 +1763,10 @@ import "../styles/home.css";
                 </div>
             </div>
         </div>
-
         <!-- Google Maps (Full Width) -->
         <div class="map-section" data-aos="fade-up" data-aos-delay="200">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.507825117629!2d-6.151087499999999!3d35.1938177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0bc9e75a89475b%3A0x9bf581fb40ca72df!2sBrosmedia%20%3A%20Agence%20de%20Communication%20%26%20Web%20Marketing%20%26%20Cr%C3%A9ation%20de%20Site%20Web!5e0!3m2!1sen!2sma!4v1754142270406!5m2!1sen!2sma"'
                 width="100%"
                 height="500"
                 style="border:0;"
@@ -1895,7 +1784,7 @@ import "../styles/home.css";
             >
                 <div class="col-lg-10">
                     <div class="contact-form-wrapper">
-                        <h2 class="text-center mb-4">Get in Touch</h2>
+                        <h2 class="text-center mb-4">Contactez-nous</h2>
 
                         <form
                             action="forms/contact.php"
@@ -1911,8 +1800,8 @@ import "../styles/home.css";
                                                 type="text"
                                                 class="form-control"
                                                 name="name"
-                                                placeholder="First Name"
-                                                required=""
+                                                placeholder="Name"
+                                                required="Nom"
                                             />
                                         </div>
                                     </div>
@@ -1926,7 +1815,7 @@ import "../styles/home.css";
                                                 type="email"
                                                 class="form-control"
                                                 name="email"
-                                                placeholder="Email Address"
+                                                placeholder="Adresse e-mail"
                                                 required=""
                                             />
                                         </div>
@@ -1941,7 +1830,7 @@ import "../styles/home.css";
                                                 type="text"
                                                 class="form-control"
                                                 name="subject"
-                                                placeholder="Subject"
+                                                placeholder="Sujet"
                                                 required=""
                                             />
                                         </div>
@@ -1957,7 +1846,7 @@ import "../styles/home.css";
                                             <textarea
                                                 class="form-control"
                                                 name="message"
-                                                placeholder="Write Message..."
+                                                placeholder="Écrire un message..."
                                                 style="height: 180px"
                                                 required=""></textarea>
                                         </div>
@@ -1976,7 +1865,7 @@ import "../styles/home.css";
                                     <button
                                         type="submit"
                                         class="btn btn-primary btn-submit"
-                                        >SEND MESSAGE</button
+                                        >ENVOYER</button
                                     >
                                 </div>
                             </div>
