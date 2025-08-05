@@ -37,15 +37,15 @@
 :root {
   --nav-color: rgba(255, 255, 255, 0.8);
   /* The default color of the main navmenu links */
-  --nav-hover-color: #e3a127;
+  --nav-hover-color: #e30f29;
   /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #29343a;
   /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #29343a;
+  --nav-dropdown-background-color: #0a0f4f;
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: rgba(255, 255, 255, 0.8);
   /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #e3a127;
+  --nav-dropdown-hover-color: #e30f29;
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 

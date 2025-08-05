@@ -7,3 +7,24 @@ section.container.telephone-appointment {
   border-radius: 0px !important;
 }
 
+
+
+span#contact-phone {
+    background-color: white;
+    padding: 2px 10px;
+}
+
+span#contact-phone>span,span#contact-phone>a {
+    color: #0a0f4f !important;
+    font-weight: bold;
+}
+
+#social-media-links>span,#business-hours,#contact-email>a,#contact-email>i{
+    font-weight: bold;
+}
+
+ .modal-body > section > div > div > div > div.contact-form-wrapper {
+        padding: 0px !important;
+    }
+
+    

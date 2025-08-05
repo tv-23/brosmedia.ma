@@ -1,0 +1,153 @@
+<style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      font-family: sans-serif;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      cursor: grab;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+
+    .carousel-container:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 150px;
+      margin: 0 20px;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .carousel-item img:hover {
+      filter: grayscale(0%);
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Duplicate track to loop smoothly */
+    .carousel-track > * {
+      user-select: none;
+      pointer-events: none;
+    }
+    .logo-box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+  </style>
+
+   <h2 style="text-align:center;">Infinite Logo Carousel</h2>
+
+  <div class="carousel-container" id="carousel">
+    <div class="carousel-track" id="carousel-track">
+        <div class="carousel-item"><div class="logo-box">Logo 1</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 2</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 3</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 4</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 5</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 6</div></div>
+
+      <div class="carousel-item"><div class="logo-box">Logo 1</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 2</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 3</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 4</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 5</div></div>
+<div class="carousel-item"><div class="logo-box">Logo 6</div></div>
+      <!-- Logos duplicated for infinite effect -->
+      <!-- <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+1" alt="Logo 1"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+2" alt="Logo 2"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+3" alt="Logo 3"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+4" alt="Logo 4"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+5" alt="Logo 5"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+6" alt="Logo 6"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+1" alt="Logo 1"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+2" alt="Logo 2"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+3" alt="Logo 3"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+4" alt="Logo 4"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+5" alt="Logo 5"/></div>
+      <div class="carousel-item"><img src="https://via.placeholder.com/150x80?text=Logo+6" alt="Logo 6"/></div> -->
+    </div>
+  </div>
+
+  <script>
+    // Drag to scroll
+    const container = document.getElementById('carousel');
+    const track = document.getElementById('carousel-track');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    container.addEventListener('mousedown', (e) => {
+      isDown = true;
+      container.classList.add('active');
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      track.style.animationPlayState = 'paused';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isDown = false;
+      container.classList.remove('active');
+      track.style.animationPlayState = 'running';
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDown = false;
+      container.classList.remove('active');
+      track.style.animationPlayState = 'running';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1.5; // scroll speed
+      container.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch support
+    container.addEventListener('touchstart', (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      track.style.animationPlayState = 'paused';
+    });
+
+    container.addEventListener('touchend', () => {
+      isDown = false;
+      track.style.animationPlayState = 'running';
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      container.scrollLeft = scrollLeft - walk;
+    });
+  </script>

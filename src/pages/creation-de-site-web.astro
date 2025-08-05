@@ -8,11 +8,12 @@ import "../styles/services.css";
     h1 span {
       position: relative;
       color: transparent;
-      -webkit-text-stroke: 1px #e30f29;
+      -webkit-text-stroke: 1px #0a0f4f;
       line-height: 1.2em;
-      padding: 5px 10px;
+      padding: 2px;
       animation: displayText 12s infinite;
       animation-delay: calc(-3s * var(--i));
+      font-weight: 700;
     }
 
     @keyframes displayText {
@@ -32,15 +33,15 @@ import "../styles/services.css";
       left: -2px;
       width: 0;
       height: 100%;
-      color: #e30f29;
+      color: white;
       overflow: hidden;
       white-space: nowrap;
       border: 2px solid #e30f29;
       box-sizing: border-box;
-      /* border-radius: 10px; */
-      padding: 5px 10px;
+      background-color: #e30f29;
+      padding: 2px;
       animation: animate 3s linear infinite;
-      filter: drop-shadow(0 0 5px #e30f29) drop-shadow(0 0 15px #e30f29);
+      -webkit-text-stroke: 0px white;
     }
 
     @keyframes animate {
@@ -61,11 +62,11 @@ import "../styles/services.css";
     <div class="page-title dark-background" data-aos="fade">
       <div class="container position-relative">
         <h1 class="text-center">
-          Création de Site Web
-          <span style="--i:0;" data-text="Vitrine.">Vitrine.</span>
-          <span style="--i:1;" data-text="E-Commerce.">E-Commerce.</span>
-          <span style="--i:2;" data-text="Dynamique.">Dynamique.</span>
-          <span style="--i:3;" data-text="Sur-Mesure.">Sur-Mesure.</span>
+          Création de Site Web 
+          <span style="--i:0;" data-text="Vitrine">Vitrine</span>
+          <span style="--i:1;" data-text="E-Commerce">E-Commerce</span>
+          <span style="--i:2;" data-text="Dynamique">Dynamique</span>
+          <span style="--i:3;" data-text="Sur-Mesure">Sur-Mesure</span>
         </h1>
         <p class="text-center">La Puissance Des Technologies</p>
         <nav class="breadcrumbs">
