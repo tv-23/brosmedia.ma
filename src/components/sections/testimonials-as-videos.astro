@@ -1,0 +1,124 @@
+---
+import "../../styles/sections/testimonials-as-videos.css";
+---
+
+<section id="testimonials-as-videos" class="videos section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Avis</h2>
+        <div>
+            <span>Ils témoignent</span>
+            <span class="description-title">de notre impact</span>
+        </div>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container">
+        <div class="row align-items-center gy-4">
+            <!-- Swiper -->
+            <div class="col-lg-5">
+                <div class="swiper video-swiper position-relative">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide rounded overflow-hidden">
+                            <div
+                                class="video-wrapper position-relative"
+                                onclick="playVideo(this)"
+                            >
+                                <img
+                                    src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                                    class="img-fluid w-100"
+                                    alt="Video 1"
+                                />
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide rounded overflow-hidden">
+                            <div
+                                class="video-wrapper position-relative"
+                                onclick="playVideo(this)"
+                            >
+                                <img
+                                    src="https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg"
+                                    class="img-fluid w-100"
+                                    alt="Video 2"
+                                />
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+
+            <!-- Text -->
+            <div class="col-lg-7">
+                <div class="videos-section-content">
+                    <h2>L'impact de Brosmedia</h2>
+                    <p class="lead">
+                       Chez Brosmedia, chaque projet est une histoire de transformation. Grâce à notre approche personnalisée et humaine, nous aidons nos clients à franchir un cap dans leur présence digitale. Que ce soit par la création de sites web percutants, des campagnes marketing efficaces ou des vidéos publicitaires engageantes, nous contribuons concrètement à leur croissance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".video-swiper", {
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            speed: 600,
+            slidesPerView: 1,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        window.playVideo = function (wrapper) {
+            const img = wrapper.querySelector("img");
+            const playIcon = wrapper.querySelector(".play-icon");
+
+            const videoId = getVideoIdFromThumbnail(img?.src);
+            if (!videoId) return;
+
+            swiper.autoplay.stop();
+
+            img?.remove();
+            playIcon?.remove();
+
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&mute=1`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.allowFullscreen = true;
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+
+            const ratio = document.createElement("div");
+            ratio.className = "ratio ratio-16x9";
+            ratio.appendChild(iframe);
+
+            wrapper.appendChild(ratio);
+
+            setTimeout(() => {
+                swiper.autoplay.start();
+            }, 30000);
+        };
+
+        function getVideoIdFromThumbnail(url) {
+            const match = url.match(/vi\/([^/]+)\//);
+            return match ? match[1] : null;
+        }
+    });
+</script>
