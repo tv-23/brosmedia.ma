@@ -178,4 +178,9 @@ font-family: Arial, sans-serif;
   .team-quote{
 margin-top: 0px;
   }
+
+  .swiper-button-next::after,
+.swiper-button-prev::after {
+  margin-top: 0px;
+}
 }
