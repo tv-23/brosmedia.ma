@@ -1,84 +1,84 @@
 .main-heading h1 {
-  text-align: initial !important;
+    text-align: initial !important;
 }
 
 .experience-badge>.stats-arrow {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
 }
 
 .experience-badge>.stats-arrow>a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: #0a0f4f;
-  border-radius: 50%;
-  color: var(--contrast-color);
-  font-size: 1rem;
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #0a0f4f;
+    border-radius: 50%;
+    color: var(--contrast-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .experience-badge>.stats-arrow>a:hover {
-  transform: translateY(-3px);
-  background-color: color-mix(in srgb, #0a0f4f, transparent 20%);
+    transform: translateY(-3px);
+    background-color: color-mix(in srgb, #0a0f4f, transparent 20%);
 }
 
+
 /* Video Section */
+
 .fluid-shape {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 100%;
 }
 
 #video-thumbnail {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 #video-thumbnail:hover .rounded-circle {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 @media (max-width: 576px) {
-  .fluid-shape {
-    aspect-ratio: 4 / 3;
-  }
-
-  .rounded-circle {
-    width: 60px !important;
-    height: 60px !important;
-  }
-
-  .rounded-circle svg {
-    width: 30px;
-    height: 30px;
-  }
+    .fluid-shape {
+        aspect-ratio: 4 / 3;
+    }
+    .rounded-circle {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    .rounded-circle svg {
+        width: 30px;
+        height: 30px;
+    }
 }
 
-
 .video-img {
-  transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 #video-thumbnail:hover .video-img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #video-thumbnail:hover .rounded-circle {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .text-primary[fill="currentColor"] {
-  color: #0a0f4f !important;
+    color: #0a0f4f !important;
 }
+
 
 /* Video Section */
 
-.entry-meta.badge.bg-primary{
-  color: white !important;
-  font-weight: 600 !important;
-  background-color: #0a0f4f !important;
+.entry-meta.badge.bg-primary {
+    color: white !important;
+    font-weight: 600 !important;
+    background-color: #0a0f4f !important;
 }

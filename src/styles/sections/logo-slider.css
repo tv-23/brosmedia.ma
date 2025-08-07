@@ -21,7 +21,8 @@
 .logo-track {
     display: flex;
     will-change: transform;
-    align-items: center; /* Add this to vertically center logos */
+    align-items: center;
+    /* Add this to vertically center logos */
 }
 
 .logo-carousel.dragging {
@@ -31,14 +32,14 @@
 .logo-item {
     flex: 0 0 auto;
     /* margin: 0px  15px; */
-    padding: 0px  15px;
+    padding: 0px 15px;
     transition: transform 0.3s ease;
     border-right: 1px solid #ffffffa6;
 }
 
 .logo-box {
     width: 120px;
-    height: 80px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,12 +47,16 @@
     transition: all 0.3s ease;
 }
 
+
 /* Add these styles for the images */
+
 .logo-box img {
     max-width: 100%;
     /* max-height: 100%; */
-    object-fit: contain; /* Ensures images maintain aspect ratio */
-    display: block; /* Removes extra space below images */
+    object-fit: contain;
+    /* Ensures images maintain aspect ratio */
+    display: block;
+    /* Removes extra space below images */
 }
 
 .logo-item:hover .logo-box {
@@ -60,10 +65,6 @@
 }
 
 @media (max-width: 768px) {
-    .logo-box {
-        width: 80px;
-        height: 40px;
-    }
     .logo-item {
         margin: 0 10px;
     }

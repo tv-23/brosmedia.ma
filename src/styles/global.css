@@ -32,3 +32,9 @@ span#contact-phone>a {
 nav#navmenu>ul>li>a {
     font-weight: 600;
 }
+
+@media (max-width: 768px) {
+    .telephone-appointment>form {
+        padding: 5px 15px;
+    }
+}
