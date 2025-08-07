@@ -39,13 +39,13 @@ const { pageTitle } = Astro.props;
             <Header />
         </div>
         <slot />
-<!-- Scroll Top -->
-<a
-    href="#"
-    id="scroll-top"
-    class="scroll-top d-flex align-items-center justify-content-center"
-    ><i class="bi bi-arrow-up-short"></i></a
->
+        <!-- Scroll Top -->
+        <a
+            href="#"
+            id="scroll-top"
+            class="scroll-top d-flex align-items-center justify-content-center"
+            ><i class="bi bi-arrow-up-short"></i></a
+        >
         <Footer />
 
         <script
@@ -70,10 +70,11 @@ const { pageTitle } = Astro.props;
 
         <!-- <script
             src="../../public/assets/vendor/isotope-layout/isotope.pkgd.min.js"
-        ></script> -->
+         client:load></script> -->
 
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
+        <script
+            src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"
+            client:load></script>
 
         <script src="../../public/main.js"></script>
     </body>

@@ -1,21 +1,78 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
+import "../styles/services.css";
 ---
 
 <Layout>
+  <style>
+    h1 span {
+      position: relative;
+      color: transparent;
+      -webkit-text-stroke: 1px #0a0f4f;
+      line-height: 1.2em;
+      padding: 2px;
+      animation: displayText 12s infinite;
+      animation-delay: calc(-3s * var(--i));
+      font-weight: 700;
+    }
+
+    @keyframes displayText {
+      0% {
+        display: inline-block;
+      }
+      25%,
+      100% {
+        display: none;
+      }
+    }
+
+    h1 span::before {
+      content: attr(data-text);
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 0;
+      height: 100%;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      border: 2px solid #e30f29;
+      box-sizing: border-box;
+      background-color: #e30f29;
+      padding: 2px;
+      animation: animate 3s linear infinite;
+      -webkit-text-stroke: 0px white;
+    }
+
+    @keyframes animate {
+      0%,
+      10%,
+      100% {
+        width: 0;
+      }
+      70%,
+      90% {
+        width: 100%;
+      }
+    }
+  </style>
+
   <main class="main">
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade">
       <div class="container position-relative">
-        <h1>Service Details</h1>
-        <p>
-          Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat
-          quibusdam quia assumenda numquam molestias.
-        </p>
+        <h1 class="text-center">
+          Création de Site Web 
+          <span style="--i:0;" data-text="Vitrine">Vitrine</span>
+          <span style="--i:1;" data-text="E-Commerce">E-Commerce</span>
+          <span style="--i:2;" data-text="Dynamique">Dynamique</span>
+          <span style="--i:3;" data-text="Sur-Mesure">Sur-Mesure</span>
+        </h1>
+        <p class="text-center">La Puissance Des Technologies</p>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Service Details</li>
+            <li><a href="/"> Agence De Communication Digitale Maroc</a></li>
+            <li class="current">Création de Site Web</li>
           </ol>
         </nav>
       </div>
@@ -111,7 +168,7 @@ import Layout from "../layouts/BaseLayout.astro";
                       </div>
                       <div class="col-md-6">
                         <img
-                          src="/img/services/services-7.webp"
+                          src="https://brosmedia.ma/wp-content/uploads/2023/10/developpement-web-768x461.webp"
                           alt="Digital Marketing Strategy"
                           class="img-fluid rounded"
                         />
@@ -236,6 +293,109 @@ import Layout from "../layouts/BaseLayout.astro";
                 </div>
               </div>
 
+              <!-- Steps Section -->
+              <section id="steps" class="steps section">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                  <h2>étapes</h2>
+                  <div>
+                    <span>Les étapes de création</span><br />
+                    <span class="description-title"
+                      >de votre site web chez Brosmedia</span
+                    >
+                  </div>
+                </div><!-- End Section Title -->
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+                  <div class="steps-wrapper">
+                    <div
+                      class="step-item"
+                      data-aos="fade-right"
+                      data-aos-delay="200"
+                    >
+                      <div class="step-content">
+                        <div class="step-icon">
+                          <i class="bi bi-search"></i>
+                        </div>
+                        <div class="step-info">
+                          <span class="step-number">Étape 01</span>
+                          <h3>Avant de Commencer</h3>
+                          <p>
+                            Analyse de vos besoins, étude de faisabilité tenant
+                            compte de vos contraintes budgétaires et
+                            temporelles.
+                          </p>
+                        </div>
+                      </div>
+                    </div><!-- End Step Item -->
+
+                    <div
+                      class="step-item"
+                      data-aos="fade-left"
+                      data-aos-delay="300"
+                    >
+                      <div class="step-content">
+                        <div class="step-icon">
+                          <i class="bi bi-brush"></i>
+                        </div>
+                        <div class="step-info">
+                          <span class="step-number">Étape 02</span>
+                          <h3>Définition Précise du Projet</h3>
+                          <p>
+                            Analyse détaillée de l’arborescence, définition des
+                            fonctionnalités essentielles, élaboration des
+                            contenus adaptés, et création d’un design sur
+                            mesure.
+                          </p>
+                        </div>
+                      </div>
+                    </div><!-- End Step Item -->
+
+                    <div
+                      class="step-item"
+                      data-aos="fade-right"
+                      data-aos-delay="400"
+                    >
+                      <div class="step-content">
+                        <div class="step-icon">
+                          <i class="bi bi-pencil"></i>
+                        </div>
+                        <div class="step-info">
+                          <span class="step-number">Étape 03</span>
+                          <h3>Création des Maquettes et des Contenus</h3>
+                          <p>
+                            Conception soignée des maquettes avec des
+                            allers-retours pour ajustements, suivie de la
+                            production et validation des contenus optimisés.
+                          </p>
+                        </div>
+                      </div>
+                    </div><!-- End Step Item -->
+
+                    <div
+                      class="step-item"
+                      data-aos="fade-left"
+                      data-aos-delay="500"
+                    >
+                      <div class="step-content">
+                        <div class="step-icon">
+                          <i class="bi bi-code"></i>
+                        </div>
+                        <div class="step-info">
+                          <span class="step-number">Étape 04</span>
+                          <h3>Codage du Site Web</h3>
+                          <p>
+                            Développement technique complet, tests rigoureux,
+                            intégration de tags analytics, et soumission
+                            stratégique aux moteurs de recherche.F
+                          </p>
+                        </div>
+                      </div>
+                    </div><!-- End Step Item -->
+                  </div>
+                </div>
+              </section><!-- /Steps Section -->
+
               <div
                 class="service-gallery"
                 data-aos="fade-up"
@@ -317,15 +477,18 @@ import Layout from "../layouts/BaseLayout.astro";
           <div class="col-lg-4 order-lg-2 order-1">
             <div class="service-sidebar" data-aos="fade-left">
               <div class="action-card" data-aos="zoom-in" data-aos-delay="100">
-                <h3>Ready to Boost Your Online Presence?</h3>
+                <h3>Prêt à lancer votre site web professionnel ?</h3>
                 <p>
-                  Get a free consultation with our digital marketing experts and
-                  discover how we can help grow your business.
+                  Profitez d’une consultation gratuite avec nos experts pour
+                  découvrir comment un site sur-mesure peut transformer votre
+                  présence en ligne.
                 </p>
-                <a href="#" class="btn-primary">Schedule Consultation</a>
-                <span class="guarantee"
-                  ><i class="bi bi-shield-check"></i> 100% Satisfaction Guarantee</span
+                <a href="/contact" class="btn-primary"
+                  >Planifier une consultation</a
                 >
+                <span class="guarantee">
+                  <i class="bi bi-shield-check"></i> Garantie 100&nbsp;% satisfaction
+                </span>
               </div>
 
               <div
@@ -407,19 +570,32 @@ import Layout from "../layouts/BaseLayout.astro";
               </div>
 
               <div class="contact-info" data-aos="fade-up" data-aos-delay="400">
-                <h4>Have Questions?</h4>
+                <h4>Des questions ?</h4>
                 <div class="contact-method">
                   <i class="bi bi-telephone-fill"></i>
                   <div>
-                    <span>Call Us Now</span>
-                    <p>+1 (803) 952-3845</p>
+                    <span>Appelez-nous maintenant</span>
+                    <a
+                      href="tel:+212671884968"
+                      class="text-decoration-none hover:text-gray-300"
+                      aria-label="Call us at +1 234 567 890"
+                    >
+                      +212 6 71 88 49 68
+                    </a>
                   </div>
                 </div>
                 <div class="contact-method">
                   <i class="bi bi-envelope-fill"></i>
                   <div>
-                    <span>Email Us</span>
-                    <p>marketing@example.com</p>
+                    <span>Envoyez-nous un e-mail</span>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@brosmedia.ma"
+                      target="_blank"
+                      class="text-decoration-none hover:text-gray-300"
+                      aria-label="Email us at contact@brosmedia.ma"
+                    >
+                      contact@brosmedia.ma
+                    </a>
                   </div>
                 </div>
               </div>

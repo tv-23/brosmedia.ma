@@ -1,0 +1,161 @@
+---
+import "../../styles/sections/logo-slider.css";
+---
+
+<div class="container">
+    <div class="carousel-container">
+        <div class="logo-carousel">
+            <div class="logo-track"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logos = [
+      { name: 'Google', img: '/logos/baraka.svg' },
+      { name: 'Google', img: '/logos/Uk cafe.svg' },
+      { name: 'Google', img: '/logos/auto hamid.svg' },
+      { name: 'Google', img: '/logos/e power.svg' },
+      { name: 'Google', img: '/logos/hygienecos.svg' },
+      { name: 'Google', img: '/logos/jamal.svg' },
+      { name: 'Google', img: '/logos/kaser baraka.svg' },
+      { name: 'Google', img: '/logos/location elite.svg' },
+      { name: 'Google', img: '/logos/maison d art.svg' },
+      { name: 'Google', img: '/logos/atlasgaleries.svg' },
+      { name: 'Google', img: '/logos/bablmdina.svg' },
+      { name: 'Google', img: '/logos/moulay.svg' },
+      { name: 'Google', img: '/logos/wefruits.svg' },
+      { name: 'Google', img: '/logos/grandeberry.svg' },
+      { name: 'Google', img: '/logos/luxe space.svg' },
+      { name: 'Google', img: '/logos/Rma.svg' },
+      { name: 'Google', img: '/logos/hepeca.svg' },
+      { name: 'Google', img: '/logos/Esunivers.svg' },
+      { name: 'Google', img: '/logos/probyu.svg' },
+      { name: 'Google', img: '/logos/KACH WOD.svg' },
+    ];
+
+    const track = document.querySelector('.logo-track');
+    const carousel = document.querySelector('.logo-carousel');
+    let isDragging = false;
+    let startX, currentX, scrollLeft;
+    let animationId;
+    let autoScrollSpeed = 1;
+    let isAutoScrolling = true;
+
+    const duplicatedLogos = [...logos, ...logos, ...logos];
+
+    duplicatedLogos.forEach(logo => {
+      const logoItem = document.createElement('div');
+      logoItem.className = 'logo-item';
+      logoItem.innerHTML = `
+        <div class="logo-box">
+          <img src="${logo.img}" alt="${logo.name} Logo">
+        </div>
+      `;
+      track.appendChild(logoItem);
+    });
+
+    const trackWidth = track.scrollWidth / 3;
+    track.style.transform = `translateX(${-trackWidth}px)`;
+
+    function autoScroll() {
+      if (isAutoScrolling && !isDragging) {
+        const currentTranslate = getTranslateX(track);
+        track.style.transform = `translateX(${currentTranslate - autoScrollSpeed}px)`;
+
+        if (currentTranslate <= -trackWidth * 2) {
+          track.style.transform = `translateX(${-trackWidth}px)`;
+        } else if (currentTranslate >= 0) {
+          track.style.transform = `translateX(${-trackWidth}px)`;
+        }
+      }
+      animationId = requestAnimationFrame(autoScroll);
+    }
+
+    function getTranslateX(element) {
+      const style = window.getComputedStyle(element);
+      const matrix = new WebKitCSSMatrix(style.transform);
+      return matrix.m41;
+    }
+
+    autoScroll();
+
+    carousel.addEventListener('mouseenter', () => { isAutoScrolling = false; });
+    carousel.addEventListener('mouseleave', () => { if (!isDragging) isAutoScrolling = true; });
+
+    carousel.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      isAutoScrolling = false;
+      carousel.classList.add('dragging');
+      startX = e.pageX;
+      currentX = getTranslateX(track);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX;
+      const walk = (x - startX);
+      track.style.transform = `translateX(${currentX + walk}px)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        carousel.classList.remove('dragging');
+        const currentTranslate = getTranslateX(track);
+        if (currentTranslate > -trackWidth / 2 || currentTranslate < -trackWidth * 2.5) {
+          track.style.transition = 'transform 0.5s ease';
+          track.style.transform = `translateX(${-trackWidth}px)`;
+          setTimeout(() => { track.style.transition = 'none'; }, 500);
+        }
+        setTimeout(() => {
+          if (!carousel.matches(':hover')) {
+            isAutoScrolling = true;
+          }
+        }, 1000);
+      }
+    });
+
+    carousel.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      isAutoScrolling = false;
+      carousel.classList.add('dragging');
+      startX = e.touches[0].pageX;
+      currentX = getTranslateX(track);
+    });
+
+    carousel.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX;
+      const walk = (x - startX);
+      track.style.transform = `translateX(${currentX + walk}px)`;
+    });
+
+    carousel.addEventListener('touchend', () => {
+      if (isDragging) {
+        isDragging = false;
+        carousel.classList.remove('dragging');
+        const currentTranslate = getTranslateX(track);
+        if (currentTranslate > -trackWidth / 2 || currentTranslate < -trackWidth * 2.5) {
+          track.style.transition = 'transform 0.5s ease';
+          track.style.transform = `translateX(${-trackWidth}px)`;
+          setTimeout(() => { track.style.transition = 'none'; }, 500);
+        }
+        setTimeout(() => {
+          if (!carousel.matches(':hover')) {
+            isAutoScrolling = true;
+          }
+        }, 1000);
+      }
+    });
+
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+  });
+</script>

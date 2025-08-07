@@ -1,0 +1,216 @@
+---
+import "../../styles/sections/success-keys.css";
+---
+
+<section id="success-keys" class="keys section">
+    <!-- Section Title -->
+    <div
+        class="container section-title"
+        data-aos="fade-up"
+        style="margin-bottom: -150px;"
+    >
+        <h2>Clés</h2>
+        <div>
+            <span>Ils témoignent</span>
+            <span class="description-title">
+                Voici 7 services clés pour réussir sur Internet.
+            </span>
+        </div>
+    </div>
+
+    <!-- Design Area -->
+    <div style="position: relative;">
+        <div class="design-container" id="designContainer" style=""></div>
+        <!-- <div class="fake-scroll" style="background-color: gray;"></div> -->
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("designContainer");
+
+        const pointsDesktop = [
+            { x: 0, y: 70 },
+            { x: 10, y: 70 },
+            { x: 25, y: 50 },
+            { x: 40, y: 60 },
+            { x: 55, y: 80 },
+            { x: 70, y: 60 },
+            { x: 85, y: 45 },
+            { x: 95, y: 70 },
+            { x: 105, y: 70 },
+        ];
+
+        const pointsMobileTablet = [
+            { x: 0, y: 35 },
+            { x: 15, y: 30 },
+            { x: 40, y: 35 },
+            { x: 25, y: 50 },
+            { x: 60, y: 65 },
+            { x: 70, y: 30 },
+            { x: 75, y: 70 },
+            { x: 90, y: 50 },
+            { x: 105, y: 50 },
+        ];
+
+        let points;
+
+        if (window.innerWidth >= 1024) {
+            points = pointsDesktop;
+        } else {
+            points = pointsMobileTablet;
+        }
+
+        const pointEls = [];
+        const lineEls = [];
+        const lineData = [];
+
+        for (let i = 1; i < points.length - 1; i++) {
+            const el = document.createElement("div");
+            el.className = "point";
+            el.style.left = `${points[i].x}%`;
+            el.style.top = `${points[i].y}%`;
+
+            const label = document.createElement("span");
+
+            let stepName;
+            switch (i) {
+                case 1:
+                    stepName = "Stratégie digitale";
+                    break;
+
+                case 2:
+                    stepName = "Identité visuelle";
+                    break;
+
+                case 3:
+                    stepName = "Site web";
+                    break;
+
+                case 4:
+                    stepName = "SEO";
+
+                    break;
+
+                case 5:
+                    stepName = "Contenu attractif";
+
+                    break;
+
+                case 6:
+                    stepName = "Réseaux sociaux";
+                    break;
+
+                case 6:
+                    stepName = "Stratégie digitale";
+                    break;
+
+                default:
+                    stepName = "Publicité en ligne";
+                    break;
+            }
+
+            label.textContent = stepName;
+            el.appendChild(label);
+
+            container.appendChild(el);
+            pointEls.push(el);
+
+            // if (i === points.length - 2) {
+            //     el.addEventListener("mouseenter", () => {
+            //         const ring = document.createElement("div");
+            //         ring.className = "success-ring";
+            //         el.appendChild(ring);
+            //         setTimeout(() => ring.remove(), 1000);
+            //     });
+            // }
+        }
+
+        for (let i = 0; i < points.length - 1; i++) {
+            const line = document.createElement("div");
+            line.className = "line";
+            container.appendChild(line);
+            lineEls.push(line);
+            lineData.push({ length: 0 });
+        }
+
+        function updateLines() {
+            const clesSection = document.getElementById("success-keys");
+            const sectionTop = clesSection.offsetTop - 150;
+            const sectionHeight = clesSection.offsetHeight;
+
+            const scrollY =
+                window.scrollY || document.documentElement.scrollTop;
+            const scrollInSection = (scrollY - sectionTop) * 3;
+            const progress = Math.min(
+                Math.max(scrollInSection / sectionHeight, 0),
+                1,
+            );
+            console.log(scrollY);
+            // if (scrollY < sectionTop) {
+            //     lineEls.forEach(line => line.style.width = "0px");
+            //     pointEls.forEach(cube => cube.classList.remove("active"));
+            //     return;
+            // }
+            if (scrollY >= 2476) {
+                const containerW = container.clientWidth;
+                const containerH = container.clientHeight;
+                const maxSegments = lineEls.length;
+                const maxVisible = maxSegments * progress;
+
+                let drawnPixels = 0;
+
+                for (let i = 0; i < lineEls.length; i++) {
+                    const line = lineEls[i];
+                    const p1 = {
+                        x: (points[i].x / 100) * containerW,
+                        y: (points[i].y / 100) * containerH,
+                    };
+                    const p2 = {
+                        x: (points[i + 1].x / 100) * containerW,
+                        y: (points[i + 1].y / 100) * containerH,
+                    };
+
+                    const dx = p2.x - p1.x;
+                    const dy = p2.y - p1.y;
+                    const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+                    const length = Math.sqrt(dx * dx + dy * dy);
+                    lineData[i].length = length;
+
+                    const segmentProgress = Math.min(
+                        Math.max(maxVisible - i, 0),
+                        1,
+                    );
+                    const drawnLength = segmentProgress * length;
+
+                    line.style.left = `${p1.x}px`;
+                    line.style.top = `${p1.y}px`;
+                    line.style.transform = `rotate(${angle}deg)`;
+                    line.style.width = `${drawnLength}px`;
+
+                    drawnPixels += drawnLength;
+
+                    if (i > 0 && i < points.length - 1) {
+                        const cube = pointEls[i - 1];
+
+                        let requiredPixels = 0;
+                        for (let j = 0; j < i; j++) {
+                            requiredPixels += lineData[j].length;
+                        }
+
+                        const reachThreshold = 10;
+                        if (drawnPixels >= requiredPixels - reachThreshold) {
+                            cube.classList.add("active");
+                        } else {
+                            cube.classList.remove("active");
+                        }
+                    }
+                }
+            }
+        }
+
+        window.addEventListener("scroll", updateLines);
+        window.addEventListener("resize", updateLines);
+        updateLines();
+    });
+</script>

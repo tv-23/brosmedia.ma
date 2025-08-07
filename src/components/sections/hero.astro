@@ -1,0 +1,281 @@
+---
+import ContactForm from "../contact-form.astro";
+---
+
+<style>
+    .animated-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        color: white; /* Default text color */
+        position: relative;
+        display: inline-block;
+    }
+    .animated-title .word {
+        display: inline-block;
+        animation: colorChange 5s infinite;
+        margin-right: 0.2rem; /* Small spacing between words */
+    }
+    .animated-title .word:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .animated-title .word:nth-child(2) {
+        animation-delay: 1s;
+    }
+    .animated-title .word:nth-child(3) {
+        animation-delay: 2s;
+    }
+    .animated-title .word:nth-child(5) {
+        animation-delay: 3s;
+    }
+    .animated-title .word:nth-child(6) {
+        animation-delay: 4s;
+    }
+
+    @keyframes colorChange {
+        0%,
+        20% {
+            background-color: #e30f29;
+        }
+        21%,
+        100% {
+            background-color: transparent;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .animated-title {
+            font-size: 1.8rem;
+        }
+        .animated-title .word {
+            margin-right: 0.1rem;
+        }
+    }
+
+    .main-heading > .animated-title > span {
+        padding: 3px;
+    }
+
+      .modal-body {
+            padding: 0px;
+        }
+        .modal-body > section{
+padding: 1px !important;
+        }
+
+        
+        .modal-body > section > div {
+            margin-top: 0px !important;
+            
+        }
+        .modal-header {
+            background-color: #0a0f4f;
+            border: none;
+        }
+
+        .modal-header > button > i {
+            color: white;
+        }
+        #exampleModal {
+            margin-top: 25px;
+        }
+        @media (min-width: 768px) {
+            .modal-dialog {
+                max-width: 75%;
+                margin: auto;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .modal-dialog {
+                max-width: 100%;
+                margin: 0;
+            }
+        }
+</style>
+<main class="main">
+    <section id="hero" class="hero section" style="padding-bottom:10px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 content-col" data-aos="fade-up">
+                    <div class="content">
+                        <div class="agency-name">
+                            <h5>NOTRE AGENCE</h5>
+                        </div>
+                        <div class="main-heading">
+                            <h1 class="animated-title">
+                                <span class="word">Agence</span>
+                                <span class="word">de</span>
+                                <span class="word">Communication</span>
+                                <br />
+                                <span class="word">Digitale</span>
+                                <span class="word">Maroc</span>
+                            </h1>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="description">
+                            <p>
+                                Peu importe le domaine dans lequel vous évoluez,
+                                notre agence de communication digitale vous
+                                accompagne de A à Z avec des services sur mesure
+                                : <strong
+                                    >création de sites web professionnels,
+                                    stratégies de marketing digital
+                                    personnalisées</strong
+                                >
+                                et <strong></strong>vidéos publicitaires percutantes</strong>. Renforcez votre
+                                présence en ligne, attirez plus de clients et valorisez
+                                votre image de marque grâce à des solutions modernes
+                                et efficaces.
+                            </p>
+                        </div>
+
+                        <div class="cta-button">
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                class="btn"
+                            >
+                                <span>Parlez directement à un spécialiste de notre équipe</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5" data-aos="zoom-out">
+                    <div class="visual-content">
+                        <div class="fluid-shape">
+                            <div
+                                class="position-relative cursor-pointer overflow-hidden"
+                                id="video-thumbnail"
+                                role="button"
+                                aria-label="Play video"
+                                tabindex="0"
+                            >
+                                <img
+                                    src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                                    alt="Video thumbnail"
+                                    class="w-100 h-100 video-img"
+                                    style="object-fit: cover;"
+                                />
+                                <!-- Play Button Overlay -->
+                                <div
+                                    class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                                >
+                                    <div
+                                        class="bg-white bg-opacity-80 rounded-circle d-flex align-items-center justify-content-center shadow"
+                                        style="width: 80px; height: 80px; transition: transform 0.3s ease;"
+                                    >
+                                        <svg
+                                            class="w-10 h-10 text-primary"
+                                            fill="currentColor"
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="M8 5v14l11-7z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-card">
+                            <div class="stats-number">
+                                <h2>100+</h2>
+                            </div>
+                            <div class="stats-label">
+                                <p>Des clients satisfaits</p>
+                            </div>
+                            <div class="stats-arrow">
+                                <a href="#testimonial-section"
+                                    ><i class="bi bi-arrow-up-right"></i></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br/>
+            <br/>
+            <br/>
+
+            <h1>Quelques-Uns De Nos 100+ Clients</h1>
+        </div>
+
+        
+
+    </section>
+
+
+    <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <section id="contact" class="contact section">
+                        <!-- Contact Form Section (Overlapping) -->
+                        <div class="container form-container-overlap">
+                            <div
+                                class="row justify-content-center"
+                                data-aos="fade-up"
+                                data-aos-delay="300"
+                            >
+                                <div class="col-lg-10">
+                                    <ContactForm/>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const thumbnail = document.getElementById("video-thumbnail");
+        if (!thumbnail) return;
+
+        const playVideo = () => {
+            const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.className = "w-100 h-100 position-absolute top-0 start-0";
+            iframe.title = "YouTube video player";
+            iframe.allowFullscreen = true;
+            thumbnail.innerHTML = "";
+            thumbnail.appendChild(iframe);
+        };
+
+        thumbnail.addEventListener("click", playVideo);
+        thumbnail.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                playVideo();
+            }
+        });
+    });
+</script>
