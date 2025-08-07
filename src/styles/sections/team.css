@@ -162,7 +162,7 @@ font-family: Arial, sans-serif;
     flex-direction: column;
   }
   .image-col, .image-wrapper {
-    height: 220px;
+    height: 100%;
     padding: 12px;
   }
   .team-photo {
@@ -174,5 +174,8 @@ font-family: Arial, sans-serif;
   }
   .team-stat {
     font-size: 2rem;
+  }
+  .team-quote{
+margin-top: 0px;
   }
 }
