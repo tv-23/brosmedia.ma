@@ -1,0 +1,116 @@
+---
+import "../../styles/sections/team.css";
+
+
+const slides = [
+  {
+    img: "https://brosmedia.ma/wp-content/uploads/2023/10/hamza-charif-tribak.webp", // حط المسار ديال الصورة
+    name: "HAMZA",
+    role: "FONDATEUR",
+    quote:
+      "Après avoir obtenu un diplôme en programmation, il se plonge dans le monde du design, et par la suite, il décide de créer BrosMedia."
+  },
+  {
+    img: "https://brosmedia.ma/wp-content/uploads/2023/10/youssra-charif-tribak.webp",
+    name: "Youssra",
+    role: "Chif Officier Technique",
+    quote:
+      "Poussée par les défis et l'ambition, elle est devenue la responsable des solutions en programmation chez Brosmedia."
+  },
+    {
+    img: "https://brosmedia.ma/wp-content/uploads/2024/10/Abdel-aziz.jpg",
+    name: "Abdel-Aziz",
+    role: "Dévelopeur Web",
+    quote:
+      "Passionné par la technologie et l’innovation, il conçoit et optimise des sites web performants et ergonomiques.",
+  }
+];
+---
+<!-- Swiper CSS (CDN) -->
+<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+<section id="team" class="team section light-background">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+    <h2>Équipe</h2>
+    <div>
+        <span>Découvrez notre</span>
+        <span class="description-title">Équipe</span>
+    </div>
+</div>
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+
+<div class="team-slider-wrapper container-lg py-4">
+  <div class="swiper myTeamSwiper">
+    <div class="swiper-wrapper">
+      {slides.map(slide => (
+        <div class="swiper-slide">
+          <div class="team-card row gx-0 align-items-stretch">
+            <!-- LEFT: image -->
+            <div class="col-md-5 image-col">
+              <div class="image-wrapper">
+                <img src={slide.img} alt={slide.name} class="team-photo" />
+                <!-- left arrow (for large visual only, actual swiper nav used) -->
+              </div>
+            </div>
+
+            <!-- RIGHT: content -->
+            <div class="col-md-7 content-col position-relative">
+             
+           
+
+              <div class="content-inner h-100 d-flex flex-column justify-content-start">
+                <div class="name-block">
+                  <h3 class="team-name">{slide.name}</h3>
+                  <p class="team-role mb-4">{slide.role}</p>
+                </div>
+
+                <div class="quote-block mb-4">
+                  <p class="team-quote">“{slide.quote}”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- navigation buttons -->
+    <div class="swiper-button-prev custom-nav"></div>
+    <div class="swiper-button-next custom-nav"></div>
+
+    <!-- pagination (optional) -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+    </div>
+</section>
+
+<!-- Swiper JS (CDN) + init script -->
+<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+<script>
+  // انتظر DOM ثم init
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".myTeamSwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true
+      // },
+      // responsive breakpoints: لو بغيتي تعدل العرض فـ lg
+      breakpoints: {
+        992: {
+          slidesPerView: 1
+        }
+      }
+    });
+  });
+</script>
