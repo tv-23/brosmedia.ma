@@ -1,42 +1,97 @@
-<div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+<div class="header-container container-fluid container-xl position-relative">
+  <!-- Top bar row -->
+  <div class="row w-100 mb-3">
+    <div class="col-12" style="padding: 0;">
+      <div
+        class="top-bar d-flex justify-content-between align-items-center py-2 px-3 text-white"
+      >
+        <div class="top-bar-left d-flex align-items-center gap-3">
+          <!-- Contact email with Gmail compose link, hidden on mobile and tablet -->
+          <span class="d-none d-lg-flex align-items-center">
+            <i class="bi bi-envelope me-1" aria-hidden="true"></i>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@brosmedia.ma"
+              target="_blank"
+              class="text-white text-decoration-none hover:text-gray-300"
+              aria-label="Email us at contact@brosmedia.ma"
+            >
+              contact@brosmedia.ma
+            </a>
+          </span>
+          <!-- Business hours, hidden on mobile and tablet -->
+          <span class="d-none d-lg-flex align-items-center">
+            <i class="bi bi-clock-history me-1" aria-hidden="true"></i>
+            Lundi-Samedi: 10h30 - 18h00
+          </span>
+        </div>
+        <div class="top-bar-right d-flex align-items-center gap-2 nowrap">
+          <!-- Social media links, visible on all devices -->
+          <span class="d-flex align-items-center">
+            <span class="d-none d-lg-block"> Suivez-nous sur </span>
+            <a
+              href="https://www.facebook.com/BROSMEDIA.PRODUCTION"
+              class="ms-2 text-white hover:text-gray-300"
+              aria-label="Follow us on Facebook"
+              target="_blank"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/brosmedia.digital"
+              class="ms-2 text-white hover:text-gray-300"
+              aria-label="Follow us on Twitter"
+              target="_blank"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a
+              href="https://ma.linkedin.com/company/brosmedia-sarl"
+              class="ms-2 text-white hover:text-gray-300"
+              aria-label="Follow us on LinkedIn"
+              target="_blank"
+            >
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </span>
+          <!-- Contact phone, visible on all devices -->
+          <span class="d-flex align-items-center ms-3">
+            <i class="bi bi-telephone-outbound me-1"></i>
+            <a
+href="tel:+212671884968"              class="text-white text-decoration-none hover:text-gray-300"
+              aria-label="Call us at +1 234 567 890"
+            >
++212 6 71 88 49 68            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-    <!-- Uncomment the line below if you also wish to use an image logo -->
-    <!-- <img src="assets/img/logo.webp" alt=""> -->
-    <h1 class="sitename">Strategy</h1>
-  </a>
-
-  <nav id="navmenu" class="navmenu">
-    <ul>
-      <li><a href="#hero" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#team">Team</a></li>
-      <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+  <!-- Logo, nav, and button row -->
+  <div class="row w-100 d-flex align-items-center justify-content-between">
+    <div class="col-auto">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">
+          <img
+            src="/Logo-brosmedia-png.webp"
+            alt="Logo"
+            class="h-10 w-auto sm:h-10 md:h-10 lg:h-12 object-contain"
+          />
+        </h1>
+      </a>
+    </div>
+    <div class="col-auto">
+      <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#">Dropdown 1</a></li>
-          <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Deep Dropdown 1</a></li>
-              <li><a href="#">Deep Dropdown 2</a></li>
-              <li><a href="#">Deep Dropdown 3</a></li>
-              <li><a href="#">Deep Dropdown 4</a></li>
-              <li><a href="#">Deep Dropdown 5</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Dropdown 2</a></li>
-          <li><a href="#">Dropdown 3</a></li>
-          <li><a href="#">Dropdown 4</a></li>
+          <li><a href="#hero" class="active">Accueil</a></li>
         </ul>
-      </li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-  </nav>
-
-  <a class="btn-getstarted" href="#about">Get Started</a>
-
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+    <div class="col-auto d-none d-lg-block">
+      <a class="btn-getstarted" href="#about">Contact</a>
+    </div>
+  </div>
 </div>
 
 <!-- <div class="text-white text-sm brosmedia-menu py-2">
@@ -196,7 +251,6 @@
           </svg>
           <svg
             class="h-6 w-6 d-none"
-            class="h-6 w-6 d-none"
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -214,8 +268,8 @@
       </div>
     </div>
   </div>
-  <div class="d-md-none" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3">
+  <div class="hidden md:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <a
         href="#"
         class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"

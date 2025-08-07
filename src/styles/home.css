@@ -1,57 +1,58 @@
-/* h1.company-name {
-    position: relative;
-    overflow: hidden;
-    color: #0a0f4f;
-    font-size: 36px;
+.main-heading h1 {
+  text-align: initial !important;
 }
 
-h1.company-name:before {
-    content: '';
-    position: absolute;
-    left: 120%;
-    width: 120%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent 0%, white 5%, white 100%);
-    animation: animate 10s linear;
+.experience-badge>.stats-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
 }
 
-@keyframes animate {
-    0% {
-        left: 20%;
-    }
-    50% {
-        left: 120%;
-    }
+.experience-badge>.stats-arrow>a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #0a0f4f;
+  border-radius: 50%;
+  color: var(--contrast-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-#our_capabilities {
-    position: relative;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 25px;
-    font-weight: 600;
+.experience-badge>.stats-arrow>a:hover {
+  transform: translateY(-3px);
+  background-color: color-mix(in srgb, #0a0f4f, transparent 20%);
 }
 
-#our_capabilities span {
-    color: #111;
-    color: #111;
-    padding: 5px;
-    border-radius: 5px;
+.fluid-shape {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
 }
 
-.brosmedia-btn {
-    background-color: #0a0f4f;
-    font-weight: 500;
+#video-thumbnail {
+  width: 100%;
+  height: 100%;
 }
 
-.brosmedia-btn:hover {
-    background-color: #0a0f4f;
-    color: navajowhite;
+#video-thumbnail:hover .rounded-circle {
+  transform: scale(1.1);
 }
 
-h2#our_capabilities>span {
-    color: #e30f29;
-    text-decoration: underline;
-    font-weight: 500;
-} */
+@media (max-width: 576px) {
+  .fluid-shape {
+    aspect-ratio: 4 / 3;
+  }
+
+  .rounded-circle {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .rounded-circle svg {
+    width: 30px;
+    height: 30px;
+  }
+}
