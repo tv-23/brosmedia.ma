@@ -1,0 +1,606 @@
+---
+import AppointmentForm from "../telephone-appointment-form.astro";
+---
+
+<style>
+    button#maxSTR {
+        background-color: #e30f29;
+        color: white;
+        font-weight: 600;
+        border-color: #e30f29;
+        padding: 0.75rem 1.5rem;
+    }
+
+    button#maxSTR:hover {
+        background-color: #0a0f4f;
+        border-color: #0a0f4f;
+    }
+
+    .contact .form-container-overlap {
+        margin-top: -20px;
+    }
+
+    div#MaxModal > div > div {
+        background-color: #0a0f4f;
+    }
+
+    .modal-header {
+        border: none;
+    }
+    .bi-x-lg::before {
+        color: white;
+    }
+
+    .row.mt-4.why-choose > .section-title {
+        padding-bottom: 30px;
+    }
+</style>
+
+<!-- Client MAX -->
+<section id="" class="client-max section">
+    <!-- Section Title -->
+    <div
+        class="container section-title"
+        data-aos="fade-up"
+        data-aos-delay="100"
+    >
+        <h2>Client <span>MAX</span></h2>
+        <div>
+            <span>Découvrez notre</span>
+            <span class="description-title">stratégie digitale</span>
+        </div>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container my-5">
+        <div class="row">
+            <div
+                class="col-md-7"
+                class="content-left flex-grow-1"
+                data-aos="fade-right"
+                data-aos-delay="200"
+            >
+                <div class="description">
+                    <p>
+                        La stratégie Client MAX vise à créer un site web
+                        professionnel optimisé pour la conversion et à lancer
+                        des campagnes publicitaires Google Ads pour attirer des
+                        prospects qualifiés et obtenir des réservations ou des
+                        demandes de devis.
+                    </p>
+                    <p>
+                        Cette stratégie digitale inclut un suivi rigoureux et
+                        l’optimisation continue des campagnes, accompagné d’un
+                        rapport mensuel détaillé.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <i class="bi bi-laptop me-2"></i> Création d’un site
+                            internet
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-megaphone me-2"></i> Lancement de campagnes
+                            publicitaires
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-cart-check me-2"></i> Mise en place entre
+                            15 et 30 jours
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-cart-check me-2"></i> Pour une durée
+                            de 3 à 6 mois
+                        </li>
+                    </ul>
+
+                    <div class="cta-button">
+                        <button
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#MaxModal"
+                            class="btn"
+                        >
+                            <span>Appel de découverte</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="col-md-5"
+                class="content-right position-relative"
+                data-aos="fade-left"
+                data-aos-delay="300"
+            >
+                <div class="visual-content">
+                    <div class="fluid-shape">
+                        <div
+                            class="position-relative cursor-pointer overflow-hidden"
+                            id="video-thumbnail"
+                            role="button"
+                            aria-label="Play video"
+                            tabindex="0"
+                        >
+                            <img
+                                src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                                alt="Video thumbnail"
+                                class="w-100 h-100 video-img"
+                                style="object-fit: cover;"
+                            />
+                            <!-- Play Button Overlay -->
+                            <div
+                                class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                            >
+                                <div
+                                    class="bg-white bg-opacity-80 rounded-circle d-flex align-items-center justify-content-center shadow"
+                                    style="width: 80px; height: 80px; transition: transform 0.3s ease;"
+                                >
+                                    <svg
+                                        class="w-10 h-10 text-primary"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M8 5v14l11-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Modal Button -->
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#MaxModal"
+                                id="maxSTR"
+                                class="btn position-absolute bottom-0 start-50 translate-middle-x mb-3"
+                                style="z-index: 10;"
+                            >
+                                <span>Appel de découverte</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 why-choose">
+            <div class="container section-title" data-aos="fade-up">
+                <div>
+                    <span>Pourquoi choisir</span>
+                    <span class="description-title">Client MAX ?</span>
+                </div>
+            </div>
+            <div
+                class="col-md-6 description"
+                data-aos="fade-right"
+                data-aos-delay="200"
+            >
+                <p style="font-weight: 600;">
+                    <span class="text-primary"
+                        ><i class="bi bi-calendar me-2"></i></span
+                    > +86% de réservations ou demandes de devis
+                </p>
+                <p>
+                    <span class="text-warning"
+                        ><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i></span
+                    > +40 Clients
+                </p>
+                <br />
+                <br />
+                <p class="">
+                    Client MAX est idéal pour les TPE, PME qui ont déjà une
+                    offre commerciale claire et qui souhaitent augmenter leur
+                    nombre de clients rapidement.
+                </p>
+                <p class="">
+                    En plus de vous démarquer de la concurrence, la mise en
+                    place de cette stratégie digitale vous permet de maximiser
+                    votre présence en ligne et d’attirer des prospects
+                    qualifiés.
+                </p>
+            </div>
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                <img
+                    src="https://hkcom.fr/wp-content/uploads/2024/08/HKCOM-Client-Max.webp"
+                    alt="Visibilité MAX"
+                    class="img-fluid rounded shadow"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impact MAX -->
+<section id="" class="client-max section">
+    <!-- Section Title -->
+    <div
+        class="container section-title"
+        data-aos="fade-up"
+        data-aos-delay="100"
+    >
+        <h2>Impact <span>MAX</span></h2>
+        <div>
+            <span>Obtenez des</span>
+            <span class="description-title">résultats puissants</span>
+        </div>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-5" data-aos="fade-right" data-aos-delay="200">
+                <div class="visual-content">
+                    <div class="fluid-shape">
+                        <div
+                            class="position-relative cursor-pointer overflow-hidden"
+                            id="video-thumbnail"
+                            role="button"
+                            aria-label="Play video"
+                            tabindex="0"
+                        >
+                            <img
+                                src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                                alt="Video thumbnail"
+                                class="w-100 h-100 video-img"
+                                style="object-fit: cover;"
+                            />
+                            <!-- Play Button Overlay -->
+                            <div
+                                class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                            >
+                                <div
+                                    class="bg-white bg-opacity-80 rounded-circle d-flex align-items-center justify-content-center shadow"
+                                    style="width: 80px; height: 80px; transition: transform 0.3s ease;"
+                                >
+                                    <svg
+                                        class="w-10 h-10 text-primary"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M8 5v14l11-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Modal Button -->
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#MaxModal"
+                                id="maxSTR"
+                                class="btn position-absolute bottom-0 start-50 translate-middle-x mb-3"
+                                style="z-index: 10;"
+                            >
+                                <span>Appel de découverte</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7" data-aos="fade-left" data-aos-delay="300">
+                <div class="description">
+                    <p>
+                        Avec notre stratégie Impact MAX, nous créons des
+                        campagnes de prospection automatisée sur LinkedIn pour
+                        obtenir plus de rendez-vous qualifiés.
+                    </p>
+                    <p>
+                        En plus, nous récoltons les mails et numéros de
+                        téléphones de vos cibles de façon RGPD. Cette approche
+                        assure un flux régulier et continue de nouveaux
+                        prospects B2B pour votre activité.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <i class="bi bi-laptop me-2"></i> Prospection Linkedin
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-megaphone me-2"></i> Rendez-vous qualifiés
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-cart-check me-2"></i> Mise en place sous
+                            3 semaines
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-cart-check me-2"></i> Pour une durée
+                            de 3 mois
+                        </li>
+                    </ul>
+
+                    <div class="cta-button">
+                        <button
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#MaxModal"
+                            class="btn"
+                        >
+                            <span>Appel de découverte</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 why-choose">
+            <div class="container section-title" data-aos="fade-up">
+                <div>
+                    <span>Pourquoi choisir</span>
+                    <span class="description-title">Impact MAX ?</span>
+                </div>
+            </div>
+            <div
+                class="col-md-6 description"
+                data-aos="fade-right"
+                data-aos-delay="200"
+            >
+                <p style="font-weight: 600;">
+                    <span class="text-primary"
+                        ><i class="bi bi-calendar me-2"></i></span
+                    > Jusqu'à 10 nouveaux prospects par semaine
+                </p>
+                <p>
+                    <span class="text-warning"
+                        ><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i></span
+                    > +20 Clients
+                </p>
+                <br />
+                <br />
+                <p class="">
+                    L’offre Impact MAX est idéale pour les TPE PME ayant une
+                    cible B2B précise et disposant d’un service commercial.
+                </p>
+                <p class="">
+                    En plus d’obtenir entre 2 et 7 nouveaux rendez-vous
+                    qualifiés par semaine, cette stratégie digitale vous
+                    permettra également d’alimenter vos fichiers de prospection
+                    emailing ou calling.
+                </p>
+            </div>
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                <img
+                    src="https://hkcom.fr/wp-content/uploads/2024/08/HKCOM-Impact-Max.webp"
+                    alt="Visibilité MAX"
+                    class="img-fluid rounded shadow"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Visibilité MAX -->
+<section id="" class="client-max section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Visibilité <span>MAX</span></h2>
+        <div>
+            <span>Boostez votre</span>
+            <span class="description-title">présence en ligne</span>
+        </div>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-7" data-aos="fade-right" data-aos-delay="200">
+                <div class="description">
+                    <p>
+                        Visibilité MAX est LA stratégie du moment, idéale pour les commerces de proximité. Avec cette stratégie digitale, nous créons du contenu images et vidéos autour d’un de vos service ou produit de façon professionnel avec des appels à l’action.
+                    </p>
+                    <p>
+                       Une fois que vous êtes satisfait, nous choisissons la meilleure plateforme pour diffuser votre contenu afin de maximiser votre visibilité en ligne et d’augmenter votre chiffre d’affaires.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <i class="bi bi-laptop me-2"></i> Production de contenu
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-megaphone me-2"></i> Lancement de campagnes publicitaires
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-cart-check me-2"></i>Mise en place entre 15 et 30 jours
+                        </li>
+                        <li class="my-2">
+                            <i class="bi bi-cart-check me-2"></i> Pour une durée de 3 à 6 mois
+                        </li>
+                    </ul>
+
+                    <div class="cta-button">
+                        <button
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#MaxModal"
+                            class="btn"
+                        >
+                            <span>Appel de découverte</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-5" data-aos="fade-left" data-aos-delay="300">
+                <div class="visual-content">
+                    <div class="fluid-shape">
+                        <div
+                            class="position-relative cursor-pointer overflow-hidden"
+                            id="video-thumbnail"
+                            role="button"
+                            aria-label="Play video"
+                            tabindex="0"
+                        >
+                            <img
+                                src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                                alt="Video thumbnail"
+                                class="w-100 h-100 video-img"
+                                style="object-fit: cover;"
+                            />
+                            <!-- Play Button Overlay -->
+                            <div
+                                class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                            >
+                                <div
+                                    class="bg-white bg-opacity-80 rounded-circle d-flex align-items-center justify-content-center shadow"
+                                    style="width: 80px; height: 80px; transition: transform 0.3s ease;"
+                                >
+                                    <svg
+                                        class="w-10 h-10 text-primary"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M8 5v14l11-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Modal Button -->
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#MaxModal"
+                                id="maxSTR"
+                                class="btn position-absolute bottom-0 start-50 translate-middle-x mb-3"
+                                style="z-index: 10;"
+                            >
+                                <span>Appel de découverte</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 why-choose">
+            <div class="container section-title" data-aos="fade-up">
+                <div>
+                    <span>Pourquoi choisir</span>
+                    <span class="description-title">Visibilité MAX ?</span>
+                </div>
+            </div>
+            <div
+                class="col-md-6 description"
+                data-aos="fade-right"
+                data-aos-delay="200"
+            >
+                <p style="font-weight: 600;">
+                    <span class="text-primary"
+                        ><i class="bi bi-calendar me-2"></i></span
+                    > Jusqu'à +300% de retour sur investissement
+                </p>
+                <p>
+                    <span class="text-warning"
+                        ><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i></span
+                    > +20 Clients
+                </p>
+                <br />
+                <br />
+                <p class="">
+                   Visibilité MAX est idéale pour faire découvrir votre activité ou pour attirer du trafic en magasin. 100% des clients qui ont choisi cette stratégie sont satisfaits pour la simple et bonne raison qu’ils ont vu rapidement un retour sur investissement positif !
+                </p>
+             
+            </div>
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                <img
+                    src="https://hkcom.fr/wp-content/uploads/2024/08/HKCOM-Visibilte-Max.webp"
+                    alt="Visibilité MAX"
+                    class="img-fluid rounded shadow"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="MaxModal"
+    tabindex="-1"
+    aria-labelledby="MaxModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" style="    min-width: 800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <section id="contact" class="contact section">
+                    <!-- Contact Form Section (Overlapping) -->
+                    <div class="container form-container-overlap">
+                        <div
+                            class="row justify-content-center"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                        >
+                            <div class="col-lg-10">
+                                <AppointmentForm />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const thumbnail = document.getElementById("video-thumbnail");
+        if (!thumbnail) return;
+
+        const playVideo = () => {
+            const videoId = "dQw4w9WgXcQ"; // Replace with your YouTube video ID
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.className = "w-100 h-100 position-absolute top-0 start-0";
+            iframe.title = "YouTube video player";
+            iframe.allowFullscreen = true;
+            thumbnail.innerHTML = "";
+            thumbnail.appendChild(iframe);
+            thumbnail.appendChild(
+                document.getElementById("maxSTR").cloneNode(true),
+            ); // Re-add button
+        };
+
+        thumbnail.addEventListener("click", playVideo);
+        thumbnail.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                playVideo();
+            }
+        });
+
+        // Modal functionality
+        const maxSTR = document.getElementById("maxSTR");
+        const modal = document.getElementById("MaxModal");
+        const closeModal = document.getElementsByClassName("close")[0];
+
+        maxSTR.onclick = function () {
+            modal.style.display = "block";
+        };
+
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    });
+</script>
