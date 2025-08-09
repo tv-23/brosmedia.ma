@@ -875,11 +875,12 @@ section,
   }
 }
 
-.hero .description {
+.hero .description,.client-max>div>div>div>div.description,.why-choose>div.description {
   margin-bottom: 2.5rem;
 }
 
-.hero .description p {
+.hero .description p ,.client-max>div>div>div>div.description>p,.client-max>div>div>div>div.description>ul,
+.why-choose>div.description>p{
   font-size: 1rem;
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
@@ -887,6 +888,7 @@ section,
 }
 
 .hero .cta-button .btn,
+.client-max .cta-button .btn,
 form>.btn {
   display: inline-flex;
   align-items: center;
@@ -913,6 +915,7 @@ form>.btn>i {
 }
 
 .hero .cta-button .btn:hover,
+.client-max .cta-button .btn:hover,
 form>.btn:hover {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
@@ -920,6 +923,7 @@ form>.btn:hover {
 }
 
 .hero .cta-button .btn:hover i,
+.client-max .cta-button .btn:hover i,
 form>.btn:hover i {
   transform: translateX(5px);
 }
