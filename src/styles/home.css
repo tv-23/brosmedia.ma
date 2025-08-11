@@ -82,3 +82,13 @@
     font-weight: 600 !important;
     background-color: #0a0f4f !important;
 }
+
+.services {
+    margin-top: -160px;
+}
+
+@media (max-width: 768px) {
+    .services {
+        margin-top: -100px;
+    }
+}

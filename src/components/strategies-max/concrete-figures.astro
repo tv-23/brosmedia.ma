@@ -1,0 +1,70 @@
+---
+import "../../styles/sections/concrete-figures.css";
+---
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+/>
+<style></style>
+
+<section>
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Chiffres concrets</h2>
+        <div>
+            <span>Découvrez nos</span>
+            <span class="description-title">
+                succès pour atteindre vos objectifs en ligne.
+            </span>
+        </div>
+    </div>
+    <div class="container" style="position: relative;">
+        <div class="wrapper">
+            <div class="container">
+                <i class="bi bi-hand-thumbs-up"></i>
+                <span class="num" data-val="99">000</span>
+                <span class="text">Client satisfait</span>
+            </div>
+
+            <div class="container">
+                <i class="bi bi-graph-up-arrow"></i>
+                <span class="num" data-val="225">000</span>
+                <span class="text">Conversions Client Généré</span>
+            </div>
+
+            <div class="container">
+                <i class="bi bi-cash-stack"></i>
+                <span class="num" data-val="280">000</span>
+                <span class="text">Chiffres d'affaires Généré</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    let valueDisplays = document.querySelectorAll(".num");
+    let interval = 4000;
+
+    valueDisplays.forEach((valueDisplay, key) => {
+        let startValue = 0;
+        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+        let duration = Math.floor(interval / endValue);
+        let counter = setInterval(function () {
+            startValue += 1;
+
+            switch (key) {
+                case 0:
+                    valueDisplay.textContent = startValue + "%";
+                    break;
+
+                default:
+                    valueDisplay.textContent = "+" + startValue;
+                    break;
+            }
+
+            if (startValue == endValue) {
+                clearInterval(counter);
+            }
+        }, duration);
+    });
+</script>
