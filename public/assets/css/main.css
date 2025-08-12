@@ -1200,7 +1200,7 @@ section,
 }
 
 .about .testimonial-section .testimonial-item p {
-  font-style: italic;
+  /* font-style: italic; */
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.6;
@@ -1838,7 +1838,7 @@ section,
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 30px;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .testimonials .testimonial-item .profile {
@@ -3641,7 +3641,7 @@ section,
 }
 
 .service-details .service-sidebar .testimonial-card .testimonial-text {
-  font-style: italic;
+  /* font-style: italic; */
   line-height: 1.7;
   margin-bottom: 20px;
   color: color-mix(in srgb, var(--default-color), transparent 15%);
