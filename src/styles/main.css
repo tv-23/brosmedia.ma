@@ -166,7 +166,7 @@ h6 {
 
 .header .header-container {
   background: var(--surface-color);
-  padding: 5px 25px 5px 30px;
+  padding: 5px 1px 5px 8px;
 }
 
 .header .logo {
@@ -193,7 +193,7 @@ h6 {
   background: var(--accent-color);
   font-size: 14px;
   padding: 8px 20px;
-  margin: 0 0 0 30px;
+  margin: 0 -12px 0 30px;
   transition: 0.3s;
 }
 
@@ -211,7 +211,7 @@ h6 {
   .header .header-container {
     margin-left: 10px;
     margin-right: 10px;
-    padding: 10px 5px 10px 15px;
+    padding: 10px 0px 10px 6px;
   }
 
   .header .logo {
@@ -345,7 +345,7 @@ h6 {
     color: var(--nav-color);
     font-size: 28px;
     line-height: 0;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     cursor: pointer;
     transition: color 0.3s;
   }
