@@ -1,8 +1,8 @@
 .wrapper {
-    width: 80vw;
+    width: 100%;
     display: flex;
     justify-content: space-around;
-    gap: 10px;
+    gap: 20px;
 }
 
 .wrapper>.container {
@@ -70,6 +70,6 @@
     }
     .wrapper>.container {
         width: 100%;
-        height: 37vmin;
+        height: 41vmin;
     }
 }

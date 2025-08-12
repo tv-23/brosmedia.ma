@@ -2,13 +2,7 @@
 import "../../styles/sections/concrete-figures.css";
 ---
 
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-/>
-<style></style>
-
-<section>
+<section id="concrete-figures">
     <div class="container section-title" data-aos="fade-up">
         <h2>Chiffres concrets</h2>
         <div>
@@ -42,29 +36,51 @@ import "../../styles/sections/concrete-figures.css";
 </section>
 
 <script>
-    let valueDisplays = document.querySelectorAll(".num");
-    let interval = 4000;
+    document.addEventListener("DOMContentLoaded", function () {
+        function startConcreteFigures() {
+            let valueDisplays = document.querySelectorAll(".num");
+            let interval = 4000;
 
-    valueDisplays.forEach((valueDisplay, key) => {
-        let startValue = 0;
-        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-        let duration = Math.floor(interval / endValue);
-        let counter = setInterval(function () {
-            startValue += 1;
+            valueDisplays.forEach((valueDisplay, key) => {
+                let startValue = 0;
+                let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+                let duration = Math.floor(interval / endValue);
+                let counter = setInterval(function () {
+                    startValue += 1;
 
-            switch (key) {
-                case 0:
-                    valueDisplay.textContent = startValue + "%";
-                    break;
+                    switch (key) {
+                        case 0:
+                            valueDisplay.textContent = startValue + "%";
+                            break;
 
-                default:
-                    valueDisplay.textContent = "+" + startValue;
-                    break;
-            }
+                        default:
+                            valueDisplay.textContent = "+" + startValue;
+                            break;
+                    }
 
-            if (startValue == endValue) {
-                clearInterval(counter);
-            }
-        }, duration);
+                    if (startValue == endValue) {
+                        clearInterval(counter);
+                    }
+                }, duration);
+            });
+        }
+
+
+         const section = document.getElementById("concrete-figures");
+    let triggered = false; // Avoid multiple triggers
+
+    function checkVisibility() {
+        const rect = section.getBoundingClientRect();
+        const inView = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+        if (inView && !triggered) {
+            triggered = true;
+            // 🚀 Place your animation, counter, or function here
+            startConcreteFigures();
+        }
+    }
+
+            window.addEventListener("scroll", checkVisibility);
+
     });
 </script>
