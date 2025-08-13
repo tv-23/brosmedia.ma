@@ -62,14 +62,15 @@ const portfolio = [
                                     <div class="entry-overlay">
                                         <div class="overlay-content">
                                             <div class="entry-meta badge bg-primary">
-                                                UI/UX Design
+                                                {p.badge}
                                             </div>
                                             <h3 class="entry-title">
-                                                Mobile Banking App
+                                                                                                {p.title}
+
                                             </h3>
                                             <div class="entry-links">
                                                 <a
-                                                    href="/our-references/1.png"
+                                                    href={p.img}
                                                     class="glightbox"
                                                     data-gallery="portfolio-gallery-ui"
                                                     data-glightbox="title: Mobile Banking App; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur."
