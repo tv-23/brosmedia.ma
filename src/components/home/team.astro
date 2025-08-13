@@ -8,35 +8,35 @@ const slides = [
     name: "HAMZA",
     role: "FONDATEUR",
     quote:
-      "Brosmedia, fondée par Hamza après un parcours en programmation et en travail en freelance, offre des solutions digitales complètes incluant la création de sites web, le marketing digital et la production de contenu, afin d’aider les marques à réussir dans l’univers numérique."
+      "Brosmedia, fondée par Hamza après un parcours réussi en programmation et en freelance, propose des solutions digitales complètes : création de sites web, marketing digital et production de contenu. Grâce à sa vision stratégique et son esprit entrepreneurial."
   },
   {
     img: "/team/yousra-charif-tribak.png",
     name: "Youssra",
     role: "Chif Officier Technique",
     quote:
-      "Après avoir excellé dans ses études en programmation et acquis de solides compétences techniques, Yousra a décidé de reprendre le flambeau et de se lancer dans l’entrepreneuriat aux côtés de son frère Hamza. Grâce à son expertise et à sa créativité, elle a pris la direction technique de l’entreprise, devenant ainsi une partenaire essentielle, contribuant au développement des projets et à la qualité des services digitaux proposés par Brosmedia ."
+      "Après avoir excellé en programmation et acquis une solide expérience technique, Yousra a rejoint son frère Hamza pour co-diriger Brosmedia. Alliant expertise et créativité, elle supervise la direction technique, garantissant la qualité et l’innovation dans chaque projet digital."
   },
     {
     img: "/team/abdaziz.png",
     name: "AbdelAziz",
     role: "Dévelopeur Web",
     quote:
-      "Abdelaziz n’est pas seulement un programmeur au sein de l’entreprise, mais un partenaire clé dans chaque projet de développement, veillant au respect des plus hauts standards de qualité et supervisant chaque détail pour garantir la réussite des projets. Il assure également la formation et l’accompagnement des stagiaires, leur transmettant ses connaissances et son expertise technique. Reconnu pour son ses performances remarquables, Abdelaziz est un pilier essentiel de l’équipe Brosmedia .",
+      "Abdelaziz, programmeur et partenaire clé, veille au respect des plus hauts standards de qualité dans tous les projets de développement. Il forme et accompagne également les stagiaires, partageant son savoir-faire technique. Sa rigueur et ses compétences font de lui un pilier essentiel de Brosmedia.",
   },
    {
     img: "/team/firdaws.png",
     name: "Firdaws",
     role: "Graphiste",
     quote:
-      "Après avoir démontré son sérieux et sa créativité lors de son stage en design graphique, Firdaws a gagné sa place au sein de la famille Brosmedia, devenant un élément clé dans chaque projet grâce à ses observations précises et son sens analytique. Elle possède également une solide expérience en expérience utilisateur (UX) et en optimisation pour les moteurs de recherche (SEO), rendant sa contribution essentielle au développement et à la qualité des projets digitaux.",
+      "Firdaws, spécialiste en design graphique, UX et SEO, s’est imposée comme un atout majeur après un stage concluant. Son sens analytique et ses observations précises renforcent la qualité et la pertinence de chaque projet mené par Brosmedia.",
   },
    {
     img: "/team/yassmine.png",
     name: "Yassmine",
     role: "Graphiste",
     quote:
-      "Après avoir démontré son expertise en communication et ses solides compétences en persuasion et négociation, Yasmin a rejoint l’équipe pour devenir le visage de Brosmedia sur les réseaux sociaux, renforçant la présence digitale de l’entreprise et interagissant efficacement avec les clients. Elle participe également aux visites terrain pour attirer de nouveaux clients et élargir le réseau de l’entreprise, faisant d’elle un élément clé dans le développement des relations et la fidélisation de la clientèle.",
+      "Yasmin, experte en communication et négociation, est le visage de Brosmedia sur les réseaux sociaux. Elle renforce la présence digitale de l’entreprise, interagit avec les clients et participe aux actions terrain pour élargir le réseau et fidéliser la clientèle.",
   }
 ];
 ---
@@ -80,8 +80,12 @@ const slides = [
                   <p class="team-role mb-4">{slide.role}</p>
                 </div>
 
-                <div class="quote-block mb-4">
-                  <p class="team-quote">“{slide.quote}”</p>
+                <div class="quote-block mb-4" style="position: relative;
+    width: 100%;
+    min-height: 250px;">
+                  <p class="team-quote" style="
+                  position: absolute;
+                  ;">“{slide.quote}”</p>
                 </div>
               </div>
             </div>
