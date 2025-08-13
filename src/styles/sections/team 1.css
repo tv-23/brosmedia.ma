@@ -2,8 +2,7 @@
 .team-slider-wrapper {
   /* border and rounded like the image design */
   overflow: hidden;
-  background: #0a0f4f
-;
+  background: #0a0f4f;
 }
 
 /* card layout */
@@ -15,8 +14,7 @@
 
 /* LEFT image column */
 .image-col {
-  background: #0a0f4f
-;
+  background: #0a0f4f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +34,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-right: 1px solid rgba(0,0,0,0.06);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* RIGHT content column */
@@ -65,10 +63,10 @@
   padding: 6px 12px;
 
   /* ظل للنص */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 
   /* ظل للخلفية */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -79,21 +77,25 @@
   margin-bottom: 18px;
   font-size: 0.95rem;
 
-font-family: Arial, sans-serif;
-font-weight: 700;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
   margin-bottom: 18px;
   font-size: 0.95rem;
   position: relative;
-  align-items: center; /* يوسّط الخط مع النص */
+  align-items: center;
+  /* يوسّط الخط مع النص */
 }
 
 .team-role::after {
   content: "";
   display: inline-block;
-  width: 90px;  /* طول الخط */
-  height: 3px;  /* سمك الخط */
+  width: 90px;
+  /* طول الخط */
+  height: 3px;
+  /* سمك الخط */
   background-color: #e30f29;
-  margin-left: 8px; /* مسافة صغيرة بين النص والخط */
+  margin-left: 8px;
+  /* مسافة صغيرة بين النص والخط */
 }
 
 /* quote */
@@ -101,9 +103,9 @@ font-weight: 700;
   line-height: 1.6;
   color: white;
   max-width: 90%;
-font-family: Arial, sans-serif;
-  font-weight: 2; 
-  font-size:18px; 
+  font-family: Arial, sans-serif;
+  font-weight: 2;
+  font-size: 18px;
   color: white;
   display: inline-block;
   padding: 6px 0px;
@@ -136,11 +138,12 @@ font-family: Arial, sans-serif;
 
 /* pagination dots */
 .swiper-pagination-bullet {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
   opacity: 1;
 }
+
 .swiper-pagination-bullet-active {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* Responsive tweaks */
@@ -148,132 +151,147 @@ font-family: Arial, sans-serif;
   .team-card {
     flex-direction: column;
   }
-  .image-col, .image-wrapper {
+
+  .image-col,
+  .image-wrapper {
     height: 100%;
     padding: 12px;
   }
+
   .team-photo {
     border-radius: 8px;
     max-height: 100%;
   }
+
   .content-col {
     padding: 18px;
   }
+
   .team-stat {
     font-size: 2rem;
   }
-  .team-quote{
-margin-top: 0px;
+
+  .team-quote {
+    margin-top: 0px;
   }
 
   .swiper-button-next::after,
-.swiper-button-prev::after {
-  margin-top: 0px;
-}
+  .swiper-button-prev::after {
+    margin-top: 0px;
+  }
 }
 
 
 
 .swiper-button-next.custom-nav {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    width: 28px; /* triangle width */
-    height: 44px; /* triangle height */
-    background: white;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 28px;
+  /* triangle width */
+  height: 44px;
+  /* triangle height */
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  cursor: pointer;
+  z-index: 10;
 }
 
 /* Triangular ripple */
 .swiper-button-next.custom-nav::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 28px;
-    height: 44px;
-    background: #e30f29;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 0;
-    animation: triangleRipple 1.5s infinite;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 44px;
+  background: #e30f29;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 0;
+  animation: triangleRipple 1.5s infinite;
 
 }
 
 @keyframes triangleRipple {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 
-        background: white;
+    background: white;
 
 
-    }
-    70% {
-        transform: translate(-50%, -50%) scale(1.8);
-        opacity: 1;
-        background:#e30f29;
+  }
 
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-        background: #e30f29;
+  70% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 1;
+    background: #e30f29;
 
-    }
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    background: #e30f29;
+
+  }
 }
 
 
 .swiper-button-prev.custom-nav {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    width: 28px; /* triangle width */
-    height: 44px; /* triangle height */
-    background: white;
-    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* flipped to point left */
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 28px;
+  /* triangle width */
+  height: 44px;
+  /* triangle height */
+  background: white;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  /* flipped to point left */
+  cursor: pointer;
+  z-index: 10;
 }
 
 /* Triangular ripple */
 .swiper-button-prev.custom-nav::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 28px;
-    height: 44px;
-    background: #e30f29;
-    clip-path: polygon(100% 0, 0 50%, 100% 100%);
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 0;
-    animation: triangleRipplePrev 1.5s infinite;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 44px;
+  background: #e30f29;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 0;
+  animation: triangleRipplePrev 1.5s infinite;
 }
 
 @keyframes triangleRipplePrev {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-        background: white;
-    }
-    70% {
-        transform: translate(-50%, -50%) scale(1.8);
-        opacity: 1;
-        background: #e30f29;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-        background: #e30f29;
-    }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    background: white;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 1;
+    background: #e30f29;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    background: #e30f29;
+  }
 }
 
 .content-inner {
   margin-top: 70px;
-    justify-content: center !important;
+  justify-content: center !important;
 }
