@@ -669,7 +669,7 @@ h6 {
 --------------------------------------------------------------*/
 .page-title {
   color: var(--default-color);
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2063,7 +2063,7 @@ form>.btn {
   align-items: center;
   justify-content: center;
   background: var(--surface-color);
-  color: var(--accent-color);
+  color: white;
   border-radius: 12px;
   font-size: 20px;
   transition: all 0.3s ease;
@@ -2497,7 +2497,7 @@ form>.btn {
 }
 
 .faq .faq-arrow {
-  color: var(--accent-color);
+  color:white;
 }
 
 .faq .faq-container .faq-item {
