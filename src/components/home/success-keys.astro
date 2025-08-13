@@ -142,14 +142,9 @@ import "../../styles/sections/success-keys.css";
                 Math.max(scrollInSection / sectionHeight, 0),
                 1,
             );
-            console.log(scrollY);
-            // if (scrollY < sectionTop) {
-            //     lineEls.forEach(line => line.style.width = "0px");
-            //     pointEls.forEach(cube => cube.classList.remove("active"));
-            //     return;
-            // }
+
             if (scrollY >= 2476) {
-                const containerW = container.clientWidth;
+                const containerW = container.clientWidth;   
                 const containerH = container.clientHeight;
                 const maxSegments = lineEls.length;
                 const maxVisible = maxSegments * progress;
