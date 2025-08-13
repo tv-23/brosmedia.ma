@@ -816,7 +816,7 @@ section,
 @media (max-width: 991px) {
   .hero .content-col {
     padding-right: 15px;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
   }
 }
 
