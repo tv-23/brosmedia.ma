@@ -1,7 +1,7 @@
 /* team.css */
 .team-slider-wrapper {
   /* border and rounded like the image design */
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
   background: #0a0f4f
 ;
