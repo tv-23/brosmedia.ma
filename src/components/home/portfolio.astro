@@ -1,11 +1,88 @@
 ---
 const portfolio = [
     {
-        img: "/our-references/1.png",
+        img: "/our-references/wefruits.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://wefruits.ma",
+    },
+     {
+        img: "/our-references/imagaleries.com.png",
         tag: "website",
         badge: "Conception de site web",
         title: "IMA Galeries",
         url: "https://imagaleries.com/",
+    },
+    {
+        img: "/our-references/wecargo.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://wecargo.ma",
+    },
+    {
+        img: "/our-references/uk-cafe.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://uk-cafe.ma",
+    },
+    {
+        img: "/our-references/uk-cafe.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://uk-cafe.ma",
+    },
+    {
+        img: "/our-references/mye-fruits.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://mye-fruits.com",
+    },
+    {
+        img: "/our-references/maison-dart.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://maison-dart.com",
+    },
+    {
+        img: "/our-references/location-elite.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://location-elite.com",
+    },
+    {
+        img: "/our-references/hygienegos.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://hygienegos.com",
+    },
+    {
+        img: "/our-references/hipeca-exp.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://hipeca-exp.com",
+    },
+    {
+        img: "/our-references/granderberry.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://granderberry.com",
+    },
+    {
+        img: "/our-references/epowermotorsmaroc.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://epowermotorsmaroc.com",
     },
 ];
 ---
@@ -65,8 +142,7 @@ const portfolio = [
                                                 {p.badge}
                                             </div>
                                             <h3 class="entry-title">
-                                                                                                {p.title}
-
+                                                {p.title}
                                             </h3>
                                             <div class="entry-links">
                                                 <a
@@ -77,7 +153,7 @@ const portfolio = [
                                                 >
                                                     <i class="bi bi-arrows-angle-expand" />
                                                 </a>
-                                                <a href="portfolio-details.html">
+                                                <a href={p.url} target="_blank">
                                                     <i class="bi bi-arrow-right" />
                                                 </a>
                                             </div>
