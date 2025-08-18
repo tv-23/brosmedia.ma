@@ -1,6 +1,5 @@
 ---
 const portfolio = [
-   
     {
         img: "/our-references/inadworld.com.png",
         tag: "website",
@@ -129,14 +128,14 @@ const portfolio = [
     </div>
     <!-- End Section Title -->
 
-    <div class="container-fluid" data-aos-delay="100">
+    <div class="container-fluid" >
         <div
             class="isotope-layout"
             data-default-filter="*"
             data-layout="masonry"
             data-sort="original-order"
         >
-            <ul class="portfolio-filters isotope-filters" data-aos-delay="200">
+            <ul class="portfolio-filters isotope-filters" >
                 <li data-filter="*" class="filter-active">
                     <i class="bi bi-grid-3x3"></i> Tous les projets
                 </li>
@@ -151,7 +150,7 @@ const portfolio = [
                 </li>
             </ul>
 
-            <div class="row g-4 isotope-container" data-aos-delay="300">
+            <div class="row g-4 isotope-container" >
                 {
                     portfolio.map((p) => (
                         <div
