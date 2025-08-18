@@ -578,28 +578,23 @@ import AppointmentForm from "../telephone-appointment-form.astro";
         const modal = document.getElementById("MaxModal");
         const closeModal = document.getElementsByClassName("close")[0];
 
-        setTimeout(() => {
-            
             modal.addEventListener("show.bs.modal", function (event) {
                 // Button that triggered the modal
-            const button = event.relatedTarget;
+                const button = event.relatedTarget;
 
-            // Extract value from data-service attribute
-            const service = button.getAttribute("data-service");
+                // Extract value from data-service attribute
+                const service = button.getAttribute("data-service");
 
-            // Update the input field in the modal
-            const input = modal.querySelector("#strategy");
-            if (input) {
-                input.value = service;
-            }
-        });
-    }, 500);
+                // Update the input field in the modal
+                const input = modal.querySelector("#strategy");
+                if (input) {
+                    input.value = service;
+                }
+            });
 
         maxSTR.onclick = function () {
             modal.style.display = "block";
         };
-
-
 
         window.onclick = function (event) {
             if (event.target == modal) {
