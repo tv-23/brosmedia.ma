@@ -302,4 +302,7 @@
   .image-col, .image-wrapper { height: 220px; padding: 12px; }
   .content-col { padding: 18px; }
   .team-stat { font-size: 2rem; }
+  .swiper-button-next.custom-nav,.swiper-button-prev .custom-nav{
+    top: 0%;
+  }
 }

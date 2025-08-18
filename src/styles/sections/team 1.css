@@ -295,3 +295,9 @@
   margin-top: 70px;
   justify-content: center !important;
 }
+
+@media (max-width: 767.98px) {
+  .swiper-button-next.custom-nav,.swiper-button-prev.custom-nav{
+    top: 35%;
+  }
+}

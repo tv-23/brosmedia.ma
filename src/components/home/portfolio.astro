@@ -1,5 +1,41 @@
 ---
 const portfolio = [
+   
+    {
+        img: "/our-references/inadworld.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Inad World",
+        url: "https://inadworld.com",
+    },
+    {
+        img: "/our-references/moulaybousselhamimmobilier.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "MoulayBousselham Immobilier",
+        url: "https://moulaybousselhamimmobilier.com",
+    },
+    {
+        img: "/our-references/drhachimiyassmine.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "DR HACHIMI yassmine",
+        url: "https://drhachimiyassmine.com/",
+    },
+     {
+        img: "/our-references/esunivers.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Esunivers",
+        url: "https://esunivers.com",
+    },
+    {
+        img: "/our-references/probyu.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Probyu",
+        url: "https://probyu.com/",
+    },
     {
         img: "/our-references/wefruits.ma.png",
         tag: "website",
@@ -7,7 +43,7 @@ const portfolio = [
         title: "WeFruits",
         url: "https://wefruits.ma",
     },
-     {
+    {
         img: "/our-references/imagaleries.com.png",
         tag: "website",
         badge: "Conception de site web",
@@ -126,7 +162,7 @@ const portfolio = [
                                     <img
                                         src={p.img}
                                         class="img-fluid"
-                                        alt= {p.title}
+                                        alt={p.title}
                                         loading="lazy"
                                     />
                                     <div class="entry-overlay">
@@ -142,7 +178,7 @@ const portfolio = [
                                                     href={p.img}
                                                     class="glightbox"
                                                     data-gallery="portfolio-gallery-ui"
-                                                    data-glightbox="title: Mobile Banking App; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur."
+                                                    data-glightbox=`title: ${p.title}; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur.`
                                                 >
                                                     <i class="bi bi-arrows-angle-expand" />
                                                 </a>

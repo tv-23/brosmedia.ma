@@ -854,6 +854,10 @@ section,
   .hero .main-heading h1 {
     font-size: 3rem;
   }
+
+
+    .hero {
+padding: 160px 0 100px 0;  }
 }
 
 @media (max-width: 480px) {
@@ -2105,18 +2109,20 @@ form>.btn {
 
 @media (max-width: 768px) {
   .portfolio .portfolio-entry .entry-image .entry-overlay {
-    padding: 20px;
-  }
+padding: 10px 5px;  }
 
   .portfolio .portfolio-entry .entry-image .entry-overlay .entry-title {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 17px;
+    margin-bottom: 0px;
   }
 
   .portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  .portfolio .portfolio-entry .entry-image .entry-overlay .entry-meta{
+    font-size: 11px;
   }
 }
 
