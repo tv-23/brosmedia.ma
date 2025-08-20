@@ -856,8 +856,9 @@ section,
   }
 
 
-    .hero {
-padding: 160px 0 100px 0;  }
+  .hero {
+    padding: 160px 0 100px 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -879,12 +880,16 @@ padding: 160px 0 100px 0;  }
   }
 }
 
-.hero .description,.client-max>div>div>div>div.description,.why-choose>div.description {
+.hero .description,
+.client-max>div>div>div>div.description,
+.why-choose>div.description {
   margin-bottom: 2.5rem;
 }
 
-.hero .description p ,.client-max>div>div>div>div.description>p,.client-max>div>div>div>div.description>ul,
-.why-choose>div.description>p{
+.hero .description p,
+.client-max>div>div>div>div.description>p,
+.client-max>div>div>div>div.description>ul,
+.why-choose>div.description>p {
   font-size: 1rem;
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
@@ -1091,19 +1096,23 @@ form>.btn:hover i {
   }
 }
 
-.about .about-content h2,.videos-section-content h2 {
+.about .about-content h2,
+.videos-section-content h2 {
   font-size: 2.2rem;
   margin-bottom: 1.25rem;
   font-weight: 700;
 }
 
 @media (max-width: 768px) {
-  .about .about-content h2,.videos-section-content h2 {
+
+  .about .about-content h2,
+  .videos-section-content h2 {
     font-size: 1.8rem;
   }
 }
 
-.about .about-content .lead,.videos-section-content .lead {
+.about .about-content .lead,
+.videos-section-content .lead {
   font-size: 1.15rem;
   margin-bottom: 1.25rem;
   color: color-mix(in srgb, var(--heading-color), transparent 30%);
@@ -1145,7 +1154,8 @@ form>.btn:hover i {
   margin-bottom: 0;
 }
 
-.about .about-content .btn-primary,.telephone-appointment form .btn-primary {
+.about .about-content .btn-primary,
+.telephone-appointment form .btn-primary {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   padding: 0.5rem 1.5rem;
@@ -1154,7 +1164,8 @@ form>.btn:hover i {
   color: var(--contrast-color);
 }
 
-.about .about-content .btn-primary:hover,.telephone-appointment form .btn-primary:hover {
+.about .about-content .btn-primary:hover,
+.telephone-appointment form .btn-primary:hover {
   background-color: color-mix(in srgb, var(--accent-color), black 10%);
   border-color: color-mix(in srgb, var(--accent-color), black 10%);
 }
@@ -2109,7 +2120,8 @@ form>.btn {
 
 @media (max-width: 768px) {
   .portfolio .portfolio-entry .entry-image .entry-overlay {
-padding: 10px 5px;  }
+    padding: 10px 5px;
+  }
 
   .portfolio .portfolio-entry .entry-image .entry-overlay .entry-title {
     font-size: 17px;
@@ -2121,7 +2133,8 @@ padding: 10px 5px;  }
     height: 30px;
     font-size: 16px;
   }
-  .portfolio .portfolio-entry .entry-image .entry-overlay .entry-meta{
+
+  .portfolio .portfolio-entry .entry-image .entry-overlay .entry-meta {
     font-size: 11px;
   }
 }
@@ -2503,7 +2516,7 @@ padding: 10px 5px;  }
 }
 
 .faq .faq-arrow {
-  color:white;
+  color: white;
 }
 
 .faq .faq-container .faq-item {
@@ -3292,31 +3305,22 @@ padding: 10px 5px;  }
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.service-details .service-tabs .tab-content .process-timeline {
+.process-timeline {
   position: relative;
   padding-left: 30px;
 }
 
-.service-details .service-tabs .tab-content .process-timeline:before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 15px;
-  width: 2px;
-  background: color-mix(in srgb, var(--accent-color), transparent 80%);
-}
 
-.service-details .service-tabs .tab-content .process-timeline .timeline-item {
+.process-timeline .timeline-item {
   position: relative;
-  padding-bottom: 35px;
+  padding-bottom: 20px;
 }
 
-.service-details .service-tabs .tab-content .process-timeline .timeline-item:last-child {
+.process-timeline .timeline-item:last-child {
   padding-bottom: 0;
 }
 
-.service-details .service-tabs .tab-content .process-timeline .timeline-item .timeline-marker {
+.process-timeline .timeline-item .timeline-marker {
   position: absolute;
   left: -30px;
   top: -5px;
@@ -3333,22 +3337,22 @@ padding: 10px 5px;  }
   z-index: 2;
 }
 
-.service-details .service-tabs .tab-content .process-timeline .timeline-item .timeline-content {
+.process-timeline .timeline-item .timeline-content {
   padding-left: 10px;
 }
 
-.service-details .service-tabs .tab-content .process-timeline .timeline-item .timeline-content h4 {
+.process-timeline .timeline-item .timeline-content h4 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.service-details .service-tabs .tab-content .process-timeline .timeline-item .timeline-content p {
+.process-timeline .timeline-item .timeline-content p {
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   line-height: 1.6;
 }
 
-.service-details .service-tabs .tab-content .benefit-card {
+.benefit-card {
   background-color: var(--surface-color);
   border-radius: 12px;
   padding: 30px;
@@ -3359,7 +3363,7 @@ padding: 10px 5px;  }
   overflow: hidden;
 }
 
-.service-details .service-tabs .tab-content .benefit-card:before {
+.benefit-card:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -3367,35 +3371,31 @@ padding: 10px 5px;  }
   width: 100%;
   height: 3px;
   background: var(--accent-color);
-  transform: scaleX(0);
-  transform-origin: right;
+transform: scaleX(1);
+  transform-origin: left;
   transition: transform 0.5s ease;
 }
 
-.service-details .service-tabs .tab-content .benefit-card:hover {
+.benefit-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
-.service-details .service-tabs .tab-content .benefit-card:hover:before {
-  transform: scaleX(1);
-  transform-origin: left;
-}
 
-.service-details .service-tabs .tab-content .benefit-card:hover .benefit-icon {
+.benefit-card:hover .benefit-icon {
   transform: rotateY(180deg);
-  background-color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
 }
 
-.service-details .service-tabs .tab-content .benefit-card:hover .benefit-icon i {
-  color: var(--contrast-color);
+.benefit-card:hover .benefit-icon i {
+  color: #e30f29;
 }
 
-.service-details .service-tabs .tab-content .benefit-card .benefit-icon {
+.benefit-card .benefit-icon {
   width: 60px;
   height: 60px;
+  background-color: var(--accent-color);
   border-radius: 12px;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3403,19 +3403,19 @@ padding: 10px 5px;  }
   transition: all 0.5s ease;
 }
 
-.service-details .service-tabs .tab-content .benefit-card .benefit-icon i {
+.benefit-card .benefit-icon i {
   font-size: 28px;
-  color: var(--accent-color);
+  color: white;
   transition: all 0.5s ease;
 }
 
-.service-details .service-tabs .tab-content .benefit-card h4 {
+.benefit-card h4 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-.service-details .service-tabs .tab-content .benefit-card p {
+.benefit-card p {
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 0;
 }

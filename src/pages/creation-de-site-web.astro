@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
+
 import "../styles/services.css";
 ---
 
 <Layout>
   <style>
     h1 span {
-        position: relative;
+      position: relative;
       color: transparent;
       -webkit-text-stroke: 1px #0a0f4f;
       line-height: 1.2em;
@@ -17,7 +18,7 @@ import "../styles/services.css";
     }
 
     @keyframes displayText {
-     0% {
+      0% {
         display: inline-block;
       }
       20%,
@@ -27,7 +28,7 @@ import "../styles/services.css";
     }
 
     h1 span::before {
-       content: attr(data-text);
+      content: attr(data-text);
       position: absolute;
       top: -2px;
       left: -2px;
@@ -45,7 +46,7 @@ import "../styles/services.css";
     }
 
     @keyframes animate {
-     0%,
+      0%,
       10%,
       100% {
         width: 0;
@@ -66,7 +67,9 @@ import "../styles/services.css";
           <span style="--i:0;" data-text="Vitrine">Vitrine</span>
           <span style="--i:1;" data-text="E-Commerce">E-Commerce</span>
           <span style="--i:2;" data-text="Institutionnel">Institutionnel</span>
-          <span style="--i:3;" data-text="Blog / Magazine en ligne">Blog / Magazine en ligne</span>
+          <span style="--i:3;" data-text="Blog / Magazine en ligne"
+            >Blog / Magazine en ligne</span
+          >
           <span style="--i:4;" data-text="Sur Mesure">Sur Mesure</span>
         </h1>
         <p class="text-center">La Puissance Des Technologies</p>
@@ -94,229 +97,62 @@ import "../styles/services.css";
                 </p>
               </div>
 
-              <div class="service-tabs">
-                <ul class="nav nav-tabs" id="serviceTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      data-bs-toggle="tab"
-                      data-bs-target="#service-details-tab-1"
-                      type="button"
-                      role="tab"
-                      aria-controls="overview"
-                      aria-selected="true"
-                    >
-                      <i class="bi bi-info-circle"></i> Overview
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      data-bs-toggle="tab"
-                      data-bs-target="#service-details-tab-2"
-                      type="button"
-                      role="tab"
-                      aria-controls="process"
-                      aria-selected="false"
-                    >
-                      <i class="bi bi-diagram-3"></i> Process
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      data-bs-toggle="tab"
-                      data-bs-target="#service-details-tab-3"
-                      type="button"
-                      role="tab"
-                      aria-controls="benefits"
-                      aria-selected="false"
-                    >
-                      <i class="bi bi-graph-up-arrow"></i> Benefits
-                    </button>
-                  </li>
-                </ul>
+              <section id="steps" class="steps section">
+                <!-- Section Title -->
+                <div class="service-header">
+                  <div class="container">
+                    <h2 style="font-weight: 600;">Aperçu</h2>
+                  </div>
+                </div>
 
-                <div class="tab-content">
-                  <div
-                    class="tab-pane fade show active"
-                    id="service-details-tab-1"
-                    role="tabpanel"
-                    aria-labelledby="overview-tab"
-                  >
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="content-block">
-                          <h3>Strategic Marketing Approach</h3>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Phasellus quis erat nibh. Praesent a nibh at
-                            eros sodales finibus. Suspendisse potenti. Sed vitae
-                            sagittis nulla.
-                          </p>
-                          <p>
-                            Vestibulum ante ipsum primis in faucibus orci luctus
-                            et ultrices posuere cubilia curae; Nullam consequat,
-                            nulla nec commodo finibus, ipsum magna pretium
-                            libero.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <img
-                          src="/img/services/2024-10-19.webp"
-                          alt="Création de Site Web"
-                          class="img-fluid"
-                        />
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="content-block">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Phasellus quis erat nibh. Praesent a nibh at
+                          eros sodales finibus. Suspendisse potenti. Sed vitae
+                          sagittis nulla.
+                        </p>
+                        <p>
+                          Vestibulum ante ipsum primis in faucibus orci luctus
+                          et ultrices posuere cubilia curae; Nullam consequat,
+                          nulla nec commodo finibus, ipsum magna pretium libero.
+                        </p>
                       </div>
                     </div>
-                  </div>
-
-                  <div
-                    class="tab-pane fade"
-                    id="service-details-tab-2"
-                    role="tabpanel"
-                    aria-labelledby="process-tab"
-                  >
-                    <div class="process-timeline">
-                      <div class="timeline-item">
-                        <div class="timeline-marker">01</div>
-                        <div class="timeline-content">
-                          <h4>Discovery &amp; Research</h4>
-                          <p>
-                            Thorough market analysis and competitor research to
-                            define your target audience and marketing goals.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-marker">02</div>
-                        <div class="timeline-content">
-                          <h4>Strategy Development</h4>
-                          <p>
-                            Creating comprehensive marketing strategies tailored
-                            to your specific business objectives and target
-                            demographics.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-marker">03</div>
-                        <div class="timeline-content">
-                          <h4>Implementation</h4>
-                          <p>
-                            Executing the marketing plan across various channels
-                            with precise targeting and creative content
-                            delivery.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-marker">04</div>
-                        <div class="timeline-content">
-                          <h4>Analysis &amp; Optimization</h4>
-                          <p>
-                            Continuous monitoring, data analysis, and strategy
-                            refinement to maximize ROI and campaign
-                            effectiveness.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="tab-pane fade"
-                    id="service-details-tab-3"
-                    role="tabpanel"
-                    aria-labelledby="benefits-tab"
-                  >
-                    <div class="row g-4">
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-graph-up"></i>
-                          </div>
-                          <h4>Increased Brand Visibility</h4>
-                          <p>
-                            Expand your digital footprint and reach more
-                            potential customers through targeted marketing
-                            efforts.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-people"></i>
-                          </div>
-                          <h4>Higher Engagement Rates</h4>
-                          <p>
-                            Create meaningful connections with your audience
-                            through relevant and compelling content strategies.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-cash-coin"></i>
-                          </div>
-                          <h4>Improved ROI</h4>
-                          <p>
-                            Maximize your marketing budget with data-driven
-                            campaigns that deliver measurable results.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-bar-chart-line"></i>
-                          </div>
-                          <h4>Data-Driven Decisions</h4>
-                          <p>
-                            Make informed marketing choices based on
-                            comprehensive analytics and performance metrics.
-                          </p>
-                        </div>
-                      </div>
+                    <div class="col-md-6">
+                      <img
+                        src="/img/services/2024-10-19.webp"
+                        alt="Création de Site Web"
+                        class="img-fluid"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Steps Section -->
-              <section id="steps" class="steps section">
+                <br />
+                <br />
+                <br />
+
                 <!-- Section Title -->
-                <div class="container section-title">
-                  <h2>étapes</h2>
-                  <div>
-                    <span>Les étapes de création</span><br />
-                    <span class="description-title"
-                      >de votre site web chez Brosmedia</span
-                    >
+                <div class="service-header">
+                  <div class="container">
+                    <h2 style="font-weight: 600;">Notre méthode de travail</h2>
                   </div>
-                </div><!-- End Section Title -->
+                </div>
 
                 <div class="container">
                   <div class="steps-wrapper">
                     <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
-                          <i class="bi bi-search"></i>
+                          <i class="bi bi-clipboard-check"></i>
                         </div>
                         <div class="step-info">
                           <span class="step-number">Étape 01</span>
-                          <h3>Avant de Commencer</h3>
-                          <p>
-                            Analyse de vos besoins, étude de faisabilité tenant
-                            compte de vos contraintes budgétaires et
-                            temporelles.
-                          </p>
+                          <h3>Analyse de vos besoins</h3>
                         </div>
                       </div>
                     </div><!-- End Step Item -->
@@ -324,17 +160,11 @@ import "../styles/services.css";
                     <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
-                          <i class="bi bi-brush"></i>
+                          <i class="bi bi-palette"></i>
                         </div>
                         <div class="step-info">
                           <span class="step-number">Étape 02</span>
-                          <h3>Définition Précise du Projet</h3>
-                          <p>
-                            Analyse détaillée de l’arborescence, définition des
-                            fonctionnalités essentielles, élaboration des
-                            contenus adaptés, et création d’un design sur
-                            mesure.
-                          </p>
+                          <h3>Conception du design et de l’architecture</h3>
                         </div>
                       </div>
                     </div><!-- End Step Item -->
@@ -342,16 +172,11 @@ import "../styles/services.css";
                     <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
-                          <i class="bi bi-pencil"></i>
+                          <i class="bi bi-code-slash"></i>
                         </div>
                         <div class="step-info">
                           <span class="step-number">Étape 03</span>
-                          <h3>Création des Maquettes et des Contenus</h3>
-                          <p>
-                            Conception soignée des maquettes avec des
-                            allers-retours pour ajustements, suivie de la
-                            production et validation des contenus optimisés.
-                          </p>
+                          <h3>Développement et intégration</h3>
                         </div>
                       </div>
                     </div><!-- End Step Item -->
@@ -359,19 +184,221 @@ import "../styles/services.css";
                     <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
-                          <i class="bi bi-code"></i>
+                          <i class="bi bi-upload"></i>
                         </div>
                         <div class="step-info">
                           <span class="step-number">Étape 04</span>
-                          <h3>Codage du Site Web</h3>
-                          <p>
-                            Développement technique complet, tests rigoureux,
-                            intégration de tags analytics, et soumission
-                            stratégique aux moteurs de recherche.F
-                          </p>
+                          <h3>Mise en ligne et formation</h3>
                         </div>
                       </div>
                     </div><!-- End Step Item -->
+
+                    <div class="step-item">
+                      <div class="step-content">
+                        <div class="step-icon">
+                          <i class="bi bi-tools"></i>
+                        </div>
+                        <div class="step-info">
+                          <span class="step-number">Étape 05</span>
+                          <h3>Suivi et maintenance</h3>
+                        </div>
+                      </div>
+                    </div><!-- End Step Item -->
+                  </div>
+                </div>
+
+                <br /><br /><br />
+
+                <!-- Section Title -->
+                <div class="service-header">
+                  <div class="container">
+                    <h2 style="font-weight: 600;">
+                      Pourquoi choisir notre service ?
+                    </h2>
+                  </div>
+                </div>
+
+                <div class="container">
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon">
+                          <i class="bi bi-palette"></i>
+                        </div>
+                        <h4>Design sur mesure</h4>
+                        <p>Un site qui reflète parfaitement votre identité.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon">
+                          <i class="bi bi-phone"></i>
+                        </div>
+                        <h4>Responsive</h4>
+                        <p>
+                          Adapté à tous les écrans (ordinateur, tablette,
+                          smartphone).
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon">
+                          <i class="bi bi-search"></i>
+                        </div>
+                        <h4>Optimisé SEO</h4>
+                        <p>Une visibilité maximale sur Google.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon">
+                          <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h4>Rapide et sécurisé</h4>
+                        <p>Hébergement fiable et protection des données.</p>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 offset-3">
+                      <div class="benefit-card">
+                        <div class="benefit-icon">
+                          <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Accompagnement complet</h4>
+                        <p>De la conception à la mise en ligne.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Steps Section -->
+              <section id="steps" class="steps section">
+                <!-- Section Title -->
+                <div class="service-header">
+                  <div class="container">
+                    <h2 style="font-weight: 600;">
+                      Pourquoi un site web est essentiel ?
+                    </h2>
+                  </div>
+                </div>
+
+                <div class="container">
+                  <p class="lead">
+                    Un site internet est votre carte de visite digitale. Il vous
+                    permet de :
+                  </p>
+                  <br />
+                  <div
+                    class="tab-pane"
+                    id="service-details-tab-2"
+                    role="tabpanel"
+                    aria-labelledby="process-tab"
+                  >
+                    <div class="process-timeline">
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Attirer de nouveaux clients</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Renforcer votre crédibilité</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Être disponible 24h/24 et 7j/7</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Développer vos ventes et votre notoriété</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /Steps Section -->
+
+              <!-- Steps Section -->
+              <section id="steps" class="steps section">
+                <!-- Section Title -->
+                <div class="service-header">
+                  <div class="container">
+                    <h2 style="font-weight: 600;">Nos petits plus</h2>
+                  </div>
+                </div>
+
+                <div class="container">
+                  <div
+                    class="tab-pane"
+                    id="service-details-tab-2"
+                    role="tabpanel"
+                    aria-labelledby="process-tab"
+                  >
+                    <div class="process-timeline">
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Rédaction de contenus optimisés pour le web</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Intégration avec les réseaux sociaux</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Outils de réservation en ligne</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Systèmes de paiement sécurisés</h4>
+                        </div>
+                      </div>
+
+                      <div class="timeline-item">
+                        <div class="timeline-marker">
+                          <i class="bi bi-check2" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <h4>Statistiques et suivi des performances</h4>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section><!-- /Steps Section -->
@@ -468,41 +495,57 @@ import "../styles/services.css";
               </div> -->
 
               <div class="service-features-list">
-                <h4>What We Offer</h4>
+                <h4>Nos types de sites web</h4>
                 <ul>
                   <li>
-                    <i class="bi bi-megaphone"></i>
+                    <i class="bi bi-building"></i>
                     <div>
-                      <h5>Social Media Marketing</h5>
-                      <p>Strategic presence across all relevant platforms</p>
+                      <h5>Site vitrine</h5>
+                      <p>
+                        Idéal pour présenter votre entreprise, vos services et
+                        vos coordonnées.
+                      </p>
                     </div>
                   </li>
                   <li>
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-cart"></i>
                     <div>
-                      <h5>SEO Optimization</h5>
-                      <p>Improve your search engine rankings</p>
+                      <h5>Site e-commerce</h5>
+                      <p>
+                        Créez une boutique en ligne performante pour vendre vos
+                        produits 24h/24.
+                      </p>
                     </div>
                   </li>
                   <li>
-                    <i class="bi bi-newspaper"></i>
+                    <i class="bi bi-people"></i>
                     <div>
-                      <h5>Content Marketing</h5>
-                      <p>Engaging content that converts visitors</p>
+                      <h5>Site institutionnel</h5>
+                      <p>
+                        Parfait pour les associations, ONG ou organismes qui
+                        souhaitent communiquer de manière claire et
+                        professionnelle.
+                      </p>
                     </div>
                   </li>
                   <li>
-                    <i class="bi bi-envelope-paper"></i>
+                    <i class="bi bi-journal-text"></i>
                     <div>
-                      <h5>Email Campaigns</h5>
-                      <p>Targeted email marketing strategies</p>
+                      <h5>Blog / Magazine en ligne</h5>
+                      <p>
+                        Partagez vos articles, vos actualités et créez une
+                        communauté fidèle.
+                      </p>
                     </div>
                   </li>
                   <li>
-                    <i class="bi bi-graph-up-arrow"></i>
+                    <i class="bi bi-palette"></i>
                     <div>
-                      <h5>Analytics &amp; Reporting</h5>
-                      <p>Comprehensive performance tracking</p>
+                      <h5>Site sur mesure</h5>
+                      <p>
+                        Nous développons une solution personnalisée,
+                        parfaitement adaptée à vos besoins spécifiques.
+                      </p>
                     </div>
                   </li>
                 </ul>
