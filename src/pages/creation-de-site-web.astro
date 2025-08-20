@@ -6,28 +6,28 @@ import "../styles/services.css";
 <Layout>
   <style>
     h1 span {
-      position: relative;
+        position: relative;
       color: transparent;
       -webkit-text-stroke: 1px #0a0f4f;
       line-height: 1.2em;
       padding: 2px;
-      animation: displayText 12s infinite;
+      animation: displayText 15s infinite;
       animation-delay: calc(-3s * var(--i));
       font-weight: 700;
     }
 
     @keyframes displayText {
-      0% {
+     0% {
         display: inline-block;
       }
-      25%,
+      20%,
       100% {
         display: none;
       }
     }
 
     h1 span::before {
-      content: attr(data-text);
+       content: attr(data-text);
       position: absolute;
       top: -2px;
       left: -2px;
@@ -45,7 +45,7 @@ import "../styles/services.css";
     }
 
     @keyframes animate {
-      0%,
+     0%,
       10%,
       100% {
         width: 0;
@@ -59,14 +59,15 @@ import "../styles/services.css";
 
   <main class="main">
     <!-- Page Title -->
-    <div class="page-title dark-background" >
+    <div class="page-title dark-background">
       <div class="container position-relative">
         <h1 class="text-center">
-          Création de Site Web 
+          Création de Site Web
           <span style="--i:0;" data-text="Vitrine">Vitrine</span>
           <span style="--i:1;" data-text="E-Commerce">E-Commerce</span>
-          <span style="--i:2;" data-text="Dynamique">Dynamique</span>
-          <span style="--i:3;" data-text="Sur-Mesure">Sur-Mesure</span>
+          <span style="--i:2;" data-text="Institutionnel">Institutionnel</span>
+          <span style="--i:3;" data-text="Blog / Magazine en ligne">Blog / Magazine en ligne</span>
+          <span style="--i:4;" data-text="Sur Mesure">Sur Mesure</span>
         </h1>
         <p class="text-center">La Puissance Des Technologies</p>
         <nav class="breadcrumbs">
@@ -80,25 +81,20 @@ import "../styles/services.css";
 
     <!-- Service Details Section -->
     <section id="service-details" class="service-details section">
-      <div class="container"  >
+      <div class="container">
         <div class="row gy-5">
           <div class="col-lg-8 order-lg-1 order-2">
             <div class="service-main-content">
-              <div class="service-header" >
-                <h1>Digital Marketing Excellence</h1>
-                <div class="service-meta">
-                  <span><i class="bi bi-award"></i> Premium Service</span>
-                  <span><i class="bi bi-clock"></i> Since 2015</span>
-                  <span><i class="bi bi-star-fill"></i> 4.9/5 Rating</span>
-                </div>
+              <div class="service-header">
+                <h1>Création de sites web professionnels</h1>
                 <p class="lead">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent commodo erat at malesuada bibendum. Nullam eu risus
-                  sit amet nunc fermentum lacinia.
+                  Nous vous accompagnons dans la mise en place de votre présence
+                  en ligne avec des sites modernes, performants et adaptés à vos
+                  besoins.
                 </p>
               </div>
 
-              <div class="service-tabs"  >
+              <div class="service-tabs">
                 <ul class="nav nav-tabs" id="serviceTab" role="tablist">
                   <li class="nav-item" role="presentation">
                     <button
@@ -168,9 +164,9 @@ import "../styles/services.css";
                       </div>
                       <div class="col-md-6">
                         <img
-                          src="https://brosmedia.ma/wp-content/uploads/2023/10/developpement-web-768x461.webp"
-                          alt="Digital Marketing Strategy"
-                          class="img-fluid rounded"
+                          src="/img/services/2024-10-19.webp"
+                          alt="Création de Site Web"
+                          class="img-fluid"
                         />
                       </div>
                     </div>
@@ -296,7 +292,7 @@ import "../styles/services.css";
               <!-- Steps Section -->
               <section id="steps" class="steps section">
                 <!-- Section Title -->
-                <div class="container section-title" >
+                <div class="container section-title">
                   <h2>étapes</h2>
                   <div>
                     <span>Les étapes de création</span><br />
@@ -306,13 +302,9 @@ import "../styles/services.css";
                   </div>
                 </div><!-- End Section Title -->
 
-                <div class="container"  >
+                <div class="container">
                   <div class="steps-wrapper">
-                    <div
-                      class="step-item"
-                      
-                      
-                    >
+                    <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
                           <i class="bi bi-search"></i>
@@ -329,11 +321,7 @@ import "../styles/services.css";
                       </div>
                     </div><!-- End Step Item -->
 
-                    <div
-                      class="step-item"
-                      
-                      
-                    >
+                    <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
                           <i class="bi bi-brush"></i>
@@ -351,11 +339,7 @@ import "../styles/services.css";
                       </div>
                     </div><!-- End Step Item -->
 
-                    <div
-                      class="step-item"
-                      
-                      
-                    >
+                    <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
                           <i class="bi bi-pencil"></i>
@@ -372,11 +356,7 @@ import "../styles/services.css";
                       </div>
                     </div><!-- End Step Item -->
 
-                    <div
-                      class="step-item"
-                      
-                      
-                    >
+                    <div class="step-item">
                       <div class="step-content">
                         <div class="step-icon">
                           <i class="bi bi-code"></i>
@@ -396,11 +376,7 @@ import "../styles/services.css";
                 </div>
               </section><!-- /Steps Section -->
 
-              <div
-                class="service-gallery"
-                
-                
-              >
+              <div class="service-gallery">
                 <h3>Our Marketing Portfolio</h3>
                 <div class="service-details-slider swiper init-swiper">
                   <script type="application/json" class="swiper-config">
@@ -475,8 +451,8 @@ import "../styles/services.css";
           </div>
 
           <div class="col-lg-4 order-lg-2 order-1">
-            <div class="service-sidebar" >
-              <div class="action-card"  >
+            <div class="service-sidebar">
+              <!-- <div class="action-card"  >
                 <h3>Prêt à lancer votre site web professionnel ?</h3>
                 <p>
                   Profitez d’une consultation gratuite avec nos experts pour
@@ -489,13 +465,9 @@ import "../styles/services.css";
                 <span class="guarantee">
                   <i class="bi bi-shield-check"></i> Garantie 100&nbsp;% satisfaction
                 </span>
-              </div>
+              </div> -->
 
-              <div
-                class="service-features-list"
-                
-                
-              >
+              <div class="service-features-list">
                 <h4>What We Offer</h4>
                 <ul>
                   <li>
@@ -536,11 +508,7 @@ import "../styles/services.css";
                 </ul>
               </div>
 
-              <div
-                class="testimonial-card"
-                
-                
-              >
+              <div class="testimonial-card">
                 <div class="testimonial-header">
                   <i class="bi bi-quote"></i>
                   <div class="rating">
@@ -569,7 +537,7 @@ import "../styles/services.css";
                 </div>
               </div>
 
-              <div class="contact-info"  >
+              <div class="contact-info">
                 <h4>Des questions ?</h4>
                 <div class="contact-method">
                   <i class="bi bi-telephone-fill"></i>
