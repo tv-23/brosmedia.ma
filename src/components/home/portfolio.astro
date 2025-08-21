@@ -1,6 +1,123 @@
+---
+const portfolio = [
+    {
+        img: "/our-references/inadworld.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Inad World",
+        url: "https://inadworld.com",
+    },
+    {
+        img: "/our-references/moulaybousselhamimmobilier.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "MoulayBousselham Immobilier",
+        url: "https://moulaybousselhamimmobilier.com",
+    },
+    {
+        img: "/our-references/drhachimiyassmine.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "DR HACHIMI yassmine",
+        url: "https://drhachimiyassmine.com/",
+    },
+     {
+        img: "/our-references/esunivers.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Esunivers",
+        url: "https://esunivers.com",
+    },
+    {
+        img: "/our-references/probyu.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Probyu",
+        url: "https://probyu.com/",
+    },
+    {
+        img: "/our-references/wefruits.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "WeFruits",
+        url: "https://wefruits.ma",
+    },
+    {
+        img: "/our-references/imagaleries.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://imagaleries.com/",
+    },
+    {
+        img: "/our-references/wecargo.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "WeCargo",
+        url: "https://wecargo.ma",
+    },
+    {
+        img: "/our-references/uk-cafe.ma.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "UK cafe",
+        url: "https://uk-cafe.ma",
+    },
+    {
+        img: "/our-references/mye-fruits.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Mye Fruits",
+        url: "https://mye-fruits.com",
+    },
+    {
+        img: "/our-references/maison-dart.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Maison Dart",
+        url: "https://maison-dart.com",
+    },
+    {
+        img: "/our-references/location-elite.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Location Elite",
+        url: "https://location-elite.com",
+    },
+    {
+        img: "/our-references/hygienegos.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Hygienegos",
+        url: "https://hygienegos.com",
+    },
+    {
+        img: "/our-references/hipeca-exp.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Hipeca Export",
+        url: "https://hipeca-exp.com",
+    },
+    {
+        img: "/our-references/granderberry.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "GranderBerry",
+        url: "https://granderberry.com",
+    },
+    {
+        img: "/our-references/epowermotorsmaroc.com.png",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Epower Motors",
+        url: "https://epowermotorsmaroc.com",
+    },
+];
+---
+
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title">
         <h2>Portfolio</h2>
         <div>
             <span>Parmi nos références,</span>
@@ -11,78 +128,74 @@
     </div>
     <!-- End Section Title -->
 
-    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+    <div class="container-fluid" >
         <div
             class="isotope-layout"
             data-default-filter="*"
             data-layout="masonry"
             data-sort="original-order"
         >
-            <ul
-                class="portfolio-filters isotope-filters"
-                data-aos="fade-up"
-                data-aos-delay="200"
-            >
+            <ul class="portfolio-filters isotope-filters" >
                 <li data-filter="*" class="filter-active">
                     <i class="bi bi-grid-3x3"></i> Tous les projets
                 </li>
-                <li data-filter=".filter-ui">
-                    <i class="bi bi-code-slash"></i> Création de site Web
+                <li data-filter=".filter-website">
+                    <i class="bi bi-code-slash"></i> Conception de site web
                 </li>
-                <li data-filter=".filter-development">
-                    <i class="bi bi-vector-pen"></i> Conception et réalisation
+                <li data-filter=".filter-adcreation">
+                    <i class="bi bi-vector-pen"></i> Création publicitaire
                 </li>
-                <li data-filter=".filter-photography">
-                    <i class="bi bi-bar-chart-line"></i> Marketing digital
+                <li data-filter=".filter-advideo">
+                    <i class="bi bi-bar-chart-line"></i> Vidéo publicitaire
                 </li>
             </ul>
 
-            <div
-                class="row g-4 isotope-container"
-                data-aos="fade-up"
-                data-aos-delay="300"
-            >
-                <div
-                    class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-ui"
-                >
-                    <article class="portfolio-entry">
-                        <figure class="entry-image">
-                            <img
-                                src="https://brosmedia.ma/wp-content/uploads/2024/09/Granderberry-min-min-1-scaled.webp"
-                                class="img-fluid"
-                                alt=""
-                                loading="lazy"
-                            />
-                            <div class="entry-overlay">
-                                <div class="overlay-content">
-                                    <div class="entry-meta badge bg-primary">
-                                        UI/UX Design
+            <div class="row g-4 isotope-container" >
+                {
+                    portfolio.map((p) => (
+                        <div
+                            class={`col-xl-3 col-lg-4 col-md-6 col-6 portfolio-item isotope-item filter-${p.tag}`}
+                        >
+                            <article class="portfolio-entry">
+                                <figure class="entry-image">
+                                    <img
+                                        src={p.img}
+                                        class="img-fluid"
+                                        alt={p.title}
+                                        loading="lazy"
+                                    />
+                                    <div class="entry-overlay">
+                                        <div class="overlay-content">
+                                            <div class="entry-meta badge bg-primary">
+                                                {p.badge}
+                                            </div>
+                                            <h3 class="entry-title">
+                                                {p.title}
+                                            </h3>
+                                            <div class="entry-links">
+                                                <a
+                                                    href={p.img}
+                                                    class="glightbox"
+                                                    data-gallery="portfolio-gallery-ui"
+                                                    data-glightbox=`title: ${p.title}; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur.`
+                                                >
+                                                    <i class="bi bi-arrows-angle-expand" />
+                                                </a>
+                                                <a href={p.url} target="_blank">
+                                                    <i class="bi bi-arrow-right" />
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h3 class="entry-title">
-                                        Mobile Banking App
-                                    </h3>
-                                    <div class="entry-links">
-                                        <a
-                                            href="https://brosmedia.ma/wp-content/uploads/2024/09/Granderberry-min-min-1-scaled.webp"
-                                            class="glightbox"
-                                            data-gallery="portfolio-gallery-ui"
-                                            data-glightbox="title: Mobile Banking App; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur."
-                                        >
-                                            <i class="bi bi-arrows-angle-expand"
-                                            ></i>
-                                        </a>
-                                        <a href="portfolio-details.html">
-                                            <i class="bi bi-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
+                                </figure>
+                            </article>
+                        </div>
+                    ))
+                }
+
                 <!-- End Portfolio Item -->
 
-                <div
+                <!-- <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development"
                 >
                     <article class="portfolio-entry">
@@ -120,7 +233,6 @@
                         </figure>
                     </article>
                 </div>
-                <!-- End Portfolio Item -->
 
                 <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-photography"
@@ -160,7 +272,6 @@
                         </figure>
                     </article>
                 </div>
-                <!-- End Portfolio Item -->
 
                 <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing"
@@ -200,7 +311,6 @@
                         </figure>
                     </article>
                 </div>
-                <!-- End Portfolio Item -->
 
                 <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-ui"
@@ -240,7 +350,6 @@
                         </figure>
                     </article>
                 </div>
-                <!-- End Portfolio Item -->
 
                 <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development"
@@ -280,7 +389,6 @@
                         </figure>
                     </article>
                 </div>
-                <!-- End Portfolio Item -->
 
                 <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-photography"
@@ -320,7 +428,6 @@
                         </figure>
                     </article>
                 </div>
-                <!-- End Portfolio Item -->
 
                 <div
                     class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing"
@@ -357,8 +464,7 @@
                             </div>
                         </figure>
                     </article>
-                </div>
-                <!-- End Portfolio Item -->
+                </div> -->
             </div>
             <!-- End Portfolio Container -->
         </div>

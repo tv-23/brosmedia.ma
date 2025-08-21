@@ -1,103 +1,111 @@
+---
+const currentPath = Astro.url.pathname;
+---
 
+<section class="container telephone-appointment">
+    <h3 class="mb-3 text-center">Prenez rendez-vous pour nous rejoindre</h3>
+    <p class="mb-4 lead text-center">
+        Réservez un appel avec notre agence de communication digitale pour
+        discuter de vos objectifs.
+    </p>
 
-<section
-            class="container telephone-appointment"
-            data-aos="fade-up"
+    <form class="mx-auto" style="max-width: 800px;">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="lastname" class="form-label"
+                    >Nom <span class="text-danger">*</span></label
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="lastname"
+                    name="lastname"
+                    required
+                />
+            </div>
+            <div class="col-md-6">
+                <label for="firstname" class="form-label"
+                    >Prénom <span class="text-danger">*</span></label
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    name="firstname"
+                    required
+                />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="date" class="form-label"
+                    >Date <span class="text-danger">*</span></label
+                >
+                <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    name="date"
+                    required
+                />
+            </div>
+            <div class="col-md-6">
+                <label for="hour" class="form-label">Heure</label>
+                <input type="time" class="form-control" id="hour" name="hour" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="email" class="form-label"
+                    >Adresse e-mail <span class="text-danger">*</span></label
+                >
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                />
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label"
+                    >Numéro de téléphone <span class="text-danger">*</span
+                    ></label
+                >
+                <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                    required
+                    pattern="[0-9\s\+\-\(\)]{7,}"
+                />
+            </div>
+        </div>
+
+        <div
+            class="row mb-3"
+            style={currentPath === "/strategies-max/"
+                ? "display:block"
+                : "display:none"}
         >
-            <h3 class="mb-3 text-center">
-                Prenez rendez-vous pour nous rejoindre
-            </h3>
-            <p class="mb-4 lead text-center">
-                Réservez un appel avec notre agence de communication digitale
-                pour discuter de vos objectifs.
-            </p>
+            <div class="col-md-6 offset-3">
+                <label for="phone" class="form-label">Stratégie</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="strategy"
+                    name="strategy"
+                    disabled
+                />
+            </div>
+        </div>
 
-            <form class="mx-auto" style="max-width: 800px;">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="lastname" class="form-label"
-                            >Nom <span class="text-danger">*</span></label
-                        >
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="lastname"
-                            name="lastname"
-                            required
-                        />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="firstname" class="form-label"
-                            >Prénom <span class="text-danger">*</span></label
-                        >
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="firstname"
-                            name="firstname"
-                            required
-                        />
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="date" class="form-label"
-                            >Date <span class="text-danger">*</span></label
-                        >
-                        <input
-                            type="date"
-                            class="form-control"
-                            id="date"
-                            name="date"
-                            required
-                        />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="hour" class="form-label">Heure</label>
-                        <input
-                            type="time"
-                            class="form-control"
-                            id="hour"
-                            name="hour"
-                        />
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="email" class="form-label"
-                            >Adresse e-mail <span class="text-danger">*</span
-                            ></label
-                        >
-                        <input
-                            type="email"
-                            class="form-control"
-                            id="email"
-                            name="email"
-                            required
-                        />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="phone" class="form-label"
-                            >Numéro de téléphone <span class="text-danger"
-                                >*</span
-                            ></label
-                        >
-                        <input
-                            type="tel"
-                            class="form-control"
-                            id="phone"
-                            name="phone"
-                            required
-                            pattern="[0-9\s\+\-\(\)]{7,}"
-                        />
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">
-                    <span>Réserver un appel</span>
-                    <i class="bi bi-arrow-right"></i>
-                </button>
-            </form>
-        </section>
+        <button type="submit" class="btn btn-primary">
+            <span>Réserver un appel</span>
+            <i class="bi bi-arrow-right"></i>
+        </button>
+    </form>
+</section>

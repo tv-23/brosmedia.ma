@@ -91,4 +91,11 @@
     .services {
         margin-top: -100px;
     }
+
+    section#team>.section-title{
+        padding-bottom: 0px;
+    }  
+    section#team .content-inner{
+        margin-top: 0px;
+    }
 }
