@@ -121,6 +121,12 @@ const techs = [
   .tech-card:hover::before {
     opacity: 1;
   }
+
+  @media (max-width: 500px) {
+    .tech-card::before {        font-size: 16px;
+    }
+
+}
 </style>
 
 <section class="steps section techs">
@@ -139,7 +145,7 @@ const techs = [
 
       {
         techs.map((p) => (
-          <div class="col-6 col-md-3 col-lg-3">
+          <div class="col-3 col-md-3 col-lg-3">
             <div class="tech-card" data-alt={p.alt}>
               <img src={p.img} alt={p.alt} />
             </div>
