@@ -53,13 +53,30 @@
         width: 100%;
       }
     }
+
+    .title-br{
+      display: none;
+    }
+    @media (max-width: 768px) {
+    .title-br {
+      display: block;
+    }
+
+    @media (max-width: 450px) {
+    h1 span {
+    font-size: 30px;
+    }
+    }
+
+   
+}
   </style>
 
 
 <div class="page-title dark-background">
     <div class="container position-relative">
       <h1 class="text-center">
-        Création de Site Web
+        Création de Site Web <br class="title-br">
         <span style="--i:0;" data-text="Vitrine">Vitrine</span>
         <span style="--i:1;" data-text="E-Commerce">E-Commerce</span>
         <span style="--i:2;" data-text="Institutionnel">Institutionnel</span>
