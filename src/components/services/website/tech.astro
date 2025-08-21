@@ -1,0 +1,152 @@
+---
+const techs = [
+  {
+    img: "/logos-tec/Untitled-1.svg",
+    alt: "Astro",
+  },
+  {
+    img: "/logos-tec/Untitled-2.svg",
+    alt: "Bootstrap",
+  },
+  {
+    img: "/logos-tec/Untitled-3.svg",
+    alt: "Angular",
+  },
+  {
+    img: "/logos-tec/Untitled-4.svg",
+    alt: "WordPress",
+  },
+  {
+    img: "/logos-tec/Untitled-5.svg",
+    alt: "Laravel",
+  },
+  {
+    img: "/logos-tec/Untitled-6.svg",
+    alt: "Material Design",
+  },
+  {
+    img: "/logos-tec/Untitled-7.svg",
+    alt: "PHP",
+  },
+  {
+    img: "/logos-tec/Untitled-8.svg",
+    alt: "Python",
+  },
+  {
+    img: "/logos-tec/Untitled-9.svg",
+    alt: "React",
+  },
+  {
+    img: "/logos-tec/Untitled-10.svg",
+    alt: "Tailwind CSS",
+  },
+];
+---
+
+<style>
+  .tech-card {
+    background-color: white;
+    cursor: pointer;
+  }
+
+  section.steps.section.tech {
+    background-color: white !important;
+    z-index: 64;
+  }
+
+  section.steps.section.techs container {
+    background-color: white;
+  }
+
+  section.steps.section.techs > .container {
+    background-color: white;
+  }
+
+  .tech-card {
+  position: relative;
+  background-color: white;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px; /* optional for smoother look */
+}
+
+/* Image style + transition */
+.tech-card img {
+  width: 100%;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+/* Zoom effect */
+.tech-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.tech-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.5); /* semi-transparent gray */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show overlay on hover */
+.tech-card:hover::after {
+  opacity: 1;
+}
+
+/* Alt text */
+.tech-card::before {
+  content: attr(data-alt); /* use custom attribute */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0a0f4f;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Show text on hover */
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+</style>
+
+<section class="steps section techs">
+  <!-- Section Title -->
+  <div class="service-header">
+    <div class="container">
+      <h2 style="font-weight: 600;">
+        Nos technologies pour développer votre solution digitale sur-mesure
+      </h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <!-- Technology Cards -->
+
+      {
+        techs.map((p) => (
+          <div class="col-6 col-md-3 col-lg-3">
+             <div class="tech-card" data-alt={p.alt}>
+        <img src={p.img} alt={p.alt} />
+      </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

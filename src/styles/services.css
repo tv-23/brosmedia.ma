@@ -1,3 +1,13 @@
 .page-title.dark-background.aos-init.aos-animate {
     background-color: #0a0f4f;
 }
+
+.work-steps>.container>h2 {
+    margin-bottom: -280px;
+}
+
+@media (max-width: 500px) {
+    section#success-keys {
+        padding-bottom: 95px;
+    }
+}
