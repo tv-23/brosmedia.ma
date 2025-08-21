@@ -63,65 +63,64 @@ const techs = [
   }
 
   .tech-card {
-  position: relative;
-  background-color: white;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 8px; /* optional for smoother look */
-}
+    position: relative;
+    background-color: white;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px; /* optional for smoother look */
+  }
 
-/* Image style + transition */
-.tech-card img {
-  width: 100%;
-  transition: transform 0.3s ease;
-  display: block;
-}
+  /* Image style + transition */
+  .tech-card img {
+    width: 100%;
+    transition: transform 0.3s ease;
+    display: block;
+  }
 
-/* Zoom effect */
-.tech-card:hover img {
-  transform: scale(1.1);
-}
+  /* Zoom effect */
+  .tech-card:hover img {
+    transform: scale(1.1);
+  }
 
-/* Overlay */
-.tech-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(128, 128, 128, 0.5); /* semi-transparent gray */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+  /* Overlay */
+  .tech-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(97 96 96 / 75%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
-/* Show overlay on hover */
-.tech-card:hover::after {
-  opacity: 1;
-}
+  /* Show overlay on hover */
+  .tech-card:hover::after {
+    opacity: 1;
+  }
 
-/* Alt text */
-.tech-card::before {
-  content: attr(data-alt); /* use custom attribute */
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  /* Alt text */
+  .tech-card::before {
+    content: attr(data-alt); /* use custom attribute */
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    color: #0a0f4f;
-    font-weight: 600;
+    color: white;
+    font-weight: bold;
     font-size: 20px;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
     z-index: 2;
-}
+  }
 
-/* Show text on hover */
-.tech-card:hover::before {
-  opacity: 1;
-}
-
+  /* Show text on hover */
+  .tech-card:hover::before {
+    opacity: 1;
+  }
 </style>
 
 <section class="steps section techs">
@@ -141,9 +140,9 @@ const techs = [
       {
         techs.map((p) => (
           <div class="col-6 col-md-3 col-lg-3">
-             <div class="tech-card" data-alt={p.alt}>
-        <img src={p.img} alt={p.alt} />
-      </div>
+            <div class="tech-card" data-alt={p.alt}>
+              <img src={p.img} alt={p.alt} />
+            </div>
           </div>
         ))
       }

@@ -25,19 +25,21 @@ import "../../../styles/sections/steps.css";
         const pointsMobileTablet = [
             { x: 0, y: 35 },
             { x: 15, y: 45 },
-            { x: 50, y: 65 },
-            { x: 15, y: 80 },
-            { x: 50, y: 95 },
-            { x: 15, y: 110 },
+            { x: 50, y: 62 },
+            { x: 15, y: 77 },
+            { x: 50, y: 92 },
+            { x: 15, y: 107 },
             { x: 0, y: 95 },    
         ];
 
         let points;
+        let left_val = 8 
 
         if (window.innerWidth >= 1024) {
             points = pointsDesktop;
         } else {
             points = pointsMobileTablet;
+            left_val  = 12
         }
 
         const pointEls = [];
@@ -47,8 +49,8 @@ import "../../../styles/sections/steps.css";
 
         for (let i = 1; i < points.length - 1; i++) {
             const stepText = document.createElement("span");
-
-            stepText.style.left = `${points[i].x + 10}%`;
+            console.log(left_val)
+            stepText.style.left = `${points[i].x + left_val}%`;
             stepText.style.top = `${points[i].y - 3}%`;
             stepText.style.position = `absolute`;
             stepText.className = "span-text";
@@ -96,20 +98,12 @@ import "../../../styles/sections/steps.css";
             container.appendChild(el);
             pointEls.push(el);
             stepTextEls.push(stepText);
-
-            // if (i === points.length - 2) {
-            //     el.addEventListener("mouseenter", () => {
-            //         const ring = document.createElement("div");
-            //         ring.className = "success-ring";
-            //         el.appendChild(ring);
-            //         setTimeout(() => ring.remove(), 1000);
-            //     });
-            // }
         }
 
         for (let i = 0; i < points.length - 1; i++) {
             const line = document.createElement("div");
             line.className = "line";
+            line.id = `line-${i}`
             container.appendChild(line);
             lineEls.push(line);
             lineData.push({ length: 0 });
