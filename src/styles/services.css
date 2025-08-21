@@ -10,6 +10,9 @@
     section#success-keys {
         padding-bottom: 95px;
     }
+    .work-steps>.container>h2 {
+        margin-bottom: -200px;
+    }
 }
 
 section.steps.section.techs .col-6:last-child {
