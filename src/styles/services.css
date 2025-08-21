@@ -6,7 +6,7 @@
     margin-bottom: -280px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     section#success-keys {
         padding-bottom: 95px;
     }
