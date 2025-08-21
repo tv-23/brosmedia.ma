@@ -11,3 +11,7 @@
         padding-bottom: 95px;
     }
 }
+
+section.steps.section.techs .col-6:last-child {
+    margin-bottom: 1.5rem;
+}
