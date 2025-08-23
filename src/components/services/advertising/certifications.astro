@@ -1,0 +1,79 @@
+---
+const techs = [
+  {
+    img: "/certification/brosmedia-creative strategy professional certification.webp",
+    alt: "brosmedia creative strategy professional certification",
+    width: "120",
+  },
+
+  {
+    img: "/certification/brosmedia-media buying professional -certification.webp",
+    alt: "brosmedia-media buying professional certification",
+    width: "120",
+  },
+  {
+    img: "/certification/brosmedia-google ads-certification.webp",
+    alt: "brosmedia google ads-certification",
+    width: "285",
+  },
+  {
+    img: "/certification/brosmedia-Youtube-certification.webp",
+    alt: "brosmedia Youtube certification",
+    width: "330",
+  },
+];
+---
+
+<style>
+  section.steps.section.techs>.container {
+    background-color: white;
+  }
+  .tech-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  section.steps.section.techs > .container img {
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  section.steps.section.techs .container .col-6 {
+    align-content: center !important;    margin: 0;
+
+  }
+
+  @media (max-width: 500px) {
+    .tech-card::before {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section class="steps section techs">
+  <!-- Section Title -->
+  <div class="service-header">
+    <div class="container">
+      <h2 style="font-weight: 600;margin-bottom: 50px;">
+        Nos technologies pour développer votre solution digitale sur-mesure
+      </h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <!-- Technology Cards -->
+
+      {
+        techs.map((p) => (
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="tech-card" data-alt={p.alt}>
+              <img src={p.img} alt={p.alt} width={p.width} />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

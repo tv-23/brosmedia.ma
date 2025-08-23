@@ -22,7 +22,6 @@
     display: flex;
     will-change: transform;
     align-items: center;
-    /* Add this to vertically center logos */
 }
 
 .logo-carousel.dragging {
