@@ -1,0 +1,45 @@
+---
+import "../styles/services.css";
+import Layout from "../layouts/BaseLayout.astro";
+import Header from "../components/services/advertising/header.astro";
+import Cards from "../components/services/advertising/cards.astro";
+import SideBar from "../components/services/advertising/side-bar.astro";
+---
+
+<Layout>
+  <main class="main">
+    <Header />
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section creation-publicitaire">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-8 order-lg-1 order-2">
+            <div class="service-main-content">
+              <div class="service-header">
+                <h1>Créations publicitaires sur tous les supports digitaux</h1>
+                <p class="lead">
+                  Chez Brosmedia, nous concevons, lançons, gérons et analysons
+                  vos campagnes publicitaires digitales avec précision. Notre
+                  objectif : maximiser vos résultats tout en garantissant un
+                  suivi détaillé pour un retour sur investissement optimal.
+                </p>
+
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-emoji-smile-fill text-white me-2"></i> Satisfaction garantie</li>
+                  <li><i class="bi bi-shield-check text-white me-2"></i> Un partenaire de confiance</li>
+                  <li><i class="bi bi-rocket-takeoff-fill text-white me-2"></i> Des solutions concrètes et efficaces</li>
+                </ul>
+              </div>
+            </div>
+            <Cards />
+          </div>
+
+          <div class="col-lg-4 order-lg-2 order-1">
+            <SideBar />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
