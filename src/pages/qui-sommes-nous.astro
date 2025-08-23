@@ -2,6 +2,7 @@
 import Layout from "../layouts/BaseLayout.astro";
 import "../styles/services.css";
 import Form from "../components/telephone-appointment-form.astro";
+import AiLogoSlider from "../components/ai-logo-slider.astro";
 ---
 
 <Layout>
@@ -9,15 +10,12 @@ import Form from "../components/telephone-appointment-form.astro";
         <!-- Page Title -->
         <div class="page-title dark-background" >
             <div class="container position-relative">
-                <h1 class="text-center">Notre Histoire</h1>
-                <p class="text-center">
-                    Découvrez le parcours de notre agence de communication
-                    digitale au Maroc, animée par l’ambition et l’innovation.
-                </p>
+                <h1 class="text-center">Qui sommes-nous ?</h1>
+               
                 <nav class="breadcrumbs">
                     <ol>
                         <li><a href="/">Agence De Communication Digitale Maroc</a></li>
-                        <li class="current">Notre Histoire</li>
+                        <li class="current">Qui sommes-nous</li>
                     </ol>
                 </nav>
             </div>
@@ -29,102 +27,27 @@ import Form from "../components/telephone-appointment-form.astro";
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <article class="story-content">
-                            <h2 class="mb-4">
-                                Une Agence de Communication Digitale au Maroc,
-                                Fondée sur la Passion
-                            </h2>
+                            
 
                             <p>
-                                Chaque projet que nous entreprenons chez <strong
-                                    >notre agence de communication digitale au
-                                    Maroc</strong
-                                > reflète une histoire unique, façonnée par des défis
-                                et une ambition sans limites. L'idée de cette agence
-                                est née du rêve de Hamza : créer un espace d'innovation
-                                et d'excellence dans les domaines du développement
-                                web, du design, et du marketing digital.
+                               Chez Brosmedia, nous sommes bien plus qu’une simple <strong>agence de marketing digital</strong>. Nous mettons l’innovation et la technologie au cœur de notre approche pour offrir à chaque client des solutions performantes et personnalisées. Notre force réside dans l’exploitation intelligente des outils d’Intelligence Artificielle, qui nous permettent de créer des stratégies digitales plus efficaces, rapides et précises.
+
                             </p>
 
                             <p>
-                                Soutenu par sa sœur Yousra, cofondatrice et
-                                alliée indéfectible, ce projet est devenu une
-                                réalité grâce à une vision commune, unie par la
-                                volonté de bâtir une agence familiale et
-                                performante, reconnue à l'échelle nationale.
+                              Nous utilisons notamment ChatGPT pour générer du contenu de qualité et optimiser la communication, SEMrush pour le référencement et l’analyse concurrentielle, ManyChat pour l’automatisation des conversations et le lead nurturing, et HubSpot pour gérer et analyser vos relations clients. Nos créations visuelles s’appuient sur MidJourney et AdCreative.ai, garantissant des visuels impactants et engageants. Nous suivons la performance avec Google Analytics, et explorons de nouvelles opportunités grâce à DeepSeek et Grok, afin de maximiser le retour sur investissement de chaque projet.
                             </p>
 
-                            <!-- Added Image -->
-                            <div class="text-center my-4" >
-                                <img
-                                    src="https://brosmedia.ma/wp-content/uploads/2023/10/background-1.jpg"
-                                    alt="Équipe Agence Digitale"
-                                    class="img-fluid rounded shadow"
-                                    style="max-height: 400px;"
-                                />
-                            </div>
-
-                            <h3 class="mt-5 mb-3">
-                                Notre Mission au Cœur du Digital
-                            </h3>
-
-                            <p>
-                                En tant que <strong
-                                    >agence de communication digitale basée au
-                                    Maroc</strong
-                                >, notre mission est de repousser les limites de
-                                la créativité, de la technologie et de
-                                l'expérience utilisateur. Nous collaborons avec
-                                des entreprises ambitieuses pour leur offrir des
-                                solutions sur mesure, centrées sur la
-                                performance.
-                            </p>
-
-                            <p>
-                                De la création de sites web modernes aux
-                                campagnes marketing percutantes, notre équipe
-                                s’engage à livrer des résultats concrets et à
-                                bâtir des partenariats durables.
-                            </p>
-
-                            <h4 class="mt-5 mb-3">
-                                Pourquoi Choisir Notre Agence de Communication
-                                Digitale au Maroc ?
-                            </h4>
-                            <ul class="mb-4">
-                                <li  >
-                                    <span style="color: #e30f29;"><i class="bi bi-check-lg"></i></span> Une équipe passionnée et expérimentée
-                                </li>
-                                <li  >
-                                    <span style="color: #e30f29;"><i class="bi bi-check-lg"></i></span> Une approche humaine et personnalisée
-                                </li>
-                                <li  >
-                                    <span style="color: #e30f29;"><i class="bi bi-check-lg"></i></span> Des résultats mesurables, durables et
-                                    transparents
-                                </li>
-                            </ul>
-
-                            <h3 class="mt-5 mb-3">
-                                Un Partenaire de Confiance
-                            </h3> 
-                            <p>
-                                Nous croyons fermement que la réussite de nos
-                                clients est notre plus grande victoire. C’est
-                                pourquoi chaque projet est mené avec soin,
-                                écoute et innovation.
-                            </p>
-
-                            <p>
-                                Rejoignez notre aventure et laissez notre <strong
-                                    >agence de communication digitale au Maroc</strong
-                                >
-                                propulser votre marque vers de nouveaux sommets.
-                            </p>
+                           
                         </article>
+
+                        
                     </div>
                 </div>
             </div>
         </section>
-
+        <AiLogoSlider/>
+<br>
         <!-- Call to Action Section -->
       <Form></Form>
     </main>
