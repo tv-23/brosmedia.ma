@@ -3,9 +3,9 @@
 ---
 
 <style>
-    .brosmedia-RS .service-card {
+    /* .brosmedia-RS .service-card {
         min-height: 610px;
-    }
+    } */
 
     @media (max-width: 500px) {
     .brosmedia-RS .service-card {
@@ -187,3 +187,34 @@
         </div>
     </div>
 </section>
+
+
+
+<script>
+    function setEqualHeight() {
+  const cards = document.querySelectorAll('.brosmedia-RS .service-card');
+  let maxHeight = 0;
+
+  // reset heights first
+  cards.forEach(card => card.style.minHeight = "auto");
+
+  // get max height
+  cards.forEach(card => {
+    if (card.offsetHeight > maxHeight) {
+      maxHeight = card.offsetHeight;
+    }
+  });
+
+  // apply max height only on tablet & desktop
+  if (window.innerWidth >= 768) {
+    cards.forEach(card => {
+      card.style.minHeight = maxHeight + "px";
+    });
+  }
+}
+
+// run on load + resize
+window.addEventListener("load", setEqualHeight);
+window.addEventListener("resize", setEqualHeight);
+
+</script>
