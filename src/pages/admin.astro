@@ -1,0 +1,65 @@
+---
+// admin.astro
+
+const isBrowser = typeof window !== "undefined";
+
+if (!isBrowser) {
+  // Dans le SSR phase, on peut pas lire localStorage, donc redirect vers login
+  return Astro.redirect('/login');
+}
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page d'administration</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+
+  <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
+    <h1 class="text-center text-primary mb-4">Page d'administration</h1>
+    <button id="createBtn" class="btn btn-success w-100 mb-3">
+      Créer fichiers Markdown
+    </button>
+
+    <div id="message" class="alert alert-success text-center d-none" role="alert">
+      ✅ Fichiers créés avec succès !
+    </div>
+
+    <div id="error" class="alert alert-danger text-center d-none" role="alert">
+      ❌ Une erreur est survenue.
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    if(localStorage.getItem('isAdmin') !== 'true') {
+      alert('Accès refusé');
+      window.location.href = '/login';
+    }
+
+    const createBtn = document.getElementById('createBtn');
+    const message = document.getElementById('message');
+    const error = document.getElementById('error');
+
+    createBtn.addEventListener('click', async () => {
+      try {
+        const response =await fetch('/api/create-post', { method: 'POST' });
+        if(response.ok) {
+          message.classList.remove('d-none');
+          error.classList.add('d-none');
+        } else {
+          throw new Error('Erreur lors de la création');
+        }
+      } catch {
+        error.classList.remove('d-none');
+        message.classList.add('d-none');
+      }
+    });
+  </script>
+</body>
+</html>

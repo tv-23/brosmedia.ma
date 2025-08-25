@@ -122,6 +122,12 @@ const currentPath = Astro.url.pathname;
               >Qui sommes-nous ?</a
             >
           </li>
+        <li class="current"> <a
+              href="/blog/"
+              class={currentPath === "/blog/" ? "active" : ""}
+              >Blog</a
+            ></li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

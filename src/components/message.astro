@@ -1,0 +1,359 @@
+---
+import "../styles/message.css";
+---
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+
+<div class="chat-container hidden" id="chat-box">
+  <div class="chat-header">
+    <div class="header-icons" style="padding-top: 27px;">
+      <img
+        src="https://brosmedia.ma/wp-content/uploads/2023/10/hamza-charif-tribak.webp"
+        alt="User1"
+      />
+      <img
+        src="https://brosmedia.ma/wp-content/uploads/2023/10/youssra-charif-tribak.webp"
+        alt="User2"
+      />
+      <img
+        src="https://brosmedia.ma/wp-content/uploads/2024/10/Abdel-aziz.jpg"
+        alt="User3"
+      />
+    </div>
+    <p style="padding-top: 18px;">Des questions ? Discutons !</p>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="message-row receiver">
+      <div class="abel" style="width: 39px;height: 39px;">
+        <img class="profile-pic" src="../../public/fab.jpg" alt="User1" />
+      </div>
+      <div class="message-bubble">Avez-vous des questions ?</div>
+    </div>
+  </div>
+
+  <div
+    class="message user-input"
+    style="display:flex; align-items:center; gap:10px;"
+  >
+    <div class="input-wrapper" id="inputWrapper">
+      <div class="left-icons">
+        <input type="file" id="fileInput" style="display:none" />
+        <i class="bi bi-paperclip icon" id="fileIcon"></i>
+        <span
+          id="voiceDuration"
+          style="font-family: monospace; color: #075e54; font-weight: bold; min-width: 50px; display: none;"
+          >00:00</span
+        >
+        <i class="bi bi-mic icon" id="micIcon"></i>
+        <i
+          class="bi bi-trash icon delete"
+          id="deleteRecording"
+          style="display: none; color: #ff3b30; cursor: pointer; font-size: 20px;"
+        ></i>
+      </div>
+      <input
+        type="text"
+        id="chatMessage"
+        placeholder="Entrez votre message..."
+      />
+      <button id="sendBtn" class="icon send" style="display: none;">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const chatBtn = document.getElementById("chat-button");
+    const chatBox = document.getElementById("chat-box");
+    const chatMessage = document.getElementById("chatMessage");
+    const sendBtn = document.getElementById("sendBtn");
+    const chatBody = document.getElementById("chatBody");
+    const fileIcon = document.getElementById("fileIcon");
+    const fileInput = document.getElementById("fileInput");
+    const micIcon = document.getElementById("micIcon");
+    const voiceDuration = document.getElementById("voiceDuration");
+    const deleteRecording = document.getElementById("deleteRecording");
+
+    let lastUserMessage = "";
+    let lastUserFile = null;
+    let isDeletingRecording = false;
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let recording = false;
+    let recordingStartTime;
+    let durationInterval;
+
+    if (chatBtn) {
+      chatBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        chatBox.classList.toggle("hidden");
+      });
+    }
+
+    chatMessage.addEventListener("input", () => {
+      sendBtn.style.display = chatMessage.value.trim()
+        ? "inline-block"
+        : "none";
+    });
+
+    function addMessage(text, type) {
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("message", type);
+      msgDiv.innerHTML = `<p>${text}</p>`;
+      chatBody.appendChild(msgDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showServicesList(userEmail) {
+      const services = [
+        "Création de site web",
+        "Design graphique",
+        "Marketing digital",
+        "Maintenance technique",
+        "Formation en ligne",
+        "Autres",
+      ];
+      const container = document.createElement("div");
+      container.style.display = "flex";
+      container.style.flexDirection = "column";
+      container.style.gap = "8px";
+      container.style.marginTop = "10px";
+
+      services.forEach((service) => {
+        const bubble = document.createElement("div");
+        bubble.classList.add("message-bubble");
+        bubble.textContent = service;
+        bubble.style.cursor = "pointer";
+
+        bubble.addEventListener("click", async () => {
+          addMessage(service, "sender");
+
+          const formData = new FormData();
+          formData.append("email", userEmail);
+          formData.append("message", service);
+
+          const response = await fetch("http://localhost:3000/send-message", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            chatBody.innerHTML = `<div style="color:#0a0f4f; text-align:center;margin-top:251px; font-size:15px;">
+          Merci ! Nous devrions bientôt...
+        </div>`;
+          } else {
+            alert("Erreur lors de l'envoi du service.");
+          }
+        });
+
+        container.appendChild(bubble);
+      });
+
+      chatBody.appendChild(container);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    function addEmailRequest() {
+      const existingEmailRequest = chatBody.querySelector(
+        ".message.email-request",
+      );
+      if (existingEmailRequest) existingEmailRequest.remove();
+
+      const emailRequest = document.createElement("div");
+      emailRequest.classList.add("message", "receiver", "email-request");
+      emailRequest.style.display = "flex";
+      emailRequest.style.flexDirection = "column";
+      emailRequest.style.gap = "8px";
+      emailRequest.innerHTML = `
+      <div style="display:flex; align-items:flex-start; gap:8px; padding-left:60px;">
+        <div class="abel" style="width:39px; height:39px;">
+          <img class="profile-pic" src="../../public/fab.jpg" alt="Bot" style="margin-left:-4px"/>
+        </div>
+        <div style="background-color:LIGHTGREY; padding:10px; border-radius:8px; color:#0a0f4f; font-size:14px; width:220px; margin-left:-15px; margin-top:-14px;">
+          Quelle est votre adresse email ?
+        </div>
+      </div>
+      <form id="emailForm" style="position:relative; width:100%; margin-top:5px;">
+        <input type="email" id="emailInput" placeholder="Entrez votre adresse email..." required
+          style="width:112%; padding:8px 40px 8px 10px; border-radius:5px; border:1px solid #ccc; font-size:14px;margin-left:32px;">
+        <button type="submit" style="position:absolute; top:50%; right:-62px; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:#007bff; font-size:20px;">
+          <i class="bi bi-send-fill"></i>
+        </button>
+      </form>
+      <div style="background-color:#fff3cd; padding:6px; border-radius:5px; font-size:13px; color:#856404; display:flex; align-items:center; gap:6px; margin-left:112px; width:202px;">
+        <i class="bi bi-bell-fill"></i> Renseignez votre email pour être notifié.
+      </div>
+    `;
+      chatBody.appendChild(emailRequest);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      emailRequest
+        .querySelector("#emailForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const emailValue = this.querySelector("#emailInput").value.trim();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+            alert("Veuillez entrer une adresse email valide.");
+            return;
+          }
+
+          emailRequest.remove();
+
+          // خزن البيانات مؤقتًا للـ beforeunload
+          sessionStorage.setItem("pendingEmail", emailValue);
+          sessionStorage.setItem("pendingMessage", lastUserMessage || "");
+          sessionStorage.setItem(
+            "pendingFile",
+            lastUserFile ? URL.createObjectURL(lastUserFile) : "",
+          );
+
+          // عرض قائمة الخدمات مباشرة
+          showServicesList(emailValue);
+        });
+
+      // عند مغادرة الصفحة بدون اختيار خدمة
+      window.addEventListener("beforeunload", function () {
+        const email = sessionStorage.getItem("pendingEmail");
+        if (email) {
+          const formData = new FormData();
+          const message = sessionStorage.getItem("pendingMessage");
+          const fileUrl = sessionStorage.getItem("pendingFile");
+
+          if (message) formData.append("message", message);
+          if (fileUrl) formData.append("messageFile", fileUrl);
+          formData.append("email", email);
+
+          navigator.sendBeacon("http://localhost:3000/send-message", formData);
+        }
+      });
+    }
+
+    sendBtn.addEventListener("click", () => {
+      if (recording) {
+        mediaRecorder.stop();
+      } else {
+        const message = chatMessage.value.trim();
+        if (message) {
+          lastUserMessage = message;
+          lastUserFile = null;
+          addMessage(message, "sender");
+          chatMessage.value = "";
+          sendBtn.style.display = "none";
+
+          // عرض طلب الإيميل بعد إرسال أول رسالة
+          addEmailRequest();
+        }
+      }
+    });
+    function sendMessageWithoutService(email) {
+      const formData = new FormData();
+      if (lastUserMessage) formData.append("message", lastUserMessage);
+      if (lastUserFile) formData.append("messageFile", lastUserFile);
+      formData.append("email", email);
+
+      fetch("http://localhost:3000/send-message", {
+        method: "POST",
+        body: formData,
+      }).catch((err) => console.log("Erreur envoi message sans service:", err));
+    }
+
+    // عند مغادرة الصفحة بدون اختيار خدمة
+    window.addEventListener("beforeunload", function () {
+      const email = sessionStorage.getItem("pendingEmail");
+      if (email) {
+        sendMessageWithoutService(email);
+      }
+    });
+
+    fileIcon.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        lastUserMessage = "";
+        lastUserFile = file;
+        addMessage(`fichier: ${file.name}`, "sender");
+        addEmailRequest(); // <-- هنا فقط بعد رفع الملف
+      }
+    });
+
+    function updateDuration() {
+      const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
+      const minutes = Math.floor(elapsed / 60)
+        .toString()
+        .padStart(2, "0");
+      const seconds = (elapsed % 60).toString().padStart(2, "0");
+      voiceDuration.textContent = `${minutes}:${seconds}`;
+    }
+
+    function resetRecording() {
+      recording = false;
+      micIcon.style.display = "block";
+      voiceDuration.style.display = "none";
+      deleteRecording.style.display = "none";
+      sendBtn.style.display = "none";
+      voiceDuration.textContent = "00:00";
+      audioChunks = [];
+      clearInterval(durationInterval);
+      if (mediaRecorder && mediaRecorder.stream) {
+        mediaRecorder.stream.getTracks().forEach((track) => track.stop());
+      }
+    }
+
+    micIcon.addEventListener("click", async () => {
+      if (!recording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+          });
+          mediaRecorder = new MediaRecorder(stream);
+
+          mediaRecorder.addEventListener("dataavailable", (e) =>
+            audioChunks.push(e.data),
+          );
+          mediaRecorder.addEventListener("stop", () => {
+            if (!isDeletingRecording && audioChunks.length > 0) {
+              const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+              const audioUrl = URL.createObjectURL(audioBlob);
+              const msgDiv = document.createElement("div");
+              msgDiv.classList.add("message", "sender");
+              msgDiv.innerHTML = `<audio controls src="${audioUrl}" class="audeodesigne"></audio><span class="spanaudeo">${voiceDuration.textContent}</span>`;
+              chatBody.appendChild(msgDiv);
+              chatBody.scrollTop = chatBody.scrollHeight;
+
+              lastUserMessage = "";
+              lastUserFile = audioBlob;
+              addEmailRequest(); // <-- هنا فقط بعد التسجيل
+            }
+            resetRecording();
+            isDeletingRecording = false;
+          });
+
+          mediaRecorder.start();
+          recording = true;
+          recordingStartTime = Date.now();
+          micIcon.style.display = "none";
+          voiceDuration.style.display = "inline-block";
+          deleteRecording.style.display = "inline-block";
+          sendBtn.style.display = "inline-block";
+          durationInterval = setInterval(updateDuration, 1000);
+          audioChunks = [];
+        } catch (err) {
+          alert("Impossible d'accéder au microphone : " + err);
+          resetRecording();
+        }
+      }
+    });
+
+    deleteRecording.addEventListener("click", () => {
+      if (recording) {
+        isDeletingRecording = true;
+        mediaRecorder.stop();
+      }
+    });
+  });
+</script>
