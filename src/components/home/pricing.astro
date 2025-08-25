@@ -1,3 +1,7 @@
+---
+import Steps from "../steps.astro";
+---
+
 <section id="pricing" class="pricing section">
     <!-- Section Title -->
     <div class="container section-title" >
@@ -170,3 +174,44 @@
         </div>
     </div>
 </section>
+
+<div id="steps-section" style="display:none;">
+  <Steps/>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const chooseButtons = document.querySelectorAll(".btn-plan");
+  const pricingSection = document.getElementById("pricing");
+  const stepsSection = document.getElementById("steps-section");
+  const goBackBtn = document.getElementById("goBackPricing");
+
+  // متغير لتتبع المرة الأولى
+  let firstClick = true;
+
+  chooseButtons.forEach(button => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      if (firstClick) {
+        // المرة الأولى: نخفي Pricing ونبين Steps
+        pricingSection.style.display = "none";
+        firstClick = false; // من بعد باقي المرات Pricing يبقى ظاهر
+      }
+
+      // Steps يظهر ديما
+      stepsSection.style.display = "block";
+      stepsSection.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  if (goBackBtn) {
+    goBackBtn.addEventListener("click", () => {
+      // Steps يختفي فقط، Pricing يبقى أو يبان حسب المرة الأولى
+      stepsSection.style.display = "none";
+      pricingSection.style.display = firstClick ? "block" : pricingSection.style.display;
+      pricingSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+</script>
