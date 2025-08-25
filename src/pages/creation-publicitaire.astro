@@ -5,6 +5,8 @@ import Header from "../components/services/advertising/header.astro";
 import Cards from "../components/services/advertising/cards.astro";
 import Certifications from "../components/services/advertising/certifications.astro";
 import SideBar from "../components/services/advertising/side-bar.astro";
+import Features from "../components/services/advertising/our-features.astro";
+import TelephoneAppointmentForm from "../components/telephone-appointment-form.astro";
 ---
 
 <Layout>
@@ -12,7 +14,10 @@ import SideBar from "../components/services/advertising/side-bar.astro";
     <Header />
 
     <!-- Service Details Section -->
-    <section id="service-details" class="service-details section creation-publicitaire">
+    <section
+      id="service-details"
+      class="service-details section creation-publicitaire"
+    >
       <div class="container">
         <div class="row gy-5">
           <div class="col-lg-8 order-lg-1 order-2">
@@ -27,9 +32,18 @@ import SideBar from "../components/services/advertising/side-bar.astro";
                 </p>
 
                 <ul class="list-unstyled">
-                  <li><i class="bi bi-emoji-smile-fill text-white me-2"></i> Satisfaction garantie</li>
-                  <li><i class="bi bi-shield-check text-white me-2"></i> Un partenaire de confiance</li>
-                  <li><i class="bi bi-rocket-takeoff-fill text-white me-2"></i> Des solutions concrètes et efficaces</li>
+                  <li>
+                    <i class="bi bi-emoji-smile-fill text-white me-2"></i> Satisfaction
+                    garantie
+                  </li>
+                  <li>
+                    <i class="bi bi-shield-check text-white me-2"></i> Un partenaire
+                    de confiance
+                  </li>
+                  <li>
+                    <i class="bi bi-rocket-takeoff-fill text-white me-2"></i> Des
+                    solutions concrètes et efficaces
+                  </li>
                 </ul>
               </div>
             </div>
@@ -43,7 +57,13 @@ import SideBar from "../components/services/advertising/side-bar.astro";
       </div>
     </section>
 
-<Certifications/>
+    <Certifications />
+
+    <Features />
+    <br /><br />
+    <TelephoneAppointmentForm />
+    <br /><br />
+    <br /><br />
 
   </main>
 </Layout>
