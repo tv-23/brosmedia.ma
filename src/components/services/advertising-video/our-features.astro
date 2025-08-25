@@ -1,0 +1,99 @@
+---
+const elements = [
+    {
+        title: "Nos Caméras",
+        description:
+            "Des caméras de cinéma professionnelles pour réaliser des vidéos d’entreprise d’une qualité exceptionnelle.",
+        icon: "bi bi-camera-video text-white",
+    },
+    {
+        title: "Nos Éclairages",
+        description:
+            "Un éclairage de pointe garantissant une luminosité optimale et une mise en valeur parfaite de vos vidéos publicitaires.",
+        icon: "bi bi-lightbulb text-white",
+    },
+    {
+        title: "Nos Micros",
+        description:
+            "Des microphones haute performance pour un son clair, précis et immersif dans chacun de vos projets audiovisuels.",
+        icon: "bi bi-mic text-white",
+    },
+    {
+        title: "Nos Scénarios",
+        description:
+            "Des scénarios créatifs et engageants conçus pour délivrer des messages percutants et transformer vos spectateurs en clients.",
+        icon: "bi bi-journal-text text-white",
+    },
+];
+---
+
+<style>
+    .our-features .card-body {
+        background-color: #e30f29;
+    }
+    .our-features h5.card-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .our-features .card-text {
+        text-align: initial;
+    }
+</style>
+
+<section class="steps section our-features">
+    <!-- Section Title -->
+    <div class="service-header">
+        <div class="container">
+            <h2 style="font-weight: 600;">
+                Service de Qualité<br /><span style="color:#e30f29"
+                    >Grâce à un matériel de pointe</span
+                >
+            </h2>
+        </div>
+    </div>
+
+    <div class="container text-center py-5">
+        <div class="row">
+            <div class="col-md-6 order-2 order-md-1">
+                <div class="content-block">
+                    <p class="lead" style="text-align: initial;"> 
+                       Chez Brosmedia, nous mettons à votre service les dernières technologies audiovisuelles pour créer des vidéos qui marquent les esprits. Faites confiance à notre expertise pour dynamiser votre communication et maximiser vos résultats.
+                    </p>
+                    <p class="lead" style="text-align: initial;">
+                       De la rédaction du scénario au tournage, jusqu’au montage final, notre équipe vous accompagne à chaque étape pour donner vie à vos projets vidéo.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 order-1 order-md-2">
+                <img
+                    src="https://brosmedia.ma/wp-content/uploads/2024/01/hamza-drone-768x960.webp"
+                    alt="Création de Site Web"
+                    class="img-fluid"
+                />
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="row">
+            {
+                elements.map((el) => (
+                    <div class="col-lg-6 col-md-6 col-12 mb-1">
+                        <div class="card h-100 border-0">
+                            <div class="card-body">
+                                <i class={el.icon} style="font-size: 2rem;" />
+                                <h5 class="card-title text-white mt-3 mb-3">
+                                    {el.title}
+                                </h5>
+                                <p class="card-text text-white">
+                                    {el.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

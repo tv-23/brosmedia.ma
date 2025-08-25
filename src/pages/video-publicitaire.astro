@@ -1,0 +1,59 @@
+---
+import "../styles/services.css";
+import Layout from "../layouts/BaseLayout.astro";
+import Header from "../components/services/advertising-video/header.astro";
+import Overview from "../components/services/advertising-video/overview.astro";
+import TelephoneAppointmentForm from "../components/telephone-appointment-form.astro";
+import SideBar from "../components/services/advertising-video/side-bar.astro";
+import ListContent from "../components/services/advertising-video/list-content.astro";
+import CompleteOffer from "../components/services/advertising-video/complete-offer.astro";
+import OurFeatures from "../components/services/advertising-video/our-features.astro";
+---
+
+<Layout>
+    <main class="main">
+        <Header />
+
+        <!-- Service Details Section -->
+        <section id="service-details" class="service-details section">
+            <div class="container">
+                <div class="row gy-5">
+                    <div class="col-lg-8 order-lg-1 order-2">
+                        <div class="service-main-content">
+                            <div class="service-header">
+                                <h1>
+                                    Un partenaire de confiance pour des
+                                    résultats concrets
+                                </h1>
+                                <p class="lead">
+                                    Chez Brosmedia, nous donnons vie à vos idées
+                                    en créant des vidéos publicitaires
+                                    percutantes qui valorisent votre activité.
+                                    De la conception au montage, nous produisons
+                                    du contenu visuel de qualité, pensé pour
+                                    renforcer votre image et accroître votre
+                                    visibilité en ligne.
+                                </p>
+                            </div>
+
+                            <Overview />
+
+                            <ListContent />
+
+                            <CompleteOffer/>
+                            <OurFeatures/>
+                            
+
+                            <br /><br />
+                            <TelephoneAppointmentForm />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 order-lg-2 order-1">
+                        <SideBar />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

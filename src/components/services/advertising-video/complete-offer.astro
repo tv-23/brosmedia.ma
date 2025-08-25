@@ -1,0 +1,57 @@
+---
+const elements = [
+    {
+        title: "Captation par drone",
+        description:
+            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
+        icon: "bi bi-camera-video",
+    },
+    {
+        title: "Voix off",
+        description:
+            "Enregistrements vocaux de qualité studio pour donner plus de force et de clarté à vos vidéos.",
+        icon: "bi bi-mic",
+    },
+    {
+        title: "Formats réseaux sociaux",
+        description:
+            "Vidéos publicitaires en haute définition (jusqu’à la 4K), optimisées pour tous les supports et plateformes sociales.",
+        icon: "bi bi-share",
+    },
+    {
+        title: "Interviews",
+        description:
+            "Réalisation et livraison de vidéos d’interview professionnelles, idéales pour valoriser votre entreprise.",
+        icon: "bi bi-person-video",
+    },
+];
+---
+
+<section>
+    <!-- Section Title -->
+    <div class="service-header">
+        <div class="container">
+            <h2 style="font-weight: 600;">Offre Complète</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row g-4">
+            {
+                elements.map((el) => (
+                    <div class="col-md-6">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class={el.icon} />
+                            </div>
+                            <h4>{el.title}</h4>
+                            <p>
+                                {el.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
