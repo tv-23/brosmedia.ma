@@ -1,0 +1,84 @@
+---
+import "../../../styles/sections/video-publicitaire-slider.css";
+
+const elements = [
+    {
+        title: "SLIDER",
+        name: "EAGLE",
+        img: "background-image: url(/video-publicitaire-slider/eagel1.jpg);",
+        description:
+            " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.",
+        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
+    },
+    {
+        title: "SLIDER",
+        name: "OWL",
+        img: "background-image: url(/video-publicitaire-slider/owl1.jpg);",
+        description:
+            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
+        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
+    },
+    {
+        title: "SLIDER",
+        name: "CROW",
+        img: "background-image: url(/video-publicitaire-slider/crow.jpg);",
+        description:
+            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
+        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
+    },
+    {
+        title: "SLIDER",
+        name: "BUTTERFLY",
+        img: "background-image: url(/video-publicitaire-slider/butterfly1.jpeg);",
+        description:
+            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
+        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
+    },
+];
+---
+
+<section id="service-details" class="service-details section">
+    <div class="container">
+        <div class="row gy-5">
+            <div class="col-lg-8 order-lg-1 order-2">
+                <div class="service-main-content">
+                    <div class="service-header">
+                        <h1>Nos réalisations chez Brosmedia</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="carousel">
+    <div class="list">
+        {
+            elements.map((el) => (
+                <div class="item" style={el.img}>
+                    <div class="content">
+                        <div class="title">{el.title}</div>
+                        <div class="name">{el.name}</div>
+                        <div class="des">{el.description}</div>
+                        <div class="btn">
+                            <a href={el.url} target="_blank">
+                                voir la vidéo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <!--next prev button-->
+    <div class="arrows">
+        <button class="prev"><i class="bi bi-arrow-left"></i></button>
+        <button class="next"><i class="bi bi-arrow-right"></i></button>
+    </div>
+
+    <!-- time running -->
+    <div class="timeRunning"></div>
+</div>
+
+<script src="../../../../public/video-publicitaire-slider.astro.js"></script>

@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/main.css";
 import "../styles/global.css";
+import Message from "../components/message.astro";
 
 const { pageTitle } = Astro.props;
 ---
@@ -46,6 +47,11 @@ const { pageTitle } = Astro.props;
             class="scroll-top d-flex align-items-center justify-content-center"
             ><i class="bi bi-arrow-up-short"></i></a
         >
+ <a href="#" id="chat-button" class="chat-icon">
+            <i class="bi bi-chat-dots-fill"></i>
+        </a>
+<Message />
+
         <Footer />
 
         <script

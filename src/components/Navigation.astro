@@ -12,7 +12,7 @@ const currentPath = Astro.url.pathname;
       >
         <div class="top-bar-left d-flex align-items-center gap-3">
           <!-- Contact email with Gmail compose link, hidden on mobile and tablet -->
-            <span class="d-none d-lg-flex align-items-center" id="contact-email">
+          <span class="d-none d-lg-flex align-items-center" id="contact-email">
             <i class="bi bi-envelope me-1" aria-hidden="true"></i>
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@brosmedia.ma"
@@ -89,36 +89,47 @@ const currentPath = Astro.url.pathname;
     </div>
     <div class="col-auto" style="padding-right: 0px !important;">
       <nav id="navmenu" class="navmenu">
-          <ul>
-            <li>
-              <a href="/" class={currentPath === "/" ? "active" : ""}>Accueil</a
-              >
-            </li>
-            <li>
-              <a
-                href="/strategies-max/"
-                class={currentPath === "/strategies-max/" ? "active" : ""}
-                >Stratégies Max</a>
-            </li>
-            <li class="dropdown">
-              <a href="#"
-                ><span>Services</span>
-                <i class="bi bi-chevron-down toggle-dropdown"></i></a
-              >
-              <ul>
-                <li><a href="/creation-de-site-web">Conception de site web</a></li>
-                <li><a href="/creation-publicitaire">Création publicitaire</a></li>
-                <li><a href="#">Vidéo publicitaire</a></li>
-              </ul>
-            </li>
-            <li>
-              <a
-                href="/qui-sommes-nous/"
-                class={currentPath === "/qui-sommes-nous/" ? "active" : ""}
-                >Qui sommes-nous ?</a
-              >
-            </li>
-          </ul>
+        <ul>
+          <li>
+            <a href="/" class={currentPath === "/" ? "active" : ""}>Accueil</a>
+          </li>
+          <li>
+            <a
+              href="/strategies-max/"
+              class={currentPath === "/strategies-max/" ? "active" : ""}
+              >Stratégies Max</a
+            >
+          </li>
+          <li class="dropdown">
+            <a href="#"
+              ><span>Services</span>
+              <i class="bi bi-chevron-down toggle-dropdown"></i></a
+            >
+            <ul>
+              <li>
+                <a href="/creation-de-site-web">Conception de site web</a>
+              </li>
+              <li>
+                <a href="/creation-publicitaire">Création publicitaire</a>
+              </li>
+              <li><a href="/video-publicitaire">Vidéo publicitaire</a></li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="/qui-sommes-nous/"
+              class={currentPath === "/qui-sommes-nous/" ? "active" : ""}
+              >Qui sommes-nous ?</a
+            >
+          </li>
+        <li class="current"> <a
+              href="/blog/"
+              class={currentPath === "/blog/" ? "active" : ""}
+              >Blog</a
+            ></li>
+            
+
+        </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
     </div>

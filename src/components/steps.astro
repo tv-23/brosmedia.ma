@@ -1,0 +1,1295 @@
+---
+import "../styles/pricing.css";
+---
+
+<!-- <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+/> -->
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+    i {
+        margin-right: 10px;
+    }
+
+    /*------------------------*/
+    input:focus,
+    button:focus,
+    .form-control:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .form-control:disabled,
+    .form-control[readonly] {
+        background-color: #fff;
+    }
+
+    /*----------step-wizard------------*/
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    /*---------signup-step-------------*/
+    .bg-color {
+        background-color: #333;
+    }
+
+    .signup-step-container {
+        padding: 150px 0px;
+        padding-bottom: 60px;
+    }
+
+    .wizard .nav-tabs {
+        position: relative;
+        margin-bottom: 0;
+        border-bottom-color: transparent;
+    }
+
+    .wizard > div.wizard-inner {
+        position: relative;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .connecting-line[data-astro-cid-wqapz72h] {
+        height: 2px;
+        background: #e0e0e0;
+        position: absolute;
+        width: 51%;
+        margin: 0;
+        left: 267px;
+        right: -6%;
+        top: 15px;
+        z-index: 1;
+    }
+    @media (max-width: 791px) {
+        .connecting-line[data-astro-cid-wqapz72h] {
+            left: 211px;
+        }
+    }
+    @media (max-width: 868px) {
+        .connecting-line[data-astro-cid-wqapz72h] {
+            left: 210px;
+        }
+    }
+    @media (max-width: 959px) {
+        .connecting-line[data-astro-cid-wqapz72h] {
+            left: 210px;
+        }
+    }
+
+    .wizard .nav-tabs > li.active > a,
+    .wizard .nav-tabs > li.active > a:hover,
+    .wizard .nav-tabs > li.active > a:focus {
+        color: #555555;
+        cursor: default;
+        border: 0;
+        border-bottom-color: transparent;
+    }
+
+    span.round-tab {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 2;
+        position: absolute;
+        left: 123px;
+        text-align: center;
+        font-size: 16px;
+        color: #0e214b;
+        font-weight: 500;
+        border: 1px solid #ddd;
+    }
+
+    span.round-tab i {
+        color: #555555;
+    }
+
+    .wizard li.active span.round-tab {
+        background: #0db02b;
+        color: #fff;
+        border-color: #0db02b;
+    }
+
+    .wizard li.active span.round-tab i {
+        color: #5bc0de;
+    }
+
+    .wizard .nav-tabs > li.active > a i {
+        color: #0db02b;
+    }
+
+    .wizard .nav-tabs > li {
+        width: 25%;
+    }
+
+    .wizard li:after {
+        content: " ";
+        position: absolute;
+        left: 46%;
+        opacity: 0;
+        margin: 0 auto;
+        bottom: 0px;
+        border: 5px solid transparent;
+        border-bottom-color: red;
+        transition: 0.1s ease-in-out;
+    }
+
+    .wizard .nav-tabs > li a {
+        width: 30px;
+        height: 30px;
+        margin: 20px auto;
+        padding: 0;
+        background-color: transparent;
+        position: relative;
+        top: 0;
+    }
+
+    .wizard .nav-tabs > li a i {
+        position: absolute;
+        top: -15px;
+        font-style: normal;
+        font-weight: 400;
+        white-space: nowrap;
+        left: 50%;
+        transform: translate(337%, -66%);
+        font-size: 12px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .wizard .nav-tabs > li a:hover {
+        background: transparent;
+    }
+
+    .wizard .tab-pane {
+        position: relative;
+        padding-top: 20px;
+    }
+
+    .wizard h3 {
+        margin-top: 0;
+    }
+
+    .prev-step,
+    .next-step {
+        font-size: 13px;
+        padding: 8px 24px;
+        border: none;
+
+        margin-top: 30px;
+    }
+
+    .next-step {
+        background-color: #0db02b;
+    }
+
+    .step-head {
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .term-check {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .custom-file {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 0;
+    }
+
+    .custom-file-input {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 40px;
+        margin: 0;
+        opacity: 0;
+    }
+
+    .custom-file-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        height: 40px;
+        padding: 0.375rem 0.75rem;
+        font-weight: 400;
+        line-height: 2;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+    }
+
+    .custom-file-label::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: block;
+        height: 38px;
+        padding: 0.375rem 0.75rem;
+        line-height: 2;
+        color: #495057;
+        content: "Browse";
+        background-color: red;
+        border-left: inherit;
+    }
+
+    .footer-link {
+        margin-top: 30px;
+    }
+
+    .all-info-container {
+    }
+
+    .list-content {
+        margin-bottom: 10px;
+    }
+
+    .list-content a {
+        padding: 10px 15px;
+        width: 100%;
+        display: inline-block;
+        background-color: #f5f5f5;
+        position: relative;
+        color: #565656;
+    }
+
+    .list-content a[aria-expanded="true"] i {
+        transform: rotate(180deg);
+    }
+
+    .list-content a i {
+        text-align: right;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        transition: 0.5s;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: #0a0f4f;
+    }
+
+    .list-box {
+        padding: 10px;
+    }
+
+    .signup-logo-header .logo_area {
+        width: 200px;
+    }
+
+    .signup-logo-header .nav > li {
+        padding: 0;
+    }
+
+    .signup-logo-header .header-flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .list-inline li {
+        display: inline-block;
+    }
+
+    .pull-right {
+        float: right;
+    }
+
+    /*-----------custom-checkbox-----------*/
+    /*----------Custom-Checkbox---------*/
+    input[type="checkbox"] {
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    input[type="checkbox"]::before,
+    input[type="checkbox"]::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+    }
+
+    input[type="checkbox"]::before {
+        height: 16px;
+        width: 16px;
+        border: 1px solid #999;
+        left: 0px;
+        top: 0px;
+        background-color: #fff;
+    }
+
+    input[type="checkbox"]::after {
+        height: 5px;
+        width: 9px;
+        left: 4px;
+        top: 4px;
+    }
+
+    input[type="checkbox"]:checked::after {
+        content: "";
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform: rotate(-45deg);
+    }
+
+    input[type="checkbox"]:checked::before {
+        background-color: #18ba60;
+        border-color: #18ba60;
+    }
+
+    @media (max-width: 767px) {
+        .sign-content h3 {
+            font-size: 40px;
+        }
+
+        .wizard .nav-tabs > li a i {
+            display: none;
+        }
+
+        .signup-logo-header .navbar-toggle {
+            margin: 0;
+            margin-top: 8px;
+        }
+
+        .signup-logo-header .logo_area {
+            margin-top: 0;
+        }
+
+        .signup-logo-header .header-flex {
+            display: block;
+        }
+    }
+    @media (max-width: 767px) {
+        .connecting-line[data-astro-cid-wqapz72h] {
+            height: 2px;
+            background: #e0e0e0;
+            position: absolute;
+            width: 68%;
+            margin: 0;
+            left: 43px;
+            right: -6%;
+            top: 15px;
+            z-index: 1;
+        }
+        @media (max-width: 542px) {
+            .connecting-line[data-astro-cid-wqapz72h] {
+                width: 349px;
+                left: 71px;
+            }
+        }
+        .wizard .nav-tabs {
+            display: flex;
+            justify-content: space-between; /* توزيع متساوي */
+            align-items: center;
+            position: relative;
+        }
+
+        .wizard .nav-tabs > li {
+            flex: 1; /* كل step ياخذ نفس العرض */
+            text-align: center;
+            position: relative;
+        }
+
+        .wizard .nav-tabs > li a {
+            width: 30px; /* حجم أصغر */
+            height: 30px;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        span.round-tab {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+            left: auto;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .wizard .nav-tabs > li a i {
+            font-size: 10px;
+            position: absolute;
+            top: 38px; /* النص تحت الدائرة */
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        .connecting-line {
+            height: 2px;
+            background: #e0e0e0;
+            position: absolute;
+            top: 15px; /* وسط الدوائر (30px height ÷ 2) */
+            left: 0;
+            right: 0;
+            z-index: 1;
+            width: 100%; /* يوصل من أول ستب لآخر ستب */
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<!-- <script>
+    window.console = window.console || function (t) { };
+</script> -->
+
+<body translate="no">
+    <section class="signup-step-container">
+        <div class="container">
+            <div
+                style="display:flex; flex-direction:column; width:100%; gap:20px;"
+            >
+                <div class="wizard" style="margin-top:-82px">
+                    <div class="wizard-inner">
+                        <div class="connecting-line"></div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a
+                                    href="#step1"
+                                    data-toggle="tab"
+                                    aria-controls="step1"
+                                    role="tab"
+                                    aria-expanded="true"
+                                    ><span class="round-tab">1 </span>
+                                    <i>Step 1</i></a
+                                >
+                            </li>
+                            <li role="presentation" class="disabled">
+                                <a
+                                    href="#step2"
+                                    data-toggle="tab"
+                                    aria-controls="step2"
+                                    role="tab"
+                                    aria-expanded="false"
+                                    ><span class="round-tab">2</span>
+                                    <i>Step 2</i></a
+                                >
+                            </li>
+                            <li role="presentation" class="disabled">
+                                <a
+                                    href="#step3"
+                                    data-toggle="tab"
+                                    aria-controls="step3"
+                                    role="tab"
+                                    ><span class="round-tab">3</span>
+                                    <i>Step 3</i></a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form
+                        role="form"
+                        id="contactForm"
+                        action="index.html"
+                        class="login-box"
+                    >
+                        <div class="tab-content" id="main_form">
+                            <div
+                                class="tab-pane active"
+                                role="tabpanel"
+                                id="step1"
+                            >
+                                <!-- محتوى اختيار الخطة -->
+                                <section
+                                    id="selected-plan"
+                                    class="section"
+                                    style="display:none;"
+                                >
+                                    <div class="container-fluid">
+                                        <div class="row g-4">
+                                            <!-- العمود الأول -->
+                                            <div class="col-12 col-md-6">
+                                                <h2 id="selected-plan-title">
+                                                </h2>
+                                                <ul
+                                                    id="selected-plan-features"
+                                                    class="carousel-container"
+                                                >
+                                                </ul>
+                                            </div>
+
+                                            <!-- العمود الثاني -->
+                                            <div class="col-12 col-md-6">
+                                                <div
+                                                    id="extra-options"
+                                                    class="extra-cards row g-3"
+                                                >
+                                                    <!-- الكروت الإضافية تضاف هنا -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Price و Button -->
+                                    <div class="text-center mt-4">
+                                        <p>
+                                            Total Price: $<span
+                                                id="selected-plan-price"></span>
+                                        </p>
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <button
+                                            type="button"
+                                            class="btn btn-danger next-step"
+                                        >
+                                            Continue to next step
+                                        </button>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <!-- سكريبت الخطة -->
+                            <script type="module">
+                                document.addEventListener(
+                                    "DOMContentLoaded",
+                                    () => {
+                                        const chooseButtons =
+                                            document.querySelectorAll(
+                                                ".btn-plan",
+                                            );
+                                        const pricingSection =
+                                            document.getElementById("pricing");
+                                        const selectedSection =
+                                            document.getElementById(
+                                                "selected-plan",
+                                            );
+
+                                        const titleEl = document.getElementById(
+                                            "selected-plan-title",
+                                        );
+                                        const featuresEl =
+                                            document.getElementById(
+                                                "selected-plan-features",
+                                            );
+                                        const priceEl = document.getElementById(
+                                            "selected-plan-price",
+                                        );
+                                        const extraOptionsDiv =
+                                            document.getElementById(
+                                                "extra-options",
+                                            );
+                                        const selectedExtras = [];
+
+                                        chooseButtons.forEach((btn) => {
+                                            btn.addEventListener(
+                                                "click",
+                                                (e) => {
+                                                    e.preventDefault();
+                                                    const card =
+                                                        btn.closest(
+                                                            ".pricing-card",
+                                                        );
+                                                    const planName =
+                                                        card.querySelector(
+                                                            "h3",
+                                                        ).textContent;
+                                                    const featureItems =
+                                                        card.querySelectorAll(
+                                                            ".plan-features li",
+                                                        );
+                                                    let price = parseFloat(
+                                                        card.querySelector(
+                                                            ".amount",
+                                                        ).textContent,
+                                                    );
+                                                    selectedPlanName = planName;
+                                                    localStorage.setItem(
+                                                        "selectedPlanName",
+                                                        planName,
+                                                    );
+                                                    pricingSection.style.display =
+                                                        "none";
+                                                    titleEl.textContent =
+                                                        planName;
+                                                    featuresEl.innerHTML = "";
+                                                    extraOptionsDiv.innerHTML =
+                                                        "";
+
+                                                    // حركة الفيتشرز
+                                                    featureItems.forEach(
+                                                        (li, index) => {
+                                                            const newLi =
+                                                                document.createElement(
+                                                                    "li",
+                                                                );
+                                                            newLi.innerHTML =
+                                                                li.innerHTML;
+                                                            const icon =
+                                                                newLi.querySelector(
+                                                                    "i",
+                                                                );
+                                                            if (
+                                                                icon &&
+                                                                icon.classList.contains(
+                                                                    "bi-check-circle-fill",
+                                                                )
+                                                            )
+                                                                icon.style.color =
+                                                                    "#e30f29";
+                                                            if (
+                                                                icon &&
+                                                                icon.classList.contains(
+                                                                    "bi-x-circle-fill",
+                                                                )
+                                                            )
+                                                                icon.style.color =
+                                                                    "gray";
+
+                                                            newLi.style.transform =
+                                                                "translateX(-5620px)";
+                                                            newLi.style.opacity =
+                                                                "0";
+                                                            newLi.style.transition = `transform 0.5s ease ${index * 0.15}s, opacity 0.5s ease ${index * 0.15}s`;
+
+                                                            featuresEl.appendChild(
+                                                                newLi,
+                                                            );
+
+                                                            setTimeout(() => {
+                                                                newLi.style.transform =
+                                                                    "translateX(0)";
+                                                                newLi.style.opacity =
+                                                                    "1";
+                                                            }, 50);
+                                                        },
+                                                    );
+
+                                                    // خيارات إضافية إذا كانت Enterprise
+                                                    if (
+                                                        planName ===
+                                                        "Enterprise"
+                                                    ) {
+                                                        const title =
+                                                            document.createElement(
+                                                                "h3",
+                                                            );
+                                                        title.textContent =
+                                                            "Complétez votre plan avec nos extras premium";
+                                                        title.className =
+                                                            "text-center mb-4 text-white";
+
+                                                        const extrasRow =
+                                                            document.createElement(
+                                                                "div",
+                                                            );
+                                                        extrasRow.className =
+                                                            "row g-3"; // Bootstrap row مع gutter
+
+                                                        extraOptionsDiv.appendChild(
+                                                            title,
+                                                        );
+                                                        extraOptionsDiv.appendChild(
+                                                            extrasRow,
+                                                        );
+
+                                                        const extras = [
+                                                            {
+                                                                name: "CRUD 1",
+                                                                price: 20,
+                                                            },
+                                                            {
+                                                                name: "CRUD 2",
+                                                                price: 15,
+                                                            },
+                                                            {
+                                                                name: "CRUD 3",
+                                                                price: 30,
+                                                            },
+                                                            {
+                                                                name: "CRUD 4",
+                                                                price: 25,
+                                                            },
+                                                            {
+                                                                name: "CRUD 5",
+                                                                price: 10,
+                                                            },
+                                                            {
+                                                                name: "CRUD 6",
+                                                                price: 35,
+                                                            },
+                                                            {
+                                                                name: "CRUD 7",
+                                                                price: 18,
+                                                            },
+                                                            {
+                                                                name: "CRUD 8",
+                                                                price: 40,
+                                                            },
+                                                            {
+                                                                name: "CRUD 9",
+                                                                price: 22,
+                                                            },
+                                                        ];
+
+                                                        extras.forEach(
+                                                            (opt) => {
+                                                                const colDiv =
+                                                                    document.createElement(
+                                                                        "div",
+                                                                    );
+                                                                colDiv.className =
+                                                                    "col-12 col-sm-4 col-lg-4"; // responsive: xs=full, sm=2 per row, lg=3 per row
+
+                                                                const cardDiv =
+                                                                    document.createElement(
+                                                                        "div",
+                                                                    );
+                                                                cardDiv.className =
+                                                                    "extra-card text-center p-3 bg-danger text-white rounded";
+                                                                cardDiv.dataset.price =
+                                                                    opt.price;
+                                                                cardDiv.innerHTML = `<strong>${opt.name}</strong><br>$${opt.price}`;
+
+                                                                cardDiv.addEventListener(
+                                                                    "click",
+                                                                    () => {
+                                                                        cardDiv.classList.toggle(
+                                                                            "selected",
+                                                                        );
+                                                                        updateTotal();
+                                                                    },
+                                                                );
+
+                                                                colDiv.appendChild(
+                                                                    cardDiv,
+                                                                );
+                                                                extrasRow.appendChild(
+                                                                    colDiv,
+                                                                );
+                                                            },
+                                                        );
+
+                                                        const updateTotal =
+                                                            () => {
+                                                                let extrasTotal = 0;
+                                                                selectedExtras.length = 0; // نفرغ القديم
+
+                                                                extrasRow
+                                                                    .querySelectorAll(
+                                                                        ".extra-card.selected",
+                                                                    )
+                                                                    .forEach(
+                                                                        (c) => {
+                                                                            extrasTotal +=
+                                                                                parseFloat(
+                                                                                    c
+                                                                                        .dataset
+                                                                                        .price,
+                                                                                );
+                                                                            selectedExtras.push(
+                                                                                {
+                                                                                    name: c.querySelector(
+                                                                                        "strong",
+                                                                                    )
+                                                                                        .textContent,
+                                                                                    price: parseFloat(
+                                                                                        c
+                                                                                            .dataset
+                                                                                            .price,
+                                                                                    ),
+                                                                                },
+                                                                            );
+                                                                        },
+                                                                    );
+
+                                                                priceEl.textContent =
+                                                                    price +
+                                                                    extrasTotal;
+                                                                localStorage.setItem(
+                                                                    "selectedExtras",
+                                                                    JSON.stringify(
+                                                                        selectedExtras,
+                                                                    ),
+                                                                );
+                                                            };
+                                                    }
+
+                                                    priceEl.textContent = price;
+                                                    selectedSection.style.display =
+                                                        "block";
+                                                    window.scrollTo({
+                                                        top: selectedSection.offsetTop,
+                                                        behavior: "smooth",
+                                                    });
+                                                },
+                                            );
+                                        });
+                                    },
+                                );
+                            </script>
+
+                            <div
+                                class="tab-pane"
+                                role="tabpanel"
+                                id="step2"
+                                style="max-width: 500px; margin: 0 auto; padding: 30px;"
+                            >
+                                <form id="contactForm">
+                                    <div
+                                        class="form-group"
+                                        style="margin-bottom: 20px;"
+                                    >
+                                        <label
+                                            for="name"
+                                            style="display: block; font-weight: 600; color: #f9f9f9; margin-bottom: 5px;"
+                                            >Nom</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="name"
+                                            name="name"
+                                            placeholder="Entrez votre nom"
+                                            required
+                                            style="width: 100%; padding: 10px; border: 1px solid #343a40; font-size: 16px; transition: border-color 0.3s; background-color: #0a0f4f;"
+                                        />
+                                    </div>
+                                    <div
+                                        class="form-group"
+                                        style="margin-bottom: 20px;"
+                                    >
+                                        <label
+                                            for="email"
+                                            style="display: block; font-weight: 600; color: #f9f9f9; margin-bottom: 5px;"
+                                            >Email</label
+                                        >
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="emailM"
+                                            name="emailM"
+                                            placeholder="Entrez votre email"
+                                            required
+                                            style="width: 100%; padding: 10px; border: 1px solid #343a40; font-size: 16px; transition: border-color 0.3s; background-color: #0a0f4f;"
+                                        />
+                                    </div>
+                                    <div
+                                        class="form-group"
+                                        style="margin-bottom: 20px;"
+                                    >
+                                        <label
+                                            for="phone"
+                                            style="display: block; font-weight: 600; color: #f9f9f9; margin-bottom: 5px;"
+                                            >Numéro de téléphone</label
+                                        >
+                                        <input
+                                            type="tel"
+                                            class="form-control"
+                                            id="phone"
+                                            name="phone"
+                                            placeholder="Entrez votre numéro"
+                                            required
+                                            style="width: 100%; padding: 10px; border: 1px solid #343a40; font-size: 16px; transition: border-color 0.3s; background-color: #0a0f4f;"
+                                        />
+                                    </div>
+                                </form>
+
+                                <div
+                                    id="successMessage"
+                                    class="alert alert-success mt-3"
+                                    style="display:none; text-align: center; font-weight: 500;"
+                                >
+                                    ✅ Email envoyé avec succès !
+                                </div>
+
+                                <div
+                                    id="formMessage"
+                                    class="alert mt-3"
+                                    style="display:none;"
+                                >
+                                </div>
+
+                                <ul class="list-inline pull-right mt-3">
+                                    <li>
+                                        <button
+                                            type="button"
+                                            class="default-btn prev-step"
+                                            >Back</button>
+                                    </li>
+                                    <li>
+                                        <!-- زر يكون معطل فالأول -->
+                                        <button
+                                            type="button"
+                                            id="step2Submit"
+                                            class="default-btn next-step"
+                                            disabled>Continue</button
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-pane" role="tabpanel" id="step3">
+                                <h3 class="text-center mb-4">
+                                    Complétez votre plan avec nos extras premium
+                                </h3>
+
+                                <div id="selected-extras">
+                                    <!-- المحتوى سيُملأ بالـ JS -->
+                                </div>
+
+                                <ul class="list-inline pull-right mt-3">
+                                    <li>
+                                        <button
+                                            type="button"
+                                            class="default-btn prev-step"
+                                            style="margin-right: 12px;"
+                                            >Back</button>
+                                    </li><button
+                                        type="button"
+                                        id="goBackPricing"
+                                        class="default-btn next-step"
+                                        >Continue</button>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <script defer>
+                            document.addEventListener(
+                                "DOMContentLoaded",
+                                () => {
+                                    if (!selectedPlanName) {
+                                        selectedPlanName =
+                                            localStorage.getItem(
+                                                "selectedPlanName",
+                                            ) || "";
+                                    }
+                                    const selectedExtrasDiv =
+                                        document.getElementById(
+                                            "selected-extras",
+                                        );
+                                    const goBackBtn =
+                                        document.getElementById(
+                                            "goBackPricing",
+                                        );
+                                    const pricingSection =
+                                        document.getElementById("pricing");
+
+                                    const titleEl = document.getElementById(
+                                        "selected-plan-title",
+                                    );
+                                    const featuresEl = document.getElementById(
+                                        "selected-plan-features",
+                                    );
+
+                                    $('a[href="#step3"]').on(
+                                        "shown.bs.tab",
+                                        () => {
+                                            console.log("Step 3 shown!");
+                                            const extras =
+                                                JSON.parse(
+                                                    localStorage.getItem(
+                                                        "selectedExtras",
+                                                    ),
+                                                ) || [];
+                                            console.log("Extras:", extras);
+
+                                            const planTitle =
+                                                titleEl?.textContent || "Aucun";
+                                            const planFeatures =
+                                                featuresEl?.innerHTML ||
+                                                "<li>-</li>";
+
+                                            // نجيب السعر الأساسي من step1
+                                            let basePrice =
+                                                parseFloat(
+                                                    document.getElementById(
+                                                        "selected-plan-price",
+                                                    )?.textContent,
+                                                ) || 0;
+
+                                            // نحسب مجموع الـ extras
+                                            const extrasTotal = extras.reduce(
+                                                (sum, e) => sum + e.price,
+                                                0,
+                                            );
+
+                                            const totalPrice =
+                                                basePrice + extrasTotal;
+
+                                            // النصوص + السعر الكلي
+                                            const extrasHtml =
+                                                extras.length > 0
+                                                    ? `<ul>${extras.map((e) => `<li>${e.name} - $${e.price}</li>`).join("")}</ul>`
+                                                    : "<p>Aucun extra sélectionné.</p>";
+
+                                            const html = `
+  <div>
+    <p><strong style="font-size:19px">Plan choisi :</strong style="font-size:23px;color:#28a745"> ${planTitle}</p>
+    <p><strong style="font-size:19px">Caractéristiques :</strong></p>
+    <ul>
+      ${planFeatures}
+    </ul>
+  </div>
+
+  <div style="margin-top:42px">
+    <p><strong style="font-size:19px">Extras premium sélectionnés :</strong></p>
+    ${extrasHtml}
+    <p style="margin-top:15px; font-weight:bold;text-align: center;">Total Price: $${totalPrice}</p>
+  </div>
+`;
+
+                                            selectedExtrasDiv.innerHTML = html;
+                                        },
+                                    );
+
+                                    goBackBtn.addEventListener("click", () => {
+                                        document.querySelector(
+                                            ".signup-step-container",
+                                        ).style.display = "none";
+                                        pricingSection.style.display = "block";
+                                        pricingSection.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                    });
+                                },
+                            );
+                        </script>
+
+                        <style>
+                            #selected-extras {
+                                background-color: #0a0f4f;
+                                color: white;
+                                padding: 20px;
+                                animation: fadeIn 0.6s ease-in-out;
+                                display: block; /* بدل flex */
+                                max-height: 500px; /* اختياري */
+                                overflow-y: auto;
+                            }
+
+                            #selected-extras h4,
+                            #selected-extras h5 {
+                                color: wheat;
+                                margin-bottom: 15px;
+                                font-weight: bold;
+                            }
+
+                            #selected-extras ul {
+                                list-style: none;
+                                padding: 0;
+                                margin: 0 0 20px 0;
+                                display: block; /* بدل flex */
+                            }
+
+                            #selected-extras ul li {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                justify-content: flex-start;
+                                padding: 11px;
+                                border: 1px solid #e30f29;
+                                background: #0a0f4f;
+                                color: #fff;
+                                width: 100%;
+                            }
+                            /* القاعدة الأصلية للـ desktop */
+                            .extras-container {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr; /* عمودين */
+                                gap: 20px;
+                                color: white;
+                                line-height: 1.6;
+                            }
+
+                            /* Media Query للشاشات <= 768px */
+                            @media (max-width: 768px) {
+                                .extras-container {
+                                    display: block; /* كتحيد grid وكتخلي العناصر تتراص عمودياً */
+                                }
+                            }
+
+                            #selected-extras p {
+                                font-size: 14px;
+                                color: #ccc;
+                            }
+                            .extras-container {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr; /* عمودين */
+                                gap: 20px;
+                                color: white;
+                                line-height: 1.6;
+                            }
+                            @media (max-width: 768px) {
+                                .extras-container {
+                                    display: block; /* كتحيد grid وكتخلي العناصر تتراص عمودياً */
+                                }
+                            }
+                        </style>
+
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<!-- jQuery أولاً -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"
+></script>
+
+<!-- Bootstrap JS بعدو -->
+<script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    defer></script>
+
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+        $(".nav-tabs > li a[title]").tooltip();
+
+        $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+            var target = $(e.target);
+            if (target.parent().hasClass("disabled")) {
+                return false;
+            }
+        });
+
+        $(".next-step").click(function () {
+            var active = $(".wizard .nav-tabs li.active");
+            active.next().removeClass("disabled");
+            nextTab(active);
+        });
+
+        $(".prev-step").click(function () {
+            var active = $(".wizard .nav-tabs li.active");
+            prevTab(active);
+        });
+
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
+        }
+
+        $(".nav-tabs").on("click", "li", function () {
+            $(".nav-tabs li.active").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+</script>
+<script defer>
+    let selectedPlanName = "";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const emailInput = document.getElementById("emailM");
+        const nameInput = document.getElementById("name");
+        const phoneInput = document.getElementById("phone");
+        const step2Btn = document.getElementById("step2Submit");
+        const formMessage = document.getElementById("formMessage");
+        const successMessage = document.getElementById("successMessage");
+
+        // ✅ وظيفة للتحقق من صحة جميع الحقول
+        function validateForm() {
+            console.log("hello");
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailValid = emailRegex.test(emailInput.value.trim());
+
+            // الزر يتفعل غير إلا كانو كاملين معمّرين وصحيحين
+            step2Btn.disabled = !emailValid;
+        }
+
+        // 🟢 مراقبة تغييرات جميع الحقول
+        emailInput.addEventListener("input", () => {
+            console.log("Email current value:", emailInput.value);
+            validateForm();
+        });
+
+        // ⭐ مهم: تحقق أولي عند تحميل الصفحة
+
+        // عند الضغط على Continue
+        step2Btn.addEventListener("click", async () => {
+            const form = document.getElementById("contactForm");
+            const formData = new FormData(form);
+
+            const name = formData.get("name").trim();
+            const emailM = formData.get("emailM").trim();
+            const phone = formData.get("phone").trim();
+
+            if (!selectedPlanName) {
+                formMessage.style.display = "block";
+                formMessage.className = "alert alert-danger mt-3";
+                formMessage.textContent =
+                    "Veuillez sélectionner un plan dans Step 1.";
+                return;
+            }
+
+            formMessage.style.display = "none";
+
+            const extras = [];
+            document
+                .querySelectorAll("#extra-options .extra-card.selected")
+                .forEach((card) => {
+                    extras.push(card.querySelector("strong").textContent);
+                });
+
+            const dataToSend = {
+                name,
+                emailM,
+                phone,
+                plan: selectedPlanName,
+                extras: extras.join(", ") || "Aucun",
+            };
+
+            try {
+                const res = await fetch("http://localhost:3000/send-email", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(dataToSend),
+                });
+
+                const result = await res.json();
+
+                if (res.ok) {
+                    successMessage.style.display = "block";
+                    successMessage.textContent =
+                        result.message || "✅ Email envoyé avec succès !";
+
+                    // 👉 المرور إلى Step3
+                    document.querySelector("#step3").classList.add("active");
+                    document.querySelector("#step2").classList.remove("active");
+                } else {
+                    formMessage.style.display = "block";
+                    formMessage.className = "alert alert-danger mt-3";
+                    formMessage.textContent =
+                        result.message || "Impossible d'envoyer l'email.";
+                }
+            } catch (err) {
+                console.error(err);
+                formMessage.style.display = "block";
+                formMessage.className = "alert alert-danger mt-3";
+                formMessage.textContent =
+                    "Erreur lors de l'envoi du formulaire.";
+            }
+        });
+    });
+</script>

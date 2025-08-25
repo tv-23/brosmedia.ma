@@ -1,0 +1,88 @@
+---
+// Imports
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/blog.css";
+import { getCollection } from "astro:content";
+
+// Get posts
+const posts = (await getCollection("posts")).sort(
+  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+);
+
+// Function to extract the first image
+function extractFirstImage(content) {
+  const match = content.match(/<img[^>]+src="([^">]+)"/);
+  return match ? match[1] : null;
+}
+---
+<Layout>
+<div class="page-title" data-aos="fade" style="background: #0a0f4f; background-image: none;">
+  <div class="container position-relative">
+    <h1>Blog</h1>
+    <p>Découvrez nos derniers articles et actualités</p>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="/Accueil">Accueil</a></li>
+        <li class="current">Blog</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+  <main class="blog-page">
+    
+    <div class="grid" id="posts-grid">
+      {
+        posts.map(post => {
+          const categories = post.data.categories || [];
+          const imageUrl = post.data.image?.url?.trim()
+            || extractFirstImage(post.body)
+            || '/fallback.jpg';
+
+          return (
+            <div class="card-wrapper" key={post.slug}>
+              <a class="card" href={`/blog/${post.slug}`}>
+                <img src={imageUrl} alt={post.data.image?.alt || post.data.title} />
+                
+                <div class="categories">
+                  {categories.length > 0
+                    ? categories.map((cat, i) => (
+                        <span class="category-badge" key={i}>{cat}</span>
+                      ))
+                    : <span class="category-badge">Sans catégorie</span>}
+                </div>
+
+                <div class="card-content">
+                  <div class="card-title">{post.data.title}</div>
+                  <div class="card-date">
+                    {new Date(post.data.pubDate).toLocaleDateString('fr-FR', {
+                      day: '2-digit',
+                      month: 'short',
+                      year: 'numeric'
+                    })}
+                  </div>
+                </div>
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('.card');
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target); 
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+</Layout>

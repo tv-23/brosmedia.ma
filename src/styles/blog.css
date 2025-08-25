@@ -1,0 +1,171 @@
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a0f4f;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding-top: 160px; /* حسب الهيدر */
+  }
+
+  .card-wrapper {
+    background-color: #070a3c;
+    padding: 1rem;
+    
+    width: 400px;
+    height: 400px;
+    box-sizing: border-box;
+  }
+
+  .card {
+    background: white;
+    color: black;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .categories {
+    padding: 0.5rem 1rem;
+  }
+
+  .category-badge {
+    background-color: rgb(220, 220, 220);
+    color: #0a0f4f;
+    padding: 2px 6px;
+    border-radius: 50px;
+    margin-right: 6px;
+    font-size: 0.85rem;
+    display: inline-block;
+  }
+
+  .card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+    height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-date {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .card:focus .card-title,
+.card:hover .card-title {
+  color: #0047ab; /* اللون الأزرق */
+  transition: color 0.3s ease;
+}
+.page-title.simple-background {
+  background-color: #0a0f4f; /* اللون اللي طلبتي */
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  margin: 0;
+  border: none;
+  background-image: none; /* نتاكد أنه ما كاين لا تاش لا صورة */
+  box-shadow: none;
+}
+
+.page-title.simple-background h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  
+}
+
+.page-title.simple-background p {
+  font-size: 1rem;
+  max-width: 600px;
+  /* margin: 0 auto 1.5rem; */
+  color: #ddd;
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.breadcrumbs li {
+  color: #aaa;
+}
+
+.breadcrumbs li a {
+  color: #66aaff;
+  text-decoration: none;
+}
+
+.breadcrumbs li.current {
+  color: white;
+}
+/* داخل styles/blog.css مثلا */
+.page-title.dark-background {
+  background-color: #0a0f4f !important;
+  background-image: none !important;
+}
+.page-title::before,
+.page-title::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+.page-title.dark-background {
+  background-color: #0a0f4f !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+.blog-page{
+  margin-top: -150px;
+}
+

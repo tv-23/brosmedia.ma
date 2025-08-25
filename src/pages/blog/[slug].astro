@@ -1,0 +1,150 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import { getCollection } from 'astro:content';
+import "../../styles/slug.css";
+
+const { slug } = Astro.params;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({ params: { slug: post.slug } }));
+}
+
+const posts = await getCollection('posts');
+const post = posts.find(p => p.slug === slug);
+
+if (!post) {
+  throw new Error('Post not found');
+}
+
+const relatedPosts = posts.filter(p => p.slug !== slug);
+const categories = post.data.categories || [];
+---
+<Layout>
+  <div class="page-title no-after" data-aos="fade" style="background: #0a0f4f; background-image: none; position: relative;">
+    <div class="container py-5">
+      <div class="row gx-4">
+        <!-- Move sidebar to the left -->
+        <aside class="col-md-4 mb-4 order-1">
+          <div id="sidebar-wrapper" style="width: 310px;">
+            <input
+              type="text"
+              class="search-input mb-3"
+              placeholder="Rechercher par titre ou catégorie..."
+              id="searchInput"
+              autocomplete="off"
+            />
+
+            <div class="related-posts" id="relatedPosts">
+              {
+                relatedPosts.map((rp) => (
+                  <div
+                    class="related-post d-flex mb-3 p-2 rounded shadow-sm"
+                    data-title={rp.data.title.toLowerCase()}
+                    data-categories={rp.data.categories ? rp.data.categories.map(c => c.toLowerCase()).join(',') : ''}
+                    key={rp.slug}
+                  >
+                    <img
+                      src={rp.data.featured_image || rp.data.image?.url || '/fallback.jpg'}
+                      alt={rp.data.image?.alt || rp.data.title}
+                      class="related-img"
+                    />
+                    <a
+                      href={`/blog/${rp.slug}`}
+                      class="ms-3 text-truncate related-link"
+                      title={rp.data.title}
+                    >
+                      {rp.data.title.length > 40
+                        ? rp.data.title.substring(0, 37) + '...'
+                        : rp.data.title}
+                    </a>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-md-8 order-2">
+          <div class="card shadow main-post-card p-3" id="main-content">
+            {(post.data.featured_image || post.data.image?.url) ? (
+              <img
+                src={post.data.featured_image || post.data.image.url}
+                class="card-img-top mb-3"
+                alt={post.data.image?.alt || post.data.title || 'Image principale'}
+                style="height: 400px; object-fit: cover; box-shadow: 0 8px 15px rgba(0,0,0,0.3);"
+              />
+            ) : (
+              <div style="height: 400px; background: #ddd; display: flex; align-items: center; justify-content: center; border-radius: 16px;">
+                <span style="color: #777; font-style: italic;">Image non disponible</span>
+              </div>
+            )}
+
+            {categories.length > 0 ? (
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                {categories.map((cat, i) => <span class="post-categories" key={i}>{cat}</span>)}
+              </div>
+            ) : (
+              <div class="mb-3">
+                <span class="post-categories">Sans catégorie</span>
+              </div>
+            )}
+
+            <div class="card-body px-0">
+              <h3 class="card-title mb-1" style="color: #B8845B;">{post.data.title}</h3>
+              <p class="fst-italic small mb-3" style="color: white;">
+                {new Date(post.data.pubDate).toLocaleDateString('fr-FR', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric'
+                })}
+              </p>
+              <hr />
+              <article class="mt-4" set:html={post.body}></article>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const relatedPostsContainer = document.getElementById('relatedPosts');
+      const posts = Array.from(relatedPostsContainer.querySelectorAll('.related-post'));
+
+      // Filter and highlight logic
+      function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+      function highlightText(text, term) {
+        if (!term) return text;
+        const escapedTerm = escapeRegExp(term);
+        const regex = new RegExp(`(${escapedTerm})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
+      }
+
+      function filterAndHighlightPosts() {
+        const term = searchInput.value.trim().toLowerCase();
+        posts.forEach(postEl => {
+          const title = (postEl.getAttribute('data-title') || '').toLowerCase();
+          const categoriesAttr = (postEl.getAttribute('data-categories') || '').toLowerCase();
+          const matchInTitle = title.includes(term);
+          const matchInCategories = categoriesAttr.includes(term);
+
+          const anchor = postEl.querySelector('a');
+          if (matchInTitle || matchInCategories) {
+            postEl.classList.remove('d-none');
+            if (anchor) anchor.innerHTML = highlightText(anchor.textContent, term);
+          } else {
+            postEl.classList.add('d-none');
+            if (anchor) anchor.textContent = anchor.textContent;
+          }
+        });
+      }
+
+      if (searchInput) searchInput.addEventListener('input', filterAndHighlightPosts);
+    });
+  </script>
+</Layout>
