@@ -1,0 +1,20 @@
+# Met un cache court pour les pages HTML (car elles changent souvent)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Met un cache long pour les assets générés (CSS, JS, images, polices…)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache long pour les images statiques dans /public
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
