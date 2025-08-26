@@ -1,13 +1,4 @@
 
-
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #0a0f4f;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-
   h1 {
     text-align: center;
     
@@ -139,11 +130,6 @@
 
 .breadcrumbs li {
   color: #aaa;
-}
-
-.breadcrumbs li a {
-  color: #66aaff;
-  text-decoration: none;
 }
 
 .breadcrumbs li.current {
