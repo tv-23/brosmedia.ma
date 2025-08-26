@@ -115,15 +115,10 @@
   padding: 10px;
   text-align: center;
   position: relative;
-  height: 130px;
-
-  /* صورة خلفية من رابط */
-  background-image: url("../../public/raha.jpg");
+  height: auto;
 
 
-      background-size: 319px 142px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
+
 }
 
 
