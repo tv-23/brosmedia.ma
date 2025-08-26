@@ -1,84 +1,65 @@
 ---
-import "../../../styles/sections/video-publicitaire-slider.css";
-
-const elements = [
-    {
-        title: "SLIDER",
-        name: "EAGLE",
-        img: "background-image: url(/video-publicitaire-slider/eagel1.jpg);",
-        description:
-            " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.",
-        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
-    },
-    {
-        title: "SLIDER",
-        name: "OWL",
-        img: "background-image: url(/video-publicitaire-slider/owl1.jpg);",
-        description:
-            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
-        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
-    },
-    {
-        title: "SLIDER",
-        name: "CROW",
-        img: "background-image: url(/video-publicitaire-slider/crow.jpg);",
-        description:
-            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
-        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
-    },
-    {
-        title: "SLIDER",
-        name: "BUTTERFLY",
-        img: "background-image: url(/video-publicitaire-slider/butterfly1.jpeg);",
-        description:
-            "Prises de vue aériennes professionnelles avec drones certifiés, incluant toutes les démarches administratives.",
-        url: "https://www.youtube.com/watch?v=JsmmQ9jByOY",
-    },
-];
+import "../../../styles/sections/video-publicitaire-slider.css"
 ---
 
-<section id="service-details" class="service-details section">
-    <div class="container">
-        <div class="row gy-5">
-            <div class="col-lg-8 order-lg-1 order-2">
-                <div class="service-main-content">
-                    <div class="service-header">
-                        <h1>Nos réalisations chez Brosmedia</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<div class="carousel">
-    <div class="list">
-        {
-            elements.map((el) => (
-                <div class="item" style={el.img}>
-                    <div class="content">
-                        <div class="title">{el.title}</div>
-                        <div class="name">{el.name}</div>
-                        <div class="des">{el.description}</div>
-                        <div class="btn">
-                            <a href={el.url} target="_blank">
-                                voir la vidéo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            ))
-        }
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759872/kuldar-kalvik-799168-unsplash.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+      </div>
     </div>
-
-    <!--next prev button-->
-    <div class="arrows">
-        <button class="prev"><i class="bi bi-arrow-left"></i></button>
-        <button class="next"><i class="bi bi-arrow-right"></i></button>
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/jason-leung-798979-unsplash.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+      </div>
     </div>
-
-    <!-- time running -->
-    <div class="timeRunning"></div>
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/alessandro-capuzzi-799180-unsplash.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+      </div>
+    </div>
+    
+  </div>
+  <div class="blog-slider__pagination"></div>
 </div>
 
-<script src="../../../../public/video-publicitaire-slider.astro.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper('.blog-slider', {
+      spaceBetween: 30,
+      effect: 'fade',
+      loop: true,
+      mousewheel: {
+        invert: false,
+      },
+      // autoHeight: true,
+      pagination: {
+        el: '.blog-slider__pagination',
+        clickable: true,
+      }
+  });
+    });
+</script>
