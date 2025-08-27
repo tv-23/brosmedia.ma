@@ -1,0 +1,210 @@
+---
+import "../../styles/sections/team 1 copy.css";
+---
+
+<section class="section new-team-section">
+    <div class="container section-title">
+        <h2>Équipe</h2>
+        <div>
+            <span>Découvrez notre</span>
+            <span class="description-title">Équipe</span>
+        </div>
+    </div>
+
+    <div class="container interactive-section bg-white">
+        <div class="row justify-content-center mb-5">
+            <div class="col-12">
+                <!-- Bootstrap buttons instead of nav -->
+                <div
+                    class="btn-group-team"
+                    role="group"
+                    aria-label="Team members"
+                >
+                    <button
+                        type="button"
+                        class="btn btn-team active"
+                        data-member="aziz">Aziz</button
+                    >
+                    <button
+                        type="button"
+                        class="btn btn-team"
+                        data-member="yassmine">Yassmine</button
+                    >
+                    <button
+                        type="button"
+                        class="btn btn-team"
+                        data-member="firdaws">Firdaws</button
+                    >
+                    <button
+                        type="button"
+                        class="btn btn-team"
+                        data-member="hamza">Hamza</button
+                    >
+                    <button
+                        type="button"
+                        class="btn btn-team"
+                        data-member="yousra">Yousra</button
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-lg-12">
+                <div class="hero-display">
+                    <!-- Separate container for animated text -->
+                    <div class="animated-text-container">
+                        <div class="top-animated-text"></div>
+                    </div>
+
+                    <img
+                        id="hero-image"
+                        src="https://cheerful-genie-61fea8.netlify.app/team/abdaziz%20(1).png"
+                        class="img-fluid"
+                        alt="Hero Image"
+                    />
+                    <div class="hero-text-content-card">
+                        <h2 id="hero-headline" class="h3"></h2>
+                        <p id="hero-description" class="mb-0"></p>
+                    </div>
+
+                    <div class="other-avatars-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".btn-team");
+        const heroImage = document.getElementById("hero-image");
+        const heroHeadline = document.getElementById("hero-headline");
+        const heroDescription = document.getElementById("hero-description");
+        const heroDisplay = document.querySelector(".hero-display");
+        const topAnimatedText = document.querySelector(".top-animated-text");
+        const otherAvatarsGrid = document.querySelector(".other-avatars-grid");
+
+        const membersData = {
+            aziz: {
+                name: "Aziz",
+                headline: "Innovating with Aziz",
+                description:
+                    "Aziz is a visionary leader in product development, driving cutting-edge solutions from concept to market.",
+                animatedText: "A Visionary Leader",
+                image: "/team/abdaziz (1).png",
+                avatar: "/team/avatar/aziz.png",
+                cardTitle: "Product Design Workflow",
+                cardDescription:
+                    "Streamline your design process with Aziz's proven methodologies for efficient product development and successful launches.",
+                color: "#b3aae0",
+            },
+            yassmine: {
+                name: "Yassmine",
+                headline: "Creative Designs by Yassmine",
+                description:
+                    "Yassmine is an exceptional UI/UX designer known for crafting intuitive and aesthetically pleasing interfaces.",
+                animatedText: "A Creative Designer",
+                image: "/team/yassmine (1).png",
+                cardTitle: "User Journey Mapping",
+                cardDescription:
+                    "Understand your users better with Yassmine's techniques for mapping out compelling and smooth user journeys and interactions.",
+                avatar: "./team/avatar/yassmine.png",
+                color: "#f4b8dd",
+            },
+            firdaws: {
+                name: "Firdaws",
+                headline: "Firdaws, The Strategic Marketer",
+                description:
+                    "Firdaws excels in creating and executing strategic marketing campaigns that drive growth and brand awareness.",
+                animatedText: "The Strategic Marketer",
+                image: "/team/firdaws (1).png",
+                cardTitle: "Marketing Campaign Planner",
+                cardDescription:
+                    "Plan and execute your next successful campaign using a robust framework developed by Firdaws.",
+                avatar: "./team/avatar/firdaws.png",
+                color: "#fffbbe",
+            },
+            hamza: {
+                name: "Hamza",
+                headline: "Hamza, The Code Architect",
+                description:
+                    "Hamza is a skilled software engineer who builds robust and scalable back-end systems with clean and efficient code.",
+                animatedText: "The Code Architect",
+                image: "/team/hamza.png",
+                cardTitle: "Scalable System Design",
+                cardDescription:
+                    "Discover the principles of creating high-performance, scalable systems that can handle any load.",
+                avatar: "./team/avatar/hamza.png",
+                color: "#4194f7",
+            },
+            yousra: {
+                name: "Yousra",
+                headline: "Yousra, The UX Researcher",
+                description:
+                    "Yousra specializes in user research, uncovering valuable insights that inform design decisions and improve the user experience.",
+                animatedText: "The UX Researcher",
+                image: "/team/yousra.png",
+                cardTitle: "User Research Toolkit",
+                cardDescription:
+                    "Gain a deeper understanding of your users with a comprehensive toolkit for conducting effective research.",
+                avatar: "./team/avatar/yousra.png",
+                color: "#eb7d67",
+            },
+        };
+
+        const allMemberKeys = Object.keys(membersData);
+
+        const updateContent = (memberKey) => {
+            const data = membersData[memberKey];
+
+            // Animate out
+            heroDisplay.classList.remove("animated");
+
+            setTimeout(() => {
+                // Update Hero Section
+                heroImage.src = data.image;
+                heroHeadline.textContent = data.headline;
+                heroDescription.textContent = data.description;
+                topAnimatedText.textContent = data.animatedText;
+                topAnimatedText.style.backgroundColor = data.color;
+                // Update other avatars grid
+                otherAvatarsGrid.innerHTML = "";
+                allMemberKeys.forEach((key) => {
+                    if (key !== memberKey) {
+                        const avatarItem = document.createElement("div");
+                        avatarItem.classList.add("other-avatar-item");
+                        avatarItem.innerHTML = `<img src="${membersData[key].avatar}" alt="${key} avatar"><span>${membersData[key].name}</span>`;
+
+                        avatarItem.style.borderColor = membersData[key].color;
+
+                        // Add click event to switch to this member
+                        avatarItem.addEventListener("click", () => {
+                            tabs.forEach((t) => {
+                                if (t.dataset.member === key) {
+                                    t.click();
+                                }
+                            });
+                        });
+
+                        otherAvatarsGrid.appendChild(avatarItem);
+                    }
+                });
+
+                // Animate in
+                heroDisplay.classList.add("animated");
+            }, 500);
+        };
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", (event) => {
+                tabs.forEach((t) => t.classList.remove("active"));
+                event.currentTarget.classList.add("active");
+                const selectedMember = event.currentTarget.dataset.member;
+                updateContent(selectedMember);
+            });
+        });
+
+        // Initial content load
+        updateContent("aziz");
+    });
+</script>

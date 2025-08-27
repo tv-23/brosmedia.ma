@@ -1,106 +1,113 @@
 ---
 import "../../styles/sections/team 1.css";
 
-
 const slides = [
   {
     img: "/team/Hamza-Charif-Tribak.png",
     name: "HAMZA",
     role: "FONDATEUR",
     quote:
-      "Brosmedia, fondée par Hamza après un parcours réussi en programmation et en freelance, propose des solutions digitales complètes : création de sites web, marketing digital et production de contenu. Grâce à sa vision stratégique et son esprit entrepreneurial."
+      "Brosmedia, fondée par Hamza après un parcours réussi en programmation et en freelance, propose des solutions digitales complètes : création de sites web, marketing digital et production de contenu. Grâce à sa vision stratégique et son esprit entrepreneurial.",
   },
   {
     img: "/team/yousra-charif-tribak.png",
     name: "Youssra",
     role: "Chef Officier Technique",
     quote:
-      "Après avoir excellé en programmation et acquis une solide expérience technique, Yousra a rejoint son frère Hamza pour co-diriger Brosmedia. Alliant expertise et créativité, elle supervise la direction technique, garantissant la qualité et l’innovation dans chaque projet digital."
+      "Après avoir excellé en programmation et acquis une solide expérience technique, Yousra a rejoint son frère Hamza pour co-diriger Brosmedia. Alliant expertise et créativité, elle supervise la direction technique, garantissant la qualité et l’innovation dans chaque projet digital.",
   },
-    {
+  {
     img: "/team/abdaziz.png",
     name: "AbdelAziz",
     role: "Dévelopeur Web",
     quote:
       "Abdelaziz, programmeur et partenaire clé, veille au respect des plus hauts standards de qualité dans tous les projets de développement. Il forme et accompagne également les stagiaires, partageant son savoir-faire technique. Sa rigueur et ses compétences font de lui un pilier essentiel de Brosmedia.",
   },
-   {
+  {
     img: "/team/firdaws.png",
     name: "Firdaws",
     role: "Graphiste",
     quote:
       "Firdaws, spécialiste en design graphique, UX et SEO, s’est imposée comme un atout majeur après un stage concluant. Son sens analytique et ses observations précises renforcent la qualité et la pertinence de chaque projet mené par Brosmedia.",
   },
-   {
+  {
     img: "/team/yassmine.png",
     name: "Yassmine",
     role: "Chargée de communication",
     quote:
       "Yasmin, experte en communication et négociation, est le visage de Brosmedia sur les réseaux sociaux. Elle renforce la présence digitale de l’entreprise, interagit avec les clients et participe aux actions terrain pour élargir le réseau et fidéliser la clientèle.",
-  }
+  },
 ];
 ---
-<!-- Swiper CSS (CDN) -->
-<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+
+<!-- Swiper CSS (CDN) --><!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
 <section id="team" class="team section light-background">
-    <!-- Section Title -->
-    <div class="container section-title" >
+  <!-- Section Title -->
+  <div class="container section-title">
     <h2>Équipe</h2>
     <div>
-        <span>Découvrez notre</span>
-        <span class="description-title">Équipe</span>
+      <span>Découvrez notre</span>
+      <span class="description-title">Équipe</span>
     </div>
-</div>
-
-    <div class="container-fluid"  >
-
-
-<div class="team-slider-wrapper container-lg py-4">
-  <div class="swiper myTeamSwiper">
-    <div class="swiper-wrapper">
-      {slides.map(slide => (
-        <div class="swiper-slide">
-          <div class="team-card row gx-0 align-items-stretch">
-            <div class="col-md-5 image-col">
-              <div class="image-wrapper">
-                <img src={slide.img} alt={slide.name} class="team-photo" />
-              </div>
-            </div>
-
-            <div class="col-md-7 content-col position-relative">
-             
-           
-
-              <div class="content-inner h-100 d-flex flex-column justify-content-start">
-                <div class="name-block">
-                  <h3 class="team-name">{slide.name}</h3>
-                  <p class="team-role mb-4">{slide.role}</p>
-                </div>
-
-                <div class="quote-block mb-4" style="position: relative;
-    width: 100%;
-    min-height: 250px;">
-                  <p class="team-quote" style="
-                  position: absolute;
-                  ;">{slide.quote}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <!-- navigation buttons -->
-    <div class="swiper-button-prev custom-nav"></div>
-    <div class="swiper-button-next custom-nav"></div>
-
-    <!-- pagination (optional) -->
-    <div class="swiper-pagination"></div>
   </div>
-</div>
 
+  <div class="container-fluid">
+    <div class="team-slider-wrapper container-lg py-4">
+      <div class="swiper myTeamSwiper">
+        <div class="swiper-wrapper">
+          {
+            slides.map((slide) => (
+              <div class="swiper-slide">
+                <div class="team-card row gx-0 align-items-stretch">
+                  <div class="col-md-5 image-col">
+                    <div class="image-wrapper">
+                      <img
+                        src={slide.img}
+                        alt={slide.name}
+                        class="team-photo"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-7 content-col position-relative">
+                    <div class="content-inner h-100 d-flex flex-column justify-content-start">
+                      <div class="name-block">
+                        <h3 class="team-name">{slide.name}</h3>
+                        <p class="team-role mb-4">{slide.role}</p>
+                      </div>
+
+                      <div
+                        class="quote-block mb-4"
+                        style="position: relative;
+    width: 100%;
+    min-height: 250px;"
+                      >
+                        <p
+                          class="team-quote"
+                          style="
+                  position: absolute;
+                  ;"
+                        >
+                          {slide.quote}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- navigation buttons -->
+        <div class="swiper-button-prev custom-nav"></div>
+        <div class="swiper-button-next custom-nav"></div>
+
+        <!-- pagination (optional) -->
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Swiper JS (CDN) + init script -->
@@ -114,7 +121,7 @@ const slides = [
       loop: true,
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
+        prevEl: ".swiper-button-prev",
       },
       // pagination: {
       //   el: ".swiper-pagination",
@@ -123,9 +130,9 @@ const slides = [
       // responsive breakpoints: لو بغيتي تعدل العرض فـ lg
       breakpoints: {
         992: {
-          slidesPerView: 1
-        }
-      }
+          slidesPerView: 1,
+        },
+      },
     });
   });
 </script>

@@ -3,7 +3,8 @@ section.container.telephone-appointment {
 }
 
 * {
-    /* text-align: justify; */
+    scrollbar-width: thin;
+    scrollbar-color: #0a0f4f LIGHTGREY;
     border-radius: 0px !important;
 }
 
@@ -33,6 +34,26 @@ nav#navmenu>ul>li>a {
     font-weight: 600;
 }
 
+/* Custom Scrollbar Styles */
+.related-posts::-webkit-scrollbar {
+  width: 6px; /* Thinner scrollbar */
+}
+
+.related-posts::-webkit-scrollbar-track {
+  background: #1e293b; /* Dark track for contrast */
+  border-radius: 8px;
+}
+
+.related-posts::-webkit-scrollbar-thumb {
+  background: #0a0f4f; /* Red scrollbar color */
+  border-radius: 8px;
+}
+
+.related-posts::-webkit-scrollbar-thumb:hover {
+  background: #0a0f4f; /* Slightly darker red on hover */
+}
+
+
 @media (max-width: 768px) {
     .telephone-appointment>form {
         padding: 5px 15px;
@@ -45,13 +66,6 @@ nav#navmenu>ul>li>a {
         left: 0;
     }
 }
-
-
-
-
-
-
-
 
 
 
