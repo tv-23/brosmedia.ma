@@ -246,9 +246,10 @@ button.btn.btn-team.btn-primary:hover,button.btn.btn-team.btn-primary.active  {
   }
 
   .new-team-section .hero-text-content-card {
-        left: 25%;
+       left: 25%;
         width: 50%;
-        padding: 15px;
+        padding: 0px;
+        font-size: 13px;
   }
 
   .new-team-section .other-avatar-item {
@@ -297,25 +298,11 @@ button.btn.btn-team.btn-primary:hover,button.btn.btn-team.btn-primary.active  {
     font-size: 14px;
   }
 
-  .new-team-section .other-avatar-item:nth-child(1) {
-    top: 40%;
-    right: 5%;
+  .new-team-section .other-avatar-item {
+    visibility: hidden;
   }
 
-  .new-team-section .other-avatar-item:nth-child(2) {
-    top: 21%;
-    right: 3%;
-  }
-
-  .new-team-section .other-avatar-item:nth-child(3) {
-    top: 15%;
-    left: 3%;
-  }
-
-  .new-team-section .other-avatar-item:nth-child(4) {
-    bottom: 40%;
-    left: 10%;
-  }
+ 
 
   .new-team-section .btn-team {
     padding: 6px 12px;
