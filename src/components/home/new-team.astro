@@ -97,6 +97,7 @@ import "../../styles/sections/team 1 copy.css";
                     "Discover the principles of creating high-performance, scalable systems that can handle any load.",
                 avatar: "./team/avatar/hamza.png",
                 color: "#c6e7fd",
+                backgroudColor:"#1945ca"
             },
             yousra: {
                 name: "Youssra",
@@ -110,6 +111,7 @@ import "../../styles/sections/team 1 copy.css";
                     "Gain a deeper understanding of your users with a comprehensive toolkit for conducting effective research.",
                 avatar: "./team/avatar/yousra.png",
                 color: "#ffe8e2",
+                backgroudColor:"#e7533b"
             },
             aziz: {
                 name: "Abdelaziz",
@@ -123,6 +125,7 @@ import "../../styles/sections/team 1 copy.css";
                 cardDescription:
                     "Streamline your design process with Aziz's proven methodologies for efficient product development and successful launches.",
                 color: "#e0d8ff",
+                backgroudColor:"#785fc0"
             },
             yassmine: {
                 name: "Yassmine",
@@ -136,6 +139,7 @@ import "../../styles/sections/team 1 copy.css";
                     "Understand your users better with Yassmine's techniques for mapping out compelling and smooth user journeys and interactions.",
                 avatar: "./team/avatar/yassmine.png",
                 color: "#f3dbe8",
+                backgroudColor:"#ef88c6"
             },
             firdaws: {
                 name: "Firdaws",
@@ -149,6 +153,7 @@ import "../../styles/sections/team 1 copy.css";
                     "Plan and execute your next successful campaign using a robust framework developed by Firdaws.",
                 avatar: "./team/avatar/firdaws.png",
                 color: "#fffddc",
+                backgroudColor:"#faf35f"
             },
         };
 
@@ -170,12 +175,11 @@ import "../../styles/sections/team 1 copy.css";
                 // Update other avatars grid
                 otherAvatarsGrid.innerHTML = "";
                 allMemberKeys.forEach((key) => {
-                    if (key !== memberKey) {
                         const avatarItem = document.createElement("div");
                         avatarItem.classList.add("other-avatar-item");
                         avatarItem.innerHTML = `<img src="${membersData[key].avatar}" alt="${key} avatar"><span>${membersData[key].name}</span>`;
 
-                        avatarItem.style.backgroundColor = membersData[key].color;
+                        avatarItem.style.backgroundColor = membersData[key].backgroudColor;
 
                         // Add click event to switch to this member
                         avatarItem.addEventListener("click", () => {
@@ -187,7 +191,6 @@ import "../../styles/sections/team 1 copy.css";
                         });
 
                         otherAvatarsGrid.appendChild(avatarItem);
-                    }
                 });
 
                 // Animate in
