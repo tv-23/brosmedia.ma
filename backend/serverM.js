@@ -20,8 +20,8 @@ app.post('/send-message', upload.single('file'), async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'rahimaakhazzan9@gmail.com',
-        pass: 'vpmb uhaa ljid uspq',
+        user: 'tvelqjiri@gmail.com',
+        pass: 'gqpg ptjl fdch bggv',
       },
     });
 
