@@ -165,9 +165,9 @@ import "../../styles/sections/team 1 copy.css";
             // Animate out
             heroDisplay.classList.remove("animated");
 
+            heroImage.src = data.image;
             setTimeout(() => {
                 // Update Hero Section
-                heroImage.src = data.image;
                 heroHeadline.textContent = data.headline;
                 heroDescription.textContent = data.description;
                 topAnimatedText.textContent = data.animatedText;
