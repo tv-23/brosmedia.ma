@@ -210,7 +210,7 @@
 
 
 button.btn.btn-team.btn-primary {
-    border: 2px solid #e30f29;
+    border: 2px solid transparent;
 }
 
 button.btn.btn-team.btn-primary:hover,button.btn.btn-team.btn-primary.active  {
