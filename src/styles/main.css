@@ -1155,7 +1155,8 @@ form>.btn:hover i {
 }
 
 .about .about-content .btn-primary,
-.telephone-appointment form .btn-primary {
+.telephone-appointment form .btn-primary,
+.new-team-section .btn-team {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   padding: 0.5rem 1.5rem;
@@ -1165,7 +1166,8 @@ form>.btn:hover i {
 }
 
 .about .about-content .btn-primary:hover,
-.telephone-appointment form .btn-primary:hover {
+.telephone-appointment form .btn-primary:hover,
+.new-team-section .btn-team:hover {
   background-color: color-mix(in srgb, var(--accent-color), black 10%);
   border-color: color-mix(in srgb, var(--accent-color), black 10%);
 }

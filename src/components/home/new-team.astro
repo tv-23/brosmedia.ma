@@ -11,7 +11,7 @@ import "../../styles/sections/team 1 copy.css";
         </div>
     </div>
 
-    <div class="container interactive-section bg-white">
+    <div class="container interactive-section">
         <div class="row justify-content-center mb-5">
             <div class="col-12">
                 <!-- Bootstrap buttons instead of nav -->
@@ -22,28 +22,28 @@ import "../../styles/sections/team 1 copy.css";
                 >
                     <button
                         type="button"
-                        class="btn btn-team active"
-                        data-member="aziz">Aziz</button
+                        class="btn btn-team btn-primary active"
+                        data-member="aziz">Dévelopeur Web</button
                     >
                     <button
                         type="button"
-                        class="btn btn-team"
-                        data-member="yassmine">Yassmine</button
+                        class="btn btn-team btn-primary"
+                        data-member="yassmine">Chargée de communication</button
                     >
                     <button
                         type="button"
-                        class="btn btn-team"
-                        data-member="firdaws">Firdaws</button
+                        class="btn btn-team btn-primary"
+                        data-member="firdaws">Graphiste</button
                     >
                     <button
                         type="button"
-                        class="btn btn-team"
-                        data-member="hamza">Hamza</button
+                        class="btn btn-team btn-primary"
+                        data-member="hamza">FONDATEUR</button
                     >
                     <button
                         type="button"
-                        class="btn btn-team"
-                        data-member="yousra">Yousra</button
+                        class="btn btn-team btn-primary"
+                        data-member="yousra">Chef Officier Technique</button
                     >
                 </div>
             </div>
@@ -85,70 +85,70 @@ import "../../styles/sections/team 1 copy.css";
         const otherAvatarsGrid = document.querySelector(".other-avatars-grid");
 
         const membersData = {
-            aziz: {
-                name: "Aziz",
-                headline: "Innovating with Aziz",
-                description:
-                    "Aziz is a visionary leader in product development, driving cutting-edge solutions from concept to market.",
-                animatedText: "A Visionary Leader",
-                image: "/team/abdaziz (1).png",
-                avatar: "/team/avatar/aziz.png",
-                cardTitle: "Product Design Workflow",
-                cardDescription:
-                    "Streamline your design process with Aziz's proven methodologies for efficient product development and successful launches.",
-                color: "#b3aae0",
-            },
-            yassmine: {
-                name: "Yassmine",
-                headline: "Creative Designs by Yassmine",
-                description:
-                    "Yassmine is an exceptional UI/UX designer known for crafting intuitive and aesthetically pleasing interfaces.",
-                animatedText: "A Creative Designer",
-                image: "/team/yassmine (1).png",
-                cardTitle: "User Journey Mapping",
-                cardDescription:
-                    "Understand your users better with Yassmine's techniques for mapping out compelling and smooth user journeys and interactions.",
-                avatar: "./team/avatar/yassmine.png",
-                color: "#f4b8dd",
-            },
-            firdaws: {
-                name: "Firdaws",
-                headline: "Firdaws, The Strategic Marketer",
-                description:
-                    "Firdaws excels in creating and executing strategic marketing campaigns that drive growth and brand awareness.",
-                animatedText: "The Strategic Marketer",
-                image: "/team/firdaws (1).png",
-                cardTitle: "Marketing Campaign Planner",
-                cardDescription:
-                    "Plan and execute your next successful campaign using a robust framework developed by Firdaws.",
-                avatar: "./team/avatar/firdaws.png",
-                color: "#fffbbe",
-            },
             hamza: {
-                name: "Hamza",
-                headline: "Hamza, The Code Architect",
+                name: "HAMZA",
+                headline: "",
                 description:
-                    "Hamza is a skilled software engineer who builds robust and scalable back-end systems with clean and efficient code.",
-                animatedText: "The Code Architect",
+                    "Brosmedia, fondée par Hamza après un parcours réussi en programmation et en freelance, propose des solutions digitales complètes : création de sites web, marketing digital et production de contenu. Grâce à sa vision stratégique et son esprit entrepreneurial.",
+                animatedText: "HAMZA, FONDATEUR",
                 image: "/team/hamza.png",
                 cardTitle: "Scalable System Design",
                 cardDescription:
                     "Discover the principles of creating high-performance, scalable systems that can handle any load.",
                 avatar: "./team/avatar/hamza.png",
-                color: "#4194f7",
+                color: "#ceebff",
             },
             yousra: {
-                name: "Yousra",
-                headline: "Yousra, The UX Researcher",
+                name: "Youssra",
+                headline: "",
                 description:
-                    "Yousra specializes in user research, uncovering valuable insights that inform design decisions and improve the user experience.",
-                animatedText: "The UX Researcher",
+                    "Après avoir excellé en programmation et acquis une solide expérience technique, Yousra a rejoint son frère Hamza pour co-diriger Brosmedia. Alliant expertise et créativité, elle supervise la direction technique, garantissant la qualité et l’innovation dans chaque projet digital.",
+                animatedText: "Youssra, Chef Officier Technique",
                 image: "/team/yousra.png",
-                cardTitle: "User Research Toolkit",
+                cardTitle: "",
                 cardDescription:
                     "Gain a deeper understanding of your users with a comprehensive toolkit for conducting effective research.",
                 avatar: "./team/avatar/yousra.png",
-                color: "#eb7d67",
+                color: "#ffe8e2",
+            },
+            aziz: {
+                name: "Abdelaziz",
+                headline: "",
+                description:
+                    "Abdelaziz, programmeur et partenaire clé, veille au respect des plus hauts standards de qualité dans tous les projets de développement. Il forme et accompagne également les stagiaires, partageant son savoir-faire technique. Sa rigueur et ses compétences font de lui un pilier essentiel de Brosmedia.",
+                animatedText: "Abdelaziz, Dévelopeur Web",
+                image: "/team/abdaziz (1).png",
+                avatar: "/team/avatar/aziz.png",
+                cardTitle: "Product Design Workflow",
+                cardDescription:
+                    "Streamline your design process with Aziz's proven methodologies for efficient product development and successful launches.",
+                color: "#e7e3f7",
+            },
+            yassmine: {
+                name: "Yassmine",
+                headline: "",
+                description:
+                      "Yasmin, experte en communication et négociation, est le visage de Brosmedia sur les réseaux sociaux. Elle renforce la présence digitale de l’entreprise, interagit avec les clients et participe aux actions terrain pour élargir le réseau et fidéliser la clientèle.",
+                animatedText: "Yassmine, Chargée de communication",
+                image: "/team/yassmine (1).png",
+                cardTitle: "User Journey Mapping",
+                cardDescription:
+                    "Understand your users better with Yassmine's techniques for mapping out compelling and smooth user journeys and interactions.",
+                avatar: "./team/avatar/yassmine.png",
+                color: "#ffe6f3",
+            },
+            firdaws: {
+                name: "Firdaws",
+                headline: "",
+                description:
+                   "Firdaws, spécialiste en design graphique, UX et SEO, s’est imposée comme un atout majeur après un stage concluant. Son sens analytique et ses observations précises renforcent la qualité et la pertinence de chaque projet mené par Brosmedia.",
+                animatedText: "Firdaws, Graphiste",
+                image: "/team/firdaws (1).png",
+                cardTitle: "",
+                cardDescription:
+                    "Plan and execute your next successful campaign using a robust framework developed by Firdaws.",
+                avatar: "./team/avatar/firdaws.png",
+                color: "#fffdd9",
             },
         };
 
