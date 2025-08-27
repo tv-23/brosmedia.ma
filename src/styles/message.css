@@ -1,18 +1,20 @@
-.audeodesigne{
+.audeodesigne {
   width: 300px;
   padding-right: -1999px;
 }
 
-.audeodesigne{
+.audeodesigne {
   width: 850px;
   height: 35px;
 
 
 }
-.spanaudeo{
+
+.spanaudeo {
   padding-left: -22px;
 
 }
+
 .message-row {
   display: flex;
   align-items: flex-end;
@@ -23,8 +25,8 @@
   justify-content: flex-start;
 }
 
-.message-bubble {
-  background: LIGHTGREY;
+.message-bubble,.message.sender {
+  background: #d3d3d3ba;
   color: #0a0f4f;
   cursor: pointer;
   font-size: 15px;
@@ -36,15 +38,15 @@
 }
 
 .profile-pic {
-       width: 81%;
-    height: 89%;
-    border-radius: 50%;
-    margin-right: 8px;
-    -o-object-fit: cover;
-    object-fit: scale-down;
-    image-rendering: auto;
-    background-color: #e30f29;
-    margin-top: 1px;
+  width: 81%;
+  height: 89%;
+  border-radius: 50%;
+  margin-right: 8px;
+  -o-object-fit: cover;
+  object-fit: scale-down;
+  image-rendering: auto;
+  background-color: #e30f29;
+  margin-top: 1px;
 }
 
 
@@ -72,7 +74,7 @@
   margin: 0 auto;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: fixed;
   bottom: 100px;
@@ -110,7 +112,8 @@
 }
 
 .chat-header {
-  background-color: #0a0f4f; /* لون أساسي */
+  background-color: #0a0f4f;
+  /* لون أساسي */
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -213,7 +216,6 @@
   padding: 5px 10px;
   width: 100%;
   background: #fff;
-  margin-left: 24px;
 }
 
 .left-icons {
@@ -233,9 +235,12 @@
   border: none;
   outline: none;
   font-size: 12px;
-    min-width: 0;      /* باش مايتوسعش بزاف */
-  width: 180px;      /* عرض ثابت مناسب */
-  max-width: 180px;  /* عرض ثابت */
+  min-width: 0;
+  /* باش مايتوسعش بزاف */
+  width: 180px;
+  /* عرض ثابت مناسب */
+  max-width: 180px;
+  /* عرض ثابت */
 }
 
 .send {
@@ -277,7 +282,7 @@
   background: #fff;
   border-radius: 20px;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-left: 24px;
 }
 
@@ -307,13 +312,11 @@
 .waveform-placeholder {
   flex-grow: 1;
   height: 24px;
-  background: repeating-linear-gradient(
-    90deg,
-    #075e54 0px,
-    #075e54 2px,
-    #e5e5e5 2px,
-    #e5e5e5 4px
-  );
+  background: repeating-linear-gradient(90deg,
+      #075e54 0px,
+      #075e54 2px,
+      #e5e5e5 2px,
+      #e5e5e5 4px);
   border-radius: 4px;
 }
 
@@ -324,5 +327,13 @@
 }
 
 .chat-icon:hover i {
-    color: white;
+  color: white;
+}
+
+div#chat-box .bi-send-fill{
+  color: #0a0f4f;
+}
+
+button#sendBtn ,#emailForm button {
+  transform: rotate(43deg) !important;
 }
