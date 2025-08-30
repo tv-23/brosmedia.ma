@@ -30,7 +30,7 @@ app.post('/send-email', async (req, res) => {
 
         const mailOptions = {
             from: emailM,
-            to: 'rahimaakhazzan9@gmail.com',
+            to: 'tvelqjiri@gmail.com',
             subject: `Nouvelle inscription - ${plan}`,
             html: `
                 <h3>Détails du formulaire Step 2</h3>

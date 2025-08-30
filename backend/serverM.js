@@ -30,7 +30,7 @@ app.post('/send-message', upload.single('file'), async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: 'rahimaakhazzan9@gmail.com',
+      to: 'tvelqjiri@gmail.com',
       subject: `Nouveau service sélectionné par ${email}`,
       text: textMessage,
     };
