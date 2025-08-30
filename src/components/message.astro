@@ -18,9 +18,11 @@ import "../styles/message.css";
         Bonjour! Je suis l'assistant IA de Brosmedia. 🤖<br />
         Comment puis-je vous aider aujourd'hui?
         <div class="quick-replies">
+
+
           <div class="quick-reply" data-reply="Services">Nos services</div>
-          <div class="quick-reply" data-reply="Prix">Tarifs</div>
-          <div class="quick-reply" data-reply="Portfolio">Nos réalisations</div>
+          <div class="quick-reply" data-reply="Tarifs">Tarifs</div>
+          <div class="quick-reply" data-reply="Portfolio">Portfolio</div>
           <div class="quick-reply" data-reply="Contact">Contact humain</div>
         </div>
       </div>
@@ -294,15 +296,22 @@ Je vous invite à découvrir l'ensemble de nos réalisations sur https://brosmed
               body: formData,
             });
 
-            if (response.ok) {
-              // Show confirmation
-              addMessage(
-                "Merci! Votre demande a été envoyée. Un expert Brosmedia vous contactera très bientôt.",
-                "ai",
-              );
-
-              // Remove form
-              contactForm.remove();
+              if (response.ok) {
+                // Show confirmation with WhatsApp link
+                const whatsappMessage = encodeURIComponent(`Bonjour, j'ai une question concernant ${service} : ${question} (Email: ${email})`);
+                const whatsappUrl = `https://wa.me/212671884968?text=${whatsappMessage}`;
+                
+                addMessage(
+                    `Merci! Votre demande a été envoyée. Un expert Brosmedia vous contactera très bientôt.<br><br>
+                    <strong>Contactez-nous directement sur WhatsApp :</strong><br>
+                    <a href="${whatsappUrl}" target="_blank" style="color: #0a0f4f; text-decoration: underline;">
+                        👉 Cliquez ici pour discuter maintenant sur WhatsApp
+                    </a>`, 
+                    "ai"
+                );
+                
+                // Remove form
+                contactForm.remove();
             } else {
               throw new Error("Erreur lors de l'envoi du message");
             }
