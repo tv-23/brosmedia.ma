@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 
 app.post('/send-message', upload.single('file'), async (req, res) => {
-  const { email, message } = req.body;
+  const { email, question,service, } = req.body;
   const file = req.file;
 
   if (!email) {
@@ -25,7 +25,7 @@ app.post('/send-message', upload.single('file'), async (req, res) => {
       },
     });
 
-    let textMessage = message || "Pas de message texte.";
+    let textMessage = `Question: ${question} \n Service: ${service}`;
     textMessage += `\n\n---\nEmail client: ${email}`;
 
     const mailOptions = {

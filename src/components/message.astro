@@ -9,85 +9,82 @@ import "../styles/message.css";
 
 <div class="chat-container hidden" id="chat-box">
   <div class="chat-header">
-    <!-- <div class="header-icons" style="padding-top: 27px;">
-      <img
-        src="https://brosmedia.ma/wp-content/uploads/2023/10/hamza-charif-tribak.webp"
-        alt="User1"
-      />
-      <img
-        src="https://brosmedia.ma/wp-content/uploads/2023/10/youssra-charif-tribak.webp"
-        alt="User2"
-      />
-      <img
-        src="https://brosmedia.ma/wp-content/uploads/2024/10/Abdel-aziz.jpg"
-        alt="User3"
-      />
-    </div> -->
-    <p style="padding-top: 18px;">Des questions ? Discutons !</p>
+    <p style="margin: 0;">BROSMEDIA Assistant IA</p>
   </div>
 
   <div class="chat-body" id="chatBody">
     <div class="message-row receiver">
-      <div class="abel" style="width: 39px;height: 39px;">
-        <img class="profile-pic" src="/fab.jpg" alt="User1" />
+      <div class="message-bubble">
+        Bonjour! Je suis l'assistant IA de Brosmedia. 🤖<br />
+        Comment puis-je vous aider aujourd'hui?
+        <div class="quick-replies">
+          <div class="quick-reply" data-reply="Services">Nos services</div>
+          <div class="quick-reply" data-reply="Prix">Tarifs</div>
+          <div class="quick-reply" data-reply="Portfolio">Nos réalisations</div>
+          <div class="quick-reply" data-reply="Contact">Contact humain</div>
+        </div>
       </div>
-      <div class="message-bubble">Avez-vous des questions ?</div>
-    </div>
-  </div>
-
-  <div
-    class="message user-input"
-    style="display:flex; align-items:center; gap:10px;"
-  >
-    <div class="input-wrapper" id="inputWrapper">
-      <div class="left-icons">
-        <input type="file" id="fileInput" style="display:none" />
-        <i class="bi bi-paperclip icon" id="fileIcon"></i>
-        <span
-          id="voiceDuration"
-          style="font-family: monospace; color: #075e54; font-weight: bold; min-width: 50px; display: none;"
-          >00:00</span
-        >
-        <i class="bi bi-mic icon" id="micIcon"></i>
-        <i
-          class="bi bi-trash icon delete"
-          id="deleteRecording"
-          style="display: none; color: #ff3b30; cursor: pointer; font-size: 20px;"
-        ></i>
-      </div>
-      <input
-        type="text"
-        id="chatMessage"
-        placeholder="Entrez votre message..."
-      />
-      <button id="sendBtn" class="icon send" style="display: none;">
-        <i class="bi bi-send-fill"></i>
-      </button>
     </div>
   </div>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const chatBtn = document.getElementById("chat-button");
     const chatBox = document.getElementById("chat-box");
-    const chatMessage = document.getElementById("chatMessage");
-    const sendBtn = document.getElementById("sendBtn");
+    const closeChat = document.getElementById("closeChat");
     const chatBody = document.getElementById("chatBody");
-    const fileIcon = document.getElementById("fileIcon");
-    const fileInput = document.getElementById("fileInput");
+    // const chatMessage = document.getElementById("chatMessage");
+    const sendBtn = document.getElementById("sendBtn");
     const micIcon = document.getElementById("micIcon");
-    const voiceDuration = document.getElementById("voiceDuration");
-    const deleteRecording = document.getElementById("deleteRecording");
+    const fileIcon = document.getElementById("fileIcon");
+    const chatBtn = document.getElementById("chat-button");
 
-    let lastUserMessage = "";
-    let lastUserFile = null;
-    let isDeletingRecording = false;
-    let mediaRecorder = null;
-    let audioChunks = [];
-    let recording = false;
-    let recordingStartTime;
-    let durationInterval;
+    // AI Responses with more natural language
+    const AI_RESPONSES = {
+      greeting: [
+        "Bonjour ! Je suis l'assistant IA de Brosmedia. 🤖 Comment puis-je vous aider aujourd'hui?",
+        "Salut ! 👋 Ravie de vous rencontrer. Je suis là pour répondre à toutes vos questions sur nos services de communication et web marketing.",
+      ],
+      services: `Chez Brosmedia, nous offrons une gamme complète de services pour booster votre présence en ligne :
+<br>
+• 🖥️ <strong>Création de sites web</strong> - Des sites modernes, responsives et sur mesure<br>
+• 📊 <strong>Marketing digital</strong> - Stratégies personnalisées pour maximiser votre visibilité<br>
+• 🔍 <strong>Référencement SEO</strong> - Optimisation pour améliorer votre classement sur Google<br>
+• 📱 <strong>Gestion des réseaux sociaux</strong> - Content engaging et community management<br>
+• 🎨 <strong>Design graphique</strong> - Identité visuelle qui marque les esprits<br>`,
+      pricing: `Nos tarifs sont adaptés à chaque projet et à chaque budget :<br>
+
+• <strong>Site vitrine</strong> : À partir de 4 000 MAD<br>
+• <strong>Site e-commerce</strong> : À partir de 8 000 MAD<br>
+• <strong>Référencement SEO</strong> : Forfaits à partir de 2 500 MAD/mois<br>
+• <strong>Campagnes marketing</strong> : Sur devis personnalisé<br>`,
+
+      portfolio: `Nous avons eu le plaisir de travailler sur divers projets passionnants :<br>
+
+• Site e-commerce pour une marque de mode marocaine<br>
+• Refonte complète du site vitrine d'un restaurant réputé à Larache<br>
+• Campagne Instagram pour un salon de beauté de luxe<br>
+• Stratégie SEO pour une agence immobilière à Tanger<br>
+
+Je vous invite à découvrir l'ensemble de nos réalisations sur https://brosmedia.ma/portfolio`,
+      contact:
+        "Excellent! Un de nos experts vous contactera dans les plus brefs délais. 😊",
+      default: [
+        "Je ne suis pas sûr de comprendre. Pourriez-vous reformuler votre question?",
+        "C'est une bonne question! Laissez-moi vous mettre en contact avec un expert humain qui pourra vous aider.",
+        "Je suis encore en apprentissage. Pourriez-vous essayer de formuler votre demande autrement?",
+      ],
+    };
+
+    // Services list
+    const SERVICES = [
+      "Création de site web",
+      "Design graphique",
+      "Marketing digital",
+      "Maintenance technique",
+      "Formation en ligne",
+      "Autres",
+    ];
 
     if (chatBtn) {
       chatBtn.addEventListener("click", (e) => {
@@ -96,272 +93,283 @@ import "../styles/message.css";
       });
     }
 
-    chatMessage.addEventListener("input", () => {
-      sendBtn.style.display = chatMessage.value.trim()
-        ? "inline-block"
-        : "none";
-    });
+    // Add message to chat
+    function addMessage(text, sender) {
+      const messageRow = document.createElement("div");
+      messageRow.classList.add("message-row");
+      messageRow.classList.add(sender === "user" ? "sender" : "receiver");
 
-    function addMessage(text, type) {
-      const msgDiv = document.createElement("div");
-      msgDiv.classList.add("message", type);
-      msgDiv.innerHTML = `<p>${text}</p>`;
-      chatBody.appendChild(msgDiv);
+      const messageBubble = document.createElement("div");
+      messageBubble.classList.add("message-bubble");
+
+      // Check if the text contains HTML tags
+      if (/<[a-z][\s\S]*>/i.test(text)) {
+        messageBubble.innerHTML = text;
+      } else {
+        messageBubble.textContent = text;
+      }
+
+      messageRow.appendChild(messageBubble);
+      chatBody.appendChild(messageRow);
+
+      // Scroll to bottom
       chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    function showServicesList(userEmail) {
-      const services = [
-        "Création de site web",
-        "Design graphique",
-        "Marketing digital",
-        "Maintenance technique",
-        "Formation en ligne",
-        "Autres",
-      ];
-      const container = document.createElement("div");
-      container.style.display = "flex";
-      container.style.flexDirection = "column";
-      container.style.gap = "8px";
-      container.style.marginTop = "10px";
+    // Show typing indicator
+    function showTypingIndicator() {
+      const typingRow = document.createElement("div");
+      typingRow.classList.add("message-row");
+      typingRow.classList.add("receiver");
+      typingRow.id = "typingIndicator";
 
-      services.forEach((service) => {
-        const bubble = document.createElement("div");
-        bubble.classList.add("message-bubble");
-        bubble.textContent = service;
-        bubble.style.cursor = "pointer";
+      const typingBubble = document.createElement("div");
+      typingBubble.classList.add("typing-indicator");
 
-        bubble.addEventListener("click", async () => {
-          addMessage(service, "sender");
+      for (let i = 0; i < 3; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("typing-dot");
+        typingBubble.appendChild(dot);
+      }
 
-          const formData = new FormData();
-          formData.append("email", userEmail);
-          formData.append("message", service);
+      typingRow.appendChild(typingBubble);
+      chatBody.appendChild(typingRow);
 
-          const response = await fetch("http://localhost:3000/send-message", {
-            method: "POST",
-            body: formData,
-          });
+      // Scroll to bottom
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
 
-          if (response.ok) {
-            chatBody.innerHTML = `<div style="color:#0a0f4f; text-align:center;margin-top:251px; font-size:15px;">
-          Merci ! Nous devrions bientôt...
-        </div>`;
-          } else {
-            alert("Erreur lors de l'envoi du service.");
-          }
+    // Remove typing indicator
+    function removeTypingIndicator() {
+      const typingIndicator = document.getElementById("typingIndicator");
+      if (typingIndicator) {
+        typingIndicator.remove();
+      }
+    }
+
+    // AI Response logic
+    function aiResponse(userMessage) {
+      const lowerMessage = userMessage.toLowerCase();
+      let response = "";
+
+      if (
+        lowerMessage.includes("bonjour") ||
+        lowerMessage.includes("salut") ||
+        lowerMessage.includes("hello") ||
+        lowerMessage.includes("coucou")
+      ) {
+        response =
+          AI_RESPONSES.greeting[
+            Math.floor(Math.random() * AI_RESPONSES.greeting.length)
+          ];
+      } else if (
+        lowerMessage.includes("service") ||
+        lowerMessage.includes("offre") ||
+        lowerMessage.includes("quoi") ||
+        lowerMessage.includes("propos")
+      ) {
+        response = AI_RESPONSES.services;
+      } else if (
+        lowerMessage.includes("prix") ||
+        lowerMessage.includes("tarif") ||
+        lowerMessage.includes("combien") ||
+        lowerMessage.includes("coût") ||
+        lowerMessage.includes("budget")
+      ) {
+        response = AI_RESPONSES.pricing;
+      } else if (
+        lowerMessage.includes("portfolio") ||
+        lowerMessage.includes("réalisation") ||
+        lowerMessage.includes("projet") ||
+        lowerMessage.includes("travail") ||
+        lowerMessage.includes("expérience")
+      ) {
+        response = AI_RESPONSES.portfolio;
+      } else if (
+        lowerMessage.includes("contact") ||
+        lowerMessage.includes("email") ||
+        lowerMessage.includes("téléphone") ||
+        lowerMessage.includes("adresse") ||
+        lowerMessage.includes("appeler") ||
+        lowerMessage.includes("humain") ||
+        lowerMessage.includes("expert")
+      ) {
+        showContactForm();
+      } else {
+        response =
+          AI_RESPONSES.default[
+            Math.floor(Math.random() * AI_RESPONSES.default.length)
+          ];
+      }
+
+      addMessage(response, "ai");
+
+      // Add quick replies after AI response
+      if (
+        !lowerMessage.includes("contact") &&
+        !lowerMessage.includes("humain") &&
+        !lowerMessage.includes("expert")
+      ) {
+        setTimeout(addQuickReplies, 300);
+      }
+    }
+
+    // Show contact form
+    function showContactForm() {
+      const contactForm = document.createElement("div");
+      contactForm.classList.add("contact-form");
+
+      addMessage(
+        "Parfait! Je vais vous mettre en contact avec un expert Brosmedia. Pourriez-vous me fournir quelques détails?",
+        "ai",
+      );
+
+      contactForm.innerHTML = `
+                    <h3>Contactez un expert</h3>
+                    <div class="form-group">
+                        <label for="userQuestion">Votre question</label>
+                        <textarea id="userQuestion" placeholder Décrivez votre projet ou posez votre question..." rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Service concerné</label>
+                        <div class="service-tags">
+                            ${SERVICES.map(
+                              (service) =>
+                                `<div class="service-tag" data-service="${service}">${service}</div>`,
+                            ).join("")}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Votre email</label>
+                        <input type="email" id="userEmail" placeholder="votre@email.com">
+                    </div>
+                    <div class="form-buttons">
+                        <button class="cancel-btn" id="cancelContact">Annuler</button>
+                        <button class="submit-btn" id="submitContact">Envoyer</button>
+                    </div>
+                `;
+
+      chatBody.appendChild(contactForm);
+
+      // Add event listeners
+      document
+        .getElementById("cancelContact")
+        .addEventListener("click", function () {
+          contactForm.remove();
         });
 
-        container.appendChild(bubble);
+      document.querySelectorAll(".service-tag").forEach((tag) => {
+        tag.addEventListener("click", function () {
+          document
+            .querySelectorAll(".service-tag")
+            .forEach((t) => t.classList.remove("selected"));
+          this.classList.add("selected");
+        });
       });
 
-      chatBody.appendChild(container);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-    function addEmailRequest() {
-      const existingEmailRequest = chatBody.querySelector(
-        ".message.email-request",
-      );
-      if (existingEmailRequest) existingEmailRequest.remove();
+      
 
-      const emailRequest = document.createElement("div");
-      emailRequest.classList.add("message", "receiver", "email-request");
-      emailRequest.style.display = "flex";
-      emailRequest.style.flexDirection = "column";
-      emailRequest.style.gap = "8px";
-      emailRequest.innerHTML = `
-      <div style="display:flex; align-items:flex-start; gap:8px; padding-left:60px;">
-        <div class="abel" style="width:39px; height:39px;">
-          <img class="profile-pic" src="/fab.jpg" alt="Bot" style="margin-left:-4px"/>
-        </div>
-        <div style="background-color:LIGHTGREY; padding:10px; border-radius:8px; color:#0a0f4f; font-size:14px; width:220px; margin-left:-15px; margin-top:-14px;">
-          Quelle est votre adresse email ?
-        </div>
-      </div>
-      <form id="emailForm" style="position:relative; width:100%; margin-top:5px;">
-        <input type="email" id="emailInput" placeholder="Entrez votre adresse email..." required
-          style="width:112%; padding:8px 40px 8px 10px; border-radius:5px; border:1px solid #ccc; font-size:14px;margin-left:32px;">
-        <button type="submit" style="position: absolute;
-    top: 5px;
-    right: -54px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #007bff;
-    font-size: 18px;">
-          <i class="bi bi-send-fill"></i>
-        </button>
-      </form>
-      <div style="background-color:#fff3cd; padding:6px; border-radius:5px; font-size:13px; color:#856404; display:flex; align-items:center; gap:6px; margin-left:112px; width:202px;">
-        <i class="bi bi-bell-fill"></i> Renseignez votre email pour être notifié.
-      </div>
-    `;
-      chatBody.appendChild(emailRequest);
-      chatBody.scrollTop = chatBody.scrollHeight;
+      document
+        .getElementById("submitContact")
+        .addEventListener("click", async function () {
+          const question = document.getElementById("userQuestion").value;
+          const service =
+            document.querySelector(".service-tag.selected")?.dataset.service ||
+            "Non spécifié";
+          const email = document.getElementById("userEmail").value;
 
-      emailRequest
-        .querySelector("#emailForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const emailValue = this.querySelector("#emailInput").value.trim();
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
-            alert("Veuillez entrer une adresse email valide.");
+          if (!question || !email) {
+            alert("Veuillez remplir tous les champs obligatoires.");
             return;
           }
 
-          emailRequest.remove();
-
-          // خزن البيانات مؤقتًا للـ beforeunload
-          sessionStorage.setItem("pendingEmail", emailValue);
-          sessionStorage.setItem("pendingMessage", lastUserMessage || "");
-          sessionStorage.setItem(
-            "pendingFile",
-            lastUserFile ? URL.createObjectURL(lastUserFile) : "",
-          );
-
-          // عرض قائمة الخدمات مباشرة
-          showServicesList(emailValue);
-        });
-
-      // عند مغادرة الصفحة بدون اختيار خدمة
-      window.addEventListener("beforeunload", function () {
-        const email = sessionStorage.getItem("pendingEmail");
-        if (email) {
+          // Create form data
           const formData = new FormData();
-          const message = sessionStorage.getItem("pendingMessage");
-          const fileUrl = sessionStorage.getItem("pendingFile");
-
-          if (message) formData.append("message", message);
-          if (fileUrl) formData.append("messageFile", fileUrl);
+          formData.append("question", question);
+          formData.append("service", service);
           formData.append("email", email);
 
-          navigator.sendBeacon("http://localhost:3000/send-message", formData);
-        }
-      });
-    }
+          try {
+            // Send data to server
+            const response = await fetch("http://localhost:3000/send-message", {
+              method: "POST",
+              body: formData,
+            });
 
-    sendBtn.addEventListener("click", () => {
-      if (recording) {
-        mediaRecorder.stop();
-      } else {
-        const message = chatMessage.value.trim();
-        if (message) {
-          lastUserMessage = message;
-          lastUserFile = null;
-          addMessage(message, "sender");
-          chatMessage.value = "";
-          sendBtn.style.display = "none";
+            if (response.ok) {
+              // Show confirmation
+              addMessage(
+                "Merci! Votre demande a été envoyée. Un expert Brosmedia vous contactera très bientôt.",
+                "ai",
+              );
 
-          // عرض طلب الإيميل بعد إرسال أول رسالة
-          addEmailRequest();
-        }
-      }
-    });
-    function sendMessageWithoutService(email) {
-      const formData = new FormData();
-      if (lastUserMessage) formData.append("message", lastUserMessage);
-      if (lastUserFile) formData.append("messageFile", lastUserFile);
-      formData.append("email", email);
-
-      fetch("http://localhost:3000/send-message", {
-        method: "POST",
-        body: formData,
-      }).catch((err) => console.log("Erreur envoi message sans service:", err));
-    }
-
-    // عند مغادرة الصفحة بدون اختيار خدمة
-    window.addEventListener("beforeunload", function () {
-      const email = sessionStorage.getItem("pendingEmail");
-      if (email) {
-        sendMessageWithoutService(email);
-      }
-    });
-
-    fileIcon.addEventListener("click", () => fileInput.click());
-    fileInput.addEventListener("change", (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        lastUserMessage = "";
-        lastUserFile = file;
-        addMessage(`fichier: ${file.name}`, "sender");
-        addEmailRequest(); // <-- هنا فقط بعد رفع الملف
-      }
-    });
-
-    function updateDuration() {
-      const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
-      const minutes = Math.floor(elapsed / 60)
-        .toString()
-        .padStart(2, "0");
-      const seconds = (elapsed % 60).toString().padStart(2, "0");
-      voiceDuration.textContent = `${minutes}:${seconds}`;
-    }
-
-    function resetRecording() {
-      recording = false;
-      micIcon.style.display = "block";
-      voiceDuration.style.display = "none";
-      deleteRecording.style.display = "none";
-      sendBtn.style.display = "none";
-      voiceDuration.textContent = "00:00";
-      audioChunks = [];
-      clearInterval(durationInterval);
-      if (mediaRecorder && mediaRecorder.stream) {
-        mediaRecorder.stream.getTracks().forEach((track) => track.stop());
-      }
-    }
-
-    micIcon.addEventListener("click", async () => {
-      if (!recording) {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({
-            audio: true,
-          });
-          mediaRecorder = new MediaRecorder(stream);
-
-          mediaRecorder.addEventListener("dataavailable", (e) =>
-            audioChunks.push(e.data),
-          );
-          mediaRecorder.addEventListener("stop", () => {
-            if (!isDeletingRecording && audioChunks.length > 0) {
-              const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
-              const audioUrl = URL.createObjectURL(audioBlob);
-              const msgDiv = document.createElement("div");
-              msgDiv.classList.add("message", "sender");
-              msgDiv.innerHTML = `<audio controls src="${audioUrl}" class="audeodesigne"></audio><span class="spanaudeo">${voiceDuration.textContent}</span>`;
-              chatBody.appendChild(msgDiv);
-              chatBody.scrollTop = chatBody.scrollHeight;
-
-              lastUserMessage = "";
-              lastUserFile = audioBlob;
-              addEmailRequest(); // <-- هنا فقط بعد التسجيل
+              // Remove form
+              contactForm.remove();
+            } else {
+              throw new Error("Erreur lors de l'envoi du message");
             }
-            resetRecording();
-            isDeletingRecording = false;
-          });
+          } catch (error) {
+            console.error("Error:", error);
+            addMessage(
+              "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+              "ai",
+            );
+          }
+        });
 
-          mediaRecorder.start();
-          recording = true;
-          recordingStartTime = Date.now();
-          micIcon.style.display = "none";
-          voiceDuration.style.display = "inline-block";
-          deleteRecording.style.display = "inline-block";
-          sendBtn.style.display = "inline-block";
-          durationInterval = setInterval(updateDuration, 1000);
-          audioChunks = [];
-        } catch (err) {
-          alert("Impossible d'accéder au microphone : " + err);
-          resetRecording();
-        }
-      }
+      // Scroll to bottom
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Quick replies
+    const quickReplies = [
+      "Nos services",
+      "Tarifs",
+      "Portfolio",
+      "Contact humain",
+    ];
+
+    // Add quick replies
+    function addQuickReplies() {
+      const quickReplyContainer = document.createElement("div");
+      quickReplyContainer.classList.add("quick-replies");
+
+      quickReplies.forEach((reply) => {
+        const quickReply = document.createElement("div");
+        quickReply.classList.add("quick-reply");
+        quickReply.textContent = reply;
+        quickReply.addEventListener("click", function () {
+          addMessage(reply, "user");
+          showTypingIndicator();
+          setTimeout(() => {
+            removeTypingIndicator();
+            aiResponse(reply);
+          }, 1500);
+        });
+
+        quickReplyContainer.appendChild(quickReply);
+      });
+
+      const lastMessage = chatBody.lastElementChild;
+      lastMessage.appendChild(quickReplyContainer);
+
+      // Scroll to bottom
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Add event listeners for quick replies in the initial message
+    document.querySelectorAll(".quick-reply").forEach((reply) => {
+      reply.addEventListener("click", function () {
+        const replyText = this.dataset.reply;
+        addMessage(replyText, "user");
+        showTypingIndicator();
+        setTimeout(() => {
+          removeTypingIndicator();
+          aiResponse(replyText);
+        }, 1000);
+      });
     });
 
-    deleteRecording.addEventListener("click", () => {
-      if (recording) {
-        isDeletingRecording = true;
-        mediaRecorder.stop();
-      }
-    });
+   
   });
 </script>
