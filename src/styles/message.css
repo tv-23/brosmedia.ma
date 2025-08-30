@@ -13,7 +13,7 @@ display: flex;
   bottom: 100px;
   right: 78px;
   width: 320px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   z-index: 99999;
 bottom: 15px; }
 
@@ -190,7 +190,7 @@ bottom: 15px; }
  }
 
  .receiver .message-bubble {
-   background: #fff;
+   background: #d3d3d370;
    color: #2d3748;
    border-bottom-left-radius: 5px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
