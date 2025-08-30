@@ -18,8 +18,6 @@ import "../styles/message.css";
         Bonjour! Je suis l'assistant IA de Brosmedia. 🤖<br />
         Comment puis-je vous aider aujourd'hui?
         <div class="quick-replies">
-
-
           <div class="quick-reply" data-reply="Services">Nos services</div>
           <div class="quick-reply" data-reply="Tarifs">Tarifs</div>
           <div class="quick-reply" data-reply="Portfolio">Portfolio</div>
@@ -91,9 +89,28 @@ Je vous invite à découvrir l'ensemble de nos réalisations sur https://brosmed
     if (chatBtn) {
       chatBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        chatBox.classList.toggle("hidden");
+
+        if (window.innerWidth <= 768) {
+          // Mobile → open modal
+          const chatModal = new bootstrap.Modal(
+            document.getElementById("chatModal"),
+          );
+          chatModal.show();
+        } else {
+          // Desktop → toggle chatBox
+          chatBox.classList.toggle("hidden");
+        }
       });
     }
+
+    // Remove "hidden" from chat-container once modal is shown
+    const chatModalEl = document.getElementById("chatModal");
+    chatModalEl.addEventListener("shown.bs.modal", function () {
+      const chatContainer = chatModalEl.querySelector(".chat-container");
+      if (chatContainer && chatContainer.classList.contains("hidden")) {
+        chatContainer.classList.remove("hidden");
+      }
+    });
 
     // Add message to chat
     function addMessage(text, sender) {
@@ -296,22 +313,24 @@ Je vous invite à découvrir l'ensemble de nos réalisations sur https://brosmed
               body: formData,
             });
 
-              if (response.ok) {
-                // Show confirmation with WhatsApp link
-                const whatsappMessage = encodeURIComponent(`Bonjour, j'ai une question concernant ${service} : ${question} (Email: ${email})`);
-                const whatsappUrl = `https://wa.me/212671884968?text=${whatsappMessage}`;
-                
-                addMessage(
-                    `Merci! Votre demande a été envoyée. Un expert Brosmedia vous contactera très bientôt.<br><br>
+            if (response.ok) {
+              // Show confirmation with WhatsApp link
+              const whatsappMessage = encodeURIComponent(
+                `Bonjour, j'ai une question concernant ${service} : ${question} (Email: ${email})`,
+              );
+              const whatsappUrl = `https://wa.me/212671884968?text=${whatsappMessage}`;
+
+              addMessage(
+                `Merci! Votre demande a été envoyée. Un expert Brosmedia vous contactera très bientôt.<br><br>
                     <strong>Contactez-nous directement sur WhatsApp :</strong><br>
                     <a href="${whatsappUrl}" target="_blank" style="color: #0a0f4f; text-decoration: underline;">
                         👉 Cliquez ici pour discuter maintenant sur WhatsApp
-                    </a>`, 
-                    "ai"
-                );
-                
-                // Remove form
-                contactForm.remove();
+                    </a>`,
+                "ai",
+              );
+
+              // Remove form
+              contactForm.remove();
             } else {
               throw new Error("Erreur lors de l'envoi du message");
             }

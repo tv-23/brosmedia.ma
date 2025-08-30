@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 
 // Get posts
 const posts = (await getCollection("posts")).sort(
-  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate),
 );
 
 // Function to extract the first image
@@ -15,53 +15,60 @@ function extractFirstImage(content) {
   return match ? match[1] : null;
 }
 ---
-<Layout>
 
-
-
-<div class="page-title dark-background">
-  <div class="container position-relative">
- <h1>Blog</h1>
-    <p>Découvrez nos derniers articles et actualités</p>
-    <nav class="breadcrumbs">
-      <ol>
-        <li><a href="/"> Agence De Communication Digitale Maroc</a></li>
-        <li class="current">Blog</li>
-      </ol>
-    </nav>
+<Layout
+  pageTitle="Blog - BROSMEDIA : Agence De Communication Digitale Au Maroc"
+>
+  <div class="page-title dark-background">
+    <div class="container position-relative">
+      <h1>Blog</h1>
+      <p>Découvrez nos derniers articles et actualités</p>
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="/"> Agence De Communication Digitale Maroc</a></li>
+          <li class="current">Blog</li>
+        </ol>
+      </nav>
+    </div>
   </div>
-</div>
 
   <main class="blog-page">
-    
     <div class="grid" id="posts-grid">
       {
-        posts.map(post => {
+        posts.map((post) => {
           const categories = post.data.categories || [];
-          const imageUrl = post.data.image?.url?.trim()
-            || extractFirstImage(post.body)
-            || '/fallback.jpg';
+          const imageUrl =
+            post.data.image?.url?.trim() ||
+            extractFirstImage(post.body) ||
+            "/fallback.jpg";
 
           return (
             <div class="card-wrapper" key={post.slug}>
               <a class="card" href={`/blog/${post.slug}`}>
-                <img src={imageUrl} alt={post.data.image?.alt || post.data.title} />
-                
+                <img
+                  src={imageUrl}
+                  alt={post.data.image?.alt || post.data.title}
+                />
+
                 <div class="categories">
-                  {categories.length > 0
-                    ? categories.map((cat, i) => (
-                        <span class="category-badge" key={i}>{cat}</span>
-                      ))
-                    : <span class="category-badge">Sans catégorie</span>}
+                  {categories.length > 0 ? (
+                    categories.map((cat, i) => (
+                      <span class="category-badge" key={i}>
+                        {cat}
+                      </span>
+                    ))
+                  ) : (
+                    <span class="category-badge">Sans catégorie</span>
+                  )}
                 </div>
 
                 <div class="card-content">
                   <div class="card-title">{post.data.title}</div>
                   <div class="card-date">
-                    {new Date(post.data.pubDate).toLocaleDateString('fr-FR', {
-                      day: '2-digit',
-                      month: 'short',
-                      year: 'numeric'
+                    {new Date(post.data.pubDate).toLocaleDateString("fr-FR", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
                     })}
                   </div>
                 </div>
@@ -75,18 +82,21 @@ function extractFirstImage(content) {
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll('.card');
+      const cards = document.querySelectorAll(".card");
 
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target); 
-          }
-        });
-      }, { threshold: 0.1 });
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
 
-      cards.forEach(card => observer.observe(card));
+      cards.forEach((card) => observer.observe(card));
     });
   </script>
 </Layout>

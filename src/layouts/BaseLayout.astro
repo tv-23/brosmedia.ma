@@ -15,7 +15,7 @@ const { pageTitle } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
 
-        <title>BROSMEDIA | Agence De Communication Digitale Au Maroc .</title>
+        <title>{pageTitle}</title>
 
         <link
             href="/assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -51,6 +51,24 @@ const { pageTitle } = Astro.props;
             <i class="bi bi-chat-dots-fill"></i>
         </a>
         <Message />
+
+
+<!-- Chat Modal -->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Chat</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Your chatBox content -->
+               <Message />
+
+      </div>
+    </div>
+  </div>
+</div>
 
         <Footer />
 

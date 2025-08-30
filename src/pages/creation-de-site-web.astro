@@ -7,9 +7,10 @@ import Overview from "../components/services/website/overview.astro";
 import ListContent from "../components/services/website/list-content.astro";
 import Tech from "../components/services/website/tech.astro";
 import TelephoneAppointmentForm from "../components/telephone-appointment-form.astro";
+import ServiceGallery from "../components/services/website/service-gallery.astro";
 ---
 
-<Layout>
+<Layout pageTitle = "Conception de site web - BROSMEDIA : Agence De Communication Digitale Au Maroc">
   <main class="main">
     <Header />
 
@@ -35,77 +36,7 @@ import TelephoneAppointmentForm from "../components/telephone-appointment-form.a
 
               <Tech />
 
-              <div class="service-gallery">
-                <h3>Our Marketing Portfolio</h3>
-                <div class="service-details-slider swiper init-swiper">
-                  <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 800,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": 1,
-                      "spaceBetween": 30,
-                      "breakpoints": {
-                        "768": {
-                          "slidesPerView": 2
-                        }
-                      },
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      }
-                    }
-                  </script>
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <div class="portfolio-item">
-                        <img
-                          src="/img/services/services-2.webp"
-                          alt=""
-                          class="img-fluid"
-                          loading="lazy"
-                        />
-                        <div class="portfolio-info">
-                          <h5>Social Media Campaign</h5>
-                          <p>Increased engagement by 187%</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="portfolio-item">
-                        <img
-                          src="/img/services/services-4.webp"
-                          alt=""
-                          class="img-fluid"
-                          loading="lazy"
-                        />
-                        <div class="portfolio-info">
-                          <h5>SEO Optimization</h5>
-                          <p>Ranked #1 for target keywords</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="portfolio-item">
-                        <img
-                          src="/img/services/services-10.webp"
-                          alt=""
-                          class="img-fluid"
-                          loading="lazy"
-                        />
-                        <div class="portfolio-info">
-                          <h5>Content Marketing</h5>
-                          <p>200% increase in organic traffic</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                </div>
-              </div>
+             <ServiceGallery/>
               
               <br><br>
         <TelephoneAppointmentForm />

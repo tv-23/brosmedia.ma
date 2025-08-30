@@ -1,0 +1,167 @@
+---
+const portfolio = [
+    {
+        img: "/our-references/inadworld.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Inad World",
+        url: "https://inadworld.com",
+    },
+    {
+        img: "/our-references/moulaybousselhamimmobilier.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "MoulayBousselham Immobilier",
+        url: "https://moulaybousselhamimmobilier.com",
+    },
+    {
+        img: "/our-references/drhachimiyassmine.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "DR HACHIMI yassmine",
+        url: "https://drhachimiyassmine.com/",
+    },
+    {
+        img: "/our-references/esunivers.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Esunivers",
+        url: "https://esunivers.com",
+    },
+    {
+        img: "/our-references/probyu.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Probyu",
+        url: "https://probyu.com/",
+    },
+    {
+        img: "/our-references/wefruits.ma.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "WeFruits",
+        url: "https://wefruits.ma",
+    },
+    {
+        img: "/our-references/imagaleries.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "IMA Galeries",
+        url: "https://imagaleries.com/",
+    },
+    {
+        img: "/our-references/wecargo.ma.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "WeCargo",
+        url: "https://wecargo.ma",
+    },
+    {
+        img: "/our-references/uk-cafe.ma.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "UK cafe",
+        url: "https://uk-cafe.ma",
+    },
+    {
+        img: "/our-references/mye-fruits.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Mye Fruits",
+        url: "https://mye-fruits.com",
+    },
+    {
+        img: "/our-references/maison-dart.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Maison Dart",
+        url: "https://maison-dart.com",
+    },
+    {
+        img: "/our-references/location-elite.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Location Elite",
+        url: "https://location-elite.com",
+    },
+    {
+        img: "/our-references/hygienegos.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Hygienegos",
+        url: "https://hygienegos.com",
+    },
+    {
+        img: "/our-references/hipeca-exp.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Hipeca Export",
+        url: "https://hipeca-exp.com",
+    },
+    {
+        img: "/our-references/granderberry.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "GranderBerry",
+        url: "https://granderberry.com",
+    },
+    {
+        img: "/our-references/epowermotorsmaroc.com.webp",
+        tag: "website",
+        badge: "Conception de site web",
+        title: "Epower Motors",
+        url: "https://epowermotorsmaroc.com",
+    },
+];
+---
+
+<div class="service-gallery">
+    <h3>Création de Site Web : Découvrez Nos Réalisations</h3>
+    <div class="service-details-slider swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+            {
+                "loop": true,
+                "speed": 800,
+                "autoplay": {
+                    "delay": 2500
+                },
+                "slidesPerView": 1,
+                "spaceBetween": 30,
+                "breakpoints": {
+                    "768": {
+                        "slidesPerView": 2
+                    }
+                },
+                "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                }
+            }
+        </script>
+        <div class="swiper-wrapper">
+            {
+                portfolio.map((p) => (
+                    <div class="swiper-slide">
+                        <div class="portfolio-item">
+                            <img
+                                src={p.img}
+                                alt={p.title}
+                                class="img-fluid"
+                                loading="lazy"
+                            />
+                            <div class="portfolio-info">
+                                <h5>
+                                    <a href={p.url} target="_blank">
+                                        {p.title}
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
