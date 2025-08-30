@@ -56,6 +56,11 @@
   --surface-color: #16262f;
 } */
 
+
+.modal-body .chat-container{
+  visibility: visible;
+}
+
 .dark-background {
   --background-color: #060606;
   --default-color: #ffffff;
